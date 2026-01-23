@@ -50,7 +50,7 @@ export default function Home() {
         <SiteHeader />
 
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center relative pt-20">
+        <section className="min-h-screen flex items-center relative pt-20 mobile:pt-24">
           {/* Enhanced Background */}
           <div className="absolute inset-0 bg-dark">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-900/40 via-dark to-dark opacity-70" />
@@ -84,7 +84,7 @@ export default function Home() {
               </div>
 
               {/* Headline with Gradient */}
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight animate-slide-up">
+              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight animate-slide-up">
                 Stuck on the road?
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-200 to-accent drop-shadow-sm">
@@ -125,7 +125,7 @@ export default function Home() {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 pt-12 animate-slide-up stagger-3 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 mobile:grid-cols-3 md:grid-cols-3 gap-4 md:gap-8 pt-12 animate-slide-up stagger-3 max-w-3xl mx-auto">
                 {[
                   { label: "Response Time", value: "10 min", icon: SpeedIcon },
                   {
@@ -140,13 +140,13 @@ export default function Home() {
                     className="bg-white/5 border border-white/5 rounded-2xl p-4 backdrop-blur-sm flex flex-col items-center justify-center hover:bg-white/10 transition-colors"
                   >
                     <stat.icon
-                      className="text-accent mb-2"
+                      className="text-accent mobile:!text-lg mb-2"
                       style={{ fontSize: 28 }}
                     />
-                    <div className="text-2xl font-bold text-white">
+                    <div className="text-2xl mobile:text-xl font-bold text-white">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-white/50 font-medium uppercase tracking-wider">
+                    <div className="text-sm mobile:text-xs text-white/50 font-medium uppercase tracking-wider mobile:tracking-normal">
                       {stat.label}
                     </div>
                   </div>
@@ -301,7 +301,7 @@ export default function Home() {
               <p className="text-xl text-white/70">
                 Our technicians are standing by.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <div className="flex flex-col mobile:items-center sm:flex-row justify-center gap-4">
                 <Link href="/rescue">
                   <button className="bg-accent text-dark font-bold py-5 px-10 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 transform duration-300 text-lg">
                     <SupportAgentIcon style={{ fontSize: 28 }} />

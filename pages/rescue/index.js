@@ -166,7 +166,7 @@ export default function RescuePage() {
         <SiteHeader simple={true} />
 
         {/* Main Content */}
-        <main className="pt-16 min-h-screen flex flex-col">
+        <main className="pt-16 mobile:pt-0 mobile:pb-16 min-h-screen flex flex-col">
           {/* Map Background */}
           <div className="h-48 bg-gradient-to-b from-secondary-900 to-dark relative overflow-hidden">
             <div className="absolute inset-0 opacity-30">
@@ -418,7 +418,7 @@ export default function RescuePage() {
                       <Button
                         variant="accent"
                         size="lg"
-                        className="w-full py-4 text-lg"
+                        className="w-full py-4 text-lg mobile:text-sm"
                         isLoading={isGettingLocation}
                         onClick={handleGetCurrentLocation}
                       >

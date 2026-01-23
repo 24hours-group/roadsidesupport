@@ -14,7 +14,7 @@ export default function SiteHeader({ simple = false }) {
               <LocationOnIcon className="text-white" style={{ fontSize: 24 }} />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-white tracking-tight">
+              <span className="text-xl mobile:text-sm mobile:max-w-[100px] font-bold text-white tracking-tight">
                 Roadside Support
               </span>
               {!simple && (
@@ -42,7 +42,7 @@ export default function SiteHeader({ simple = false }) {
             {!simple && (
               <Link
                 href="/rescue"
-                className="bg-accent text-dark font-bold py-3 px-6 rounded-xl flex items-center gap-2 hover:bg-white hover:text-dark transition-all hover:shadow-lg transform hover:-translate-y-0.5"
+                className="bg-accent text-dark font-bold py-3 px-6 rounded-xl flex items-center gap-2 hover:bg-white hover:text-dark transition-all hover:shadow-lg transform hover:-translate-y-0.5 mobile:text-sm"
               >
                 <SupportAgentIcon style={{ fontSize: 20 }} />
                 <span>Get Help Now</span>
