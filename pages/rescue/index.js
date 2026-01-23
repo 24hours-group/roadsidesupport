@@ -444,6 +444,7 @@ export default function RescuePage() {
                       </button>
                     </div>
                   )}
+                  
 
                   <button
                     onClick={() => setStep("service")}
