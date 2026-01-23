@@ -15,7 +15,7 @@ export default function SiteHeader({ simple = false }) {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-white tracking-tight">
-                CurbAid
+                Roadside Support
               </span>
               {!simple && (
                 <span className="text-[10px] uppercase tracking-widest text-accent font-semibold hidden sm:block">

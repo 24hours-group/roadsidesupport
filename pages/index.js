@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CurbAid - Roadside Assistance When You Need It</title>
+        <title>Roadside Support - Roadside Assistance When You Need It</title>
         <meta
           name="description"
           content="Help at the roadside, without the stress. Fast, reliable roadside assistance for flat tires, jump starts, lockouts, fuel delivery, towing, and more."

@@ -88,7 +88,7 @@ export default function LocationPicker({ value, onChange, error }) {
             try {
               const response = await fetch(
                 `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`,
-                { headers: { "User-Agent": "CurbAid/1.0" } },
+                { headers: { "User-Agent": "RoadsideSupport/1.0" } },
               );
               const data = await response.json();
               if (data.display_name) {

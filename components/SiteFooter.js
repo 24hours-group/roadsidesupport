@@ -17,7 +17,9 @@ export default function SiteFooter() {
                   style={{ fontSize: 24 }}
                 />
               </div>
-              <span className="text-2xl font-bold text-white">CurbAid</span>
+              <span className="text-2xl font-bold text-white">
+                Roadside Support
+              </span>
             </Link>
             <p className="text-white/50 max-w-sm text-lg leading-relaxed">
               The modern way to get roadside assistance. Fast, transparent, and
@@ -82,10 +84,10 @@ export default function SiteFooter() {
               </li>
               <li>
                 <a
-                  href="mailto:help@curbaid.com"
+                  href="mailto:help@roadsidesupport.com"
                   className="text-white/50 hover:text-white transition-colors"
                 >
-                  help@curbaid.com
+                  help@roadsidesupport.com
                 </a>
               </li>
             </ul>
@@ -94,7 +96,7 @@ export default function SiteFooter() {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30">
-          <p>© {new Date().getFullYear()} CurbAid Roadside.</p>
+          <p>© {new Date().getFullYear()} Roadside Support.</p>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-white transition-colors">
               Privacy

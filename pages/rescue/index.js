@@ -80,7 +80,7 @@ export default function RescuePage() {
         try {
           const response = await fetch(
             `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`,
-            { headers: { "User-Agent": "CurbAid/1.0" } },
+            { headers: { "User-Agent": "RoadsideSupport/1.0" } },
           );
           const data = await response.json();
           if (data.display_name) {
@@ -158,7 +158,7 @@ export default function RescuePage() {
   return (
     <>
       <Head>
-        <title>Get Roadside Help - CurbAid</title>
+        <title>Get Roadside Help - Roadside Support</title>
         <meta name="description" content="Request roadside assistance now." />
       </Head>
 

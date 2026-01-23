@@ -77,7 +77,7 @@ export default function MotoristPage() {
   return (
     <>
       <Head>
-        <title>Contact Info - CurbAid</title>
+        <title>Contact Info - Roadside Support</title>
       </Head>
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
         <SiteHeader simple={true} />

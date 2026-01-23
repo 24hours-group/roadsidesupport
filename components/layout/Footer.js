@@ -17,7 +17,7 @@ export default function Footer() {
                   style={{ fontSize: 24 }}
                 />
               </div>
-              <span className="text-xl font-bold">CurbAid</span>
+              <span className="text-xl font-bold">Roadside Support</span>
             </Link>
             <p className="text-secondary-400 max-w-sm mb-6">
               Help at the roadside, without the stress. Professional roadside
@@ -62,7 +62,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:support@curbaid.com"
+                  href="mailto:support@roadsidesupport.com"
                   className="flex items-center gap-2 text-secondary-400 hover:text-white transition-colors"
                 >
                   <EmailIcon style={{ fontSize: 18 }} />
@@ -85,7 +85,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-secondary-500 text-sm">
-            © {new Date().getFullYear()} CurbAid. All rights reserved.
+            © {new Date().getFullYear()} Roadside Support. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm">
             <Link

@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // CurbAid Brand Colors - Professional Dark Theme
+        // Roadside Support Brand Colors - Professional Dark Theme
         primary: {
           DEFAULT: "#0F2557",
           50: "#E8EDF5",
@@ -112,7 +112,7 @@ export default {
     styled: true,
     themes: [
       {
-        curbaid: {
+        roadsidesupport: {
           primary: "#0F2557",
           secondary: "#3D4F5F",
           accent: "#D4A017",

@@ -134,7 +134,7 @@ ${vehicleInfo}
 Call customer immediately to quote and dispatch.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CurbAid Roadside Assistance
+Roadside Support
   `.trim();
 
   try {
@@ -146,7 +146,7 @@ CurbAid Roadside Assistance
     }
 
     const { data: emailData, error } = await resend.emails.send({
-      from: "CurbAid <onboarding@resend.dev>",
+      from: "Roadside Support <onboarding@resend.dev>",
       to: [callCenterEmail],
       subject: `[Roadside Request] ${serviceName} — ${data.pickup_location.address.split(",")[0]} — ${requestId.substring(0, 8).toUpperCase()}`,
       text: emailBody,

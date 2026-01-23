@@ -42,7 +42,7 @@ export default function ServiceConfirmPage() {
   return (
     <>
       <Head>
-        <title>Confirm Location - CurbAid</title>
+        <title>Confirm Location - Roadside Support</title>
         <meta
           name="description"
           content="Confirm your service and location details."

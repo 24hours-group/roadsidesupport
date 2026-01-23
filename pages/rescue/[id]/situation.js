@@ -97,7 +97,7 @@ export default function SituationPage() {
   return (
     <>
       <Head>
-        <title>Situation Details - CurbAid</title>
+        <title>Situation Details - Roadside Support</title>
       </Head>
 
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">

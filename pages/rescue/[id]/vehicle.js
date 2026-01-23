@@ -151,7 +151,7 @@ export default function VehiclePage() {
   return (
     <>
       <Head>
-        <title>Vehicle Info - CurbAid</title>
+        <title>Vehicle Info - Roadside Support</title>
       </Head>
 
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">

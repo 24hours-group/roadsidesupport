@@ -14,7 +14,9 @@ export default function Header() {
               <LocationOnIcon className="text-white" style={{ fontSize: 24 }} />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary">CurbAid</span>
+              <span className="text-xl font-bold text-primary">
+                Roadside Support
+              </span>
               <span className="text-xs text-secondary-600 hidden sm:block">
                 Roadside Assistance
               </span>

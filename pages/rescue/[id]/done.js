@@ -23,7 +23,7 @@ export default function DonePage() {
   return (
     <>
       <Head>
-        <title>Request Submitted - CurbAid</title>
+        <title>Request Submitted - Roadside Support</title>
       </Head>
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
         <SiteHeader simple={true} />

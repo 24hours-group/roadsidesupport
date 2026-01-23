@@ -1,4 +1,4 @@
-# CurbAid - API & Database Setup Guide
+# Roadside Support - API & Database Setup Guide
 
 ## 1. Google Maps API
 
@@ -11,7 +11,7 @@
 
 2. **Create a Project** (or select existing)
    - Click "Select a project" → "New Project"
-   - Name it "CurbAid" and click Create
+   - Name it "Roadside Support" and click Create
 
 3. **Enable Required APIs**
    - Go to "APIs & Services" → "Library"
@@ -53,13 +53,13 @@
 2. **Get API Key**
    - After login, go to "API Keys" in the sidebar
    - Click "Create API Key"
-   - Give it a name like "CurbAid Production"
+   - Give it a name like "Roadside Support Production"
    - Copy the API key (starts with `re_`)
 
 3. **Verify Domain** (for production)
    - Go to "Domains" in the sidebar
    - Click "Add Domain"
-   - Add your domain (e.g., curbaid.com)
+   - Add your domain (e.g., roadsidesupport.com)
    - Add the DNS records shown to your domain registrar
    - Wait for verification (can take up to 24 hours)
 

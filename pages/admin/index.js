@@ -34,7 +34,7 @@ export default function AdminDashboard() {
   return (
     <>
       <Head>
-        <title>Admin Dashboard - CurbAid</title>
+        <title>Admin Dashboard - Roadside Support</title>
         <meta name="robots" content="noindex" />
       </Head>
 
