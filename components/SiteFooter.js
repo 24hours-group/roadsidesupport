@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Image from "next/image";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { SERVICE_TYPES } from "@/lib/schemas";
 
@@ -11,13 +11,16 @@ export default function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center">
-                <LocationOnIcon
-                  className="text-white"
-                  style={{ fontSize: 24 }}
+              <div className="w-10 h-10 rounded-xl overflow-hidden">
+                <Image
+                  src="/RSS-logo.png"
+                  alt="Roadside Support Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-2xl font-bold text-white">
+              <span className="text-2xl font-bold text-white font-playfair">
                 Roadside Support
               </span>
             </Link>

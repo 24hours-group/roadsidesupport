@@ -31,20 +31,28 @@ export default async function handler(req, res) {
         .json({ message: "Service and location are required" });
     }
 
-    // Update status in database
+    // Insert complete request to database (upsert in case of retry)
     const supabase = createServerClient();
     if (supabase) {
-      const { error } = await supabase
-        .from("requests")
-        .update({
+      const { error } = await supabase.from("requests").upsert(
+        {
+          request_id: id,
+          service_type: requestData.service_type,
+          pickup_location: requestData.pickup_location,
+          situation: requestData.situation,
+          vehicle: requestData.vehicle,
           motorist: requestData.motorist,
           status: "submitted",
+          created_at: requestData.created_at || new Date().toISOString(),
           updated_at: new Date().toISOString(),
-        })
-        .eq("request_id", id);
+        },
+        {
+          onConflict: "request_id",
+        },
+      );
 
       if (error) {
-        console.error("Supabase update error:", error);
+        console.error("Supabase upsert error:", error);
       }
     }
 

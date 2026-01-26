@@ -43,7 +43,7 @@ export default function Home() {
           content="Help at the roadside, without the stress. Fast, reliable roadside assistance for flat tires, jump starts, lockouts, fuel delivery, towing, and more."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/RSS-logo.png" />
       </Head>
 
       <div className="min-h-screen bg-dark overflow-x-hidden selection:bg-accent selection:text-dark">
@@ -115,9 +115,9 @@ export default function Home() {
                   </button>
                 </Link>
                 <a href="tel:+15551234567" className="w-full sm:w-auto">
-                  <button className="w-full bg-white/5 text-white font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white/10 transition-all border border-white/10 backdrop-blur-sm group">
-                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                      <PhoneIcon style={{ fontSize: 18 }} />
+                  <button className="w-full bg-white/5 text-white font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white/10 transition-all border border-white/10 backdrop-blur-sm group text-2xl">
+                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                      <PhoneIcon style={{ fontSize: 22 }} />
                     </div>
                     <span>(555) 123-4567</span>
                   </button>
@@ -137,7 +137,7 @@ export default function Home() {
                 ].map((stat, i) => (
                   <div
                     key={i}
-                    className="bg-white/5 border border-white/5 rounded-2xl p-4 backdrop-blur-sm flex flex-col items-center justify-center hover:bg-white/10 transition-colors"
+                    className="bg-white/5 border border-white/5 rounded-2xl p-4 mobile:p-2 backdrop-blur-sm flex flex-col items-center justify-center hover:bg-white/10 transition-colors"
                   >
                     <stat.icon
                       className="text-accent mobile:!text-lg mb-2"
@@ -146,7 +146,7 @@ export default function Home() {
                     <div className="text-2xl mobile:text-xl font-bold text-white">
                       {stat.value}
                     </div>
-                    <div className="text-sm mobile:text-xs text-white/50 font-medium uppercase tracking-wider mobile:tracking-normal">
+                    <div className="text-sm mobile:text-xs text-white/50 font-medium mobile:font-normal  tracking-wider mobile:tracking-normal">
                       {stat.label}
                     </div>
                   </div>
@@ -228,7 +228,7 @@ export default function Home() {
                 </p>
 
                 <Link href="/rescue">
-                  <button className="bg-white/10 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/20 transition-all border border-white/10 backdrop-blur-sm flex items-center gap-2">
+                  <button className="bg-white/10 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/20 transition-all border border-white/10 backdrop-blur-sm flex items-center gap-2 mt-8">
                     Start Request <ArrowForwardIcon style={{ fontSize: 20 }} />
                   </button>
                 </Link>
@@ -239,25 +239,25 @@ export default function Home() {
                   {[
                     {
                       step: 1,
-                      title: "Request Service",
+                      title: "Tell Us What's Wrong",
                       description:
-                        "Select your issue and share your location instantly.",
+                        "Select your issue, share your location, and describe your situation.",
                       icon: HelpOutlineIcon,
                       color: "bg-blue-500",
                     },
                     {
                       step: 2,
-                      title: "Instant Dispatch",
+                      title: "Provide Quick Details",
                       description:
-                        "We locate the nearest professional technician.",
+                        "Enter your vehicle info and contact details so we can reach you.",
                       icon: PhoneInTalkIcon,
                       color: "bg-accent",
                     },
                     {
                       step: 3,
-                      title: "Help Arrives",
+                      title: "Help Is On The Way",
                       description:
-                        "Track your rescue in real-time until they arrive.",
+                        "We dispatch the nearest technician to get you back on the road.",
                       icon: CheckCircleIcon,
                       color: "bg-green-500",
                     },

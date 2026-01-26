@@ -57,6 +57,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
         inter: ["var(--font-inter)", "sans-serif"],
+        playfair: ["var(--font-playfair)", "serif"],
       },
       screens: {
         mobile: { max: "640px" },

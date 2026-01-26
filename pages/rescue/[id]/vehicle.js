@@ -124,14 +124,9 @@ export default function VehiclePage() {
       vehicle: data,
       updated_at: new Date().toISOString(),
     };
+    // Only save to localStorage - database submission happens on final step
     localStorage.setItem(`rescue_${id}`, JSON.stringify(updatedData));
-    try {
-      await fetch(`/api/rescue/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ vehicle: data }),
-      });
-    } catch (e) {}
+
     events.vehicleCompleted();
     router.push(`/rescue/${id}/motorist`);
   };
@@ -171,19 +166,19 @@ export default function VehiclePage() {
         <main className="px-4 pb-20">
           <div className="max-w-xl mx-auto space-y-8">
             {/* Form Container */}
-            <div className="space-y-6">
+            <div className="space-y-6 ">
               <div className="text-center md:text-left">
-                <h1 className="text-3xl font-bold text-white mb-3">
+                <h1 className="text-3xl mobile:text-2xl font-bold text-white mb-3">
                   Tell us about your vehicle
                 </h1>
-                <p className="text-lg text-white/50 leading-relaxed">
+                <p className="text-lg mobile:text-base text-white/50 leading-relaxed">
                   This helps our technician prepare the right tools.
                 </p>
               </div>
 
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="space-y-8 animate-fade-in-up"
+                className="space-y-8 mobile:space-y-6 animate-fade-in-up"
               >
                 {/* Make Input */}
                 <div className="space-y-3">

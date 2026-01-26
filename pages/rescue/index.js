@@ -5,6 +5,7 @@ import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 import { Button, Card, Alert, Spinner, Input } from "@/components/ui";
 import SiteHeader from "@/components/SiteHeader";
+import DefaultMap from "@/components/rescue/DefaultMap";
 import { SERVICE_TYPES } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
 
@@ -140,17 +141,8 @@ export default function RescuePage() {
       created_at: new Date().toISOString(),
     };
 
+    // Only save to localStorage - database submission happens on final step
     localStorage.setItem(`rescue_${requestId}`, JSON.stringify(requestData));
-
-    try {
-      await fetch("/api/rescue", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(requestData),
-      });
-    } catch (e) {
-      console.warn("API save failed, using localStorage");
-    }
 
     router.push(`/rescue/${requestId}/situation`);
   };
@@ -166,44 +158,13 @@ export default function RescuePage() {
         <SiteHeader simple={true} />
 
         {/* Main Content */}
-        <main className="pt-16 mobile:pt-0 mobile:pb-16 min-h-screen flex flex-col">
-          {/* Map Background */}
-          <div className="h-48 bg-gradient-to-b from-secondary-900 to-dark relative overflow-hidden">
-            <div className="absolute inset-0 opacity-30">
-              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern
-                    id="mapGrid"
-                    width="60"
-                    height="60"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 60 0 L 0 0 0 60"
-                      fill="none"
-                      stroke="#4A5568"
-                      strokeWidth="0.5"
-                    />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#mapGrid)" />
-              </svg>
-            </div>
-            {location && (
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center animate-pulse-soft">
-                  <LocationOnIcon
-                    className="text-dark"
-                    style={{ fontSize: 28 }}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Content Card */}
-          <div className="flex-1 -mt-16 relative z-10 px-4 pb-8">
+        <main className="pt-20 mobile:pt-4 mobile:pb-16 min-h-screen flex flex-col">
+          <div className="flex-1 px-4 pb-8">
             <div className="max-w-lg mx-auto">
+              {/* Map Container - Same width as content */}
+              <div className="h-44 relative overflow-hidden rounded-t-2xl mb-0">
+                <DefaultMap location={location} />
+              </div>
               {/* Location Status */}
               {location && (
                 <div className="mb-4 flex items-center gap-2 text-white/80 text-sm">
@@ -252,7 +213,7 @@ export default function RescuePage() {
 
               {/* Step: Service Selection */}
               {step === "service" && (
-                <div className="bg-secondary-900/80 backdrop-blur-sm border border-secondary-700 rounded-2xl p-6">
+                <div className="bg-secondary-900/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6">
                   <h1 className="text-2xl font-bold text-white mb-2">
                     What do you need?
                   </h1>
@@ -306,7 +267,7 @@ export default function RescuePage() {
 
               {/* Step: Location */}
               {step === "location" && (
-                <div className="bg-secondary-900/80 backdrop-blur-sm border border-secondary-700 rounded-2xl p-6 text-center">
+                <div className="bg-secondary-900/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6 text-center">
                   {/* Illustration */}
                   <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-secondary-800 border-4 border-secondary-700 flex items-center justify-center relative">
                     <div
@@ -437,14 +398,13 @@ export default function RescuePage() {
                           setShowManualInput(true);
                           setManualAddress("");
                         }}
-                        className="w-full bg-white/5 border border-white/10 text-white font-semibold py-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2 group"
+                        className="w-full bg-white/5 border border-white/10 text-white font-semibold py-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2 group mobile:text-sm"
                       >
                         <EditLocationIcon className="text-white/50 group-hover:text-accent transition-colors" />
                         ENTER ADDRESS MANUALLY
                       </button>
                     </div>
                   )}
-                  
 
                   <button
                     onClick={() => setStep("service")}

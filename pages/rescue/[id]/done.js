@@ -30,7 +30,7 @@ export default function DonePage() {
 
         <main className="pt-24 px-4 pb-8 flex items-center justify-center min-h-screen">
           <div className="max-w-lg mx-auto w-full">
-            <div className="bg-secondary-900/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden">
+            <div className="bg-secondary-900/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 mobile:p-4 text-center shadow-2xl relative overflow-hidden">
               {/* Glow Effect */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -88,25 +88,24 @@ export default function DonePage() {
               )}
 
               {/* Callback Info */}
-              <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mb-8 text-left flex items-start gap-4">
+              <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mobile:p-4 mb-8 text-left flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-accent text-dark flex items-center justify-center flex-shrink-0 font-bold shadow-lg">
                   <PhoneIcon style={{ fontSize: 20 }} />
                 </div>
                 <div>
-                  <p className="text-white font-bold text-lg mb-1">
+                  <p className="text-white font-bold text-lg mobile:text-base mb-1">
                     Wait for our call
                   </p>
-                  <p className="text-white/70 text-sm leading-relaxed">
-                    A specialist will call you within{" "}
-                    <span className="text-white font-semibold">10 minutes</span>{" "}
-                    to confirm pricing and dispatch.
+                  <p className="text-white/70 text-sm leading-relaxed mobile:text-sm">
+                    A specialist will call you as soon as possible to confirm
+                    pricing and dispatch.
                   </p>
                 </div>
               </div>
 
               {/* Support Call */}
-              <div className="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
-                <div className="text-left">
+              <div className="flex mobile:flex-col mobile:gap-4 items-center justify-between bg-white/5 border border-white/10 rounded-xl p-4 mobile:p-3 mb-6">
+                <div className="text-left mobile:text-center">
                   <p className="text-white/50 text-xs uppercase tracking-wide font-semibold">
                     Emergency?
                   </p>

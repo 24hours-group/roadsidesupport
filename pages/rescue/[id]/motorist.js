@@ -95,11 +95,11 @@ export default function MotoristPage() {
           <div className="max-w-xl mx-auto">
             <div className="space-y-6">
               <div className="text-center md:text-left">
-                <h1 className="text-3xl font-bold text-white mb-3">
+                <h1 className="text-3xl mobile:text-2xl font-bold text-white mb-3">
                   How can we reach you?
                 </h1>
-                <p className="text-lg text-white/50 leading-relaxed">
-                  We'll call you within 10 minutes with pricing.
+                <p className="text-lg mobile:text-base text-white/50 leading-relaxed">
+                  We'll call you as soon as possible with your pricing.
                 </p>
               </div>
 
@@ -125,7 +125,7 @@ export default function MotoristPage() {
                       </div>
                       <input
                         {...register("first_name")}
-                        placeholder="John"
+                        placeholder="Anthony"
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                       />
                     </div>
@@ -147,7 +147,7 @@ export default function MotoristPage() {
                       </div>
                       <input
                         {...register("last_name")}
-                        placeholder="Doe"
+                        placeholder="Smith"
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                       />
                     </div>
@@ -194,7 +194,7 @@ export default function MotoristPage() {
                     <input
                       {...register("email")}
                       type="email"
-                      placeholder="john@email.com"
+                      placeholder="anthony@email.com"
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                     />
                   </div>
@@ -211,12 +211,12 @@ export default function MotoristPage() {
                     <PhoneIcon style={{ fontSize: 20 }} />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg mb-1">
+                    <h3 className="text-white font-bold text-lg mobile:text-base mb-1">
                       Our team will call you shortly
                     </h3>
-                    <p className="text-white/60 leading-relaxed">
-                      A specialist will call within 10 minutes with pricing and
-                      next steps.
+                    <p className="text-white/60 leading-relaxed mobile:text-sm">
+                      A specialist will call you as soon as possible with pricing
+                      and next steps.
                     </p>
                   </div>
                 </div>

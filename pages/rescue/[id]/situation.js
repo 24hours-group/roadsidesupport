@@ -72,15 +72,8 @@ export default function SituationPage() {
       situation: data,
       updated_at: new Date().toISOString(),
     };
+    // Only save to localStorage - database submission happens on final step
     localStorage.setItem(`rescue_${id}`, JSON.stringify(updatedData));
-
-    try {
-      await fetch(`/api/rescue/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ situation: data }),
-      });
-    } catch (e) {}
 
     events.situationCompleted(serviceType);
     router.push(`/rescue/${id}/vehicle`);
@@ -117,7 +110,7 @@ export default function SituationPage() {
         <main className="px-4 pb-20">
           <div className="max-w-xl mx-auto space-y-8">
             {/* Service Badge */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-secondary-800 to-secondary-900 border border-white/10 rounded-2xl p-6 shadow-2xl">
+            <div className="relative overflow-hidden bg-gradient-to-br from-secondary-800 to-secondary-900 border border-white/10 rounded-2xl p-6 shadow-2xl mobile:p-4">
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 {IconComponent && <IconComponent style={{ fontSize: 120 }} />}
               </div>
@@ -144,10 +137,10 @@ export default function SituationPage() {
             {/* Form Container */}
             <div className="space-y-6">
               <div className="text-center md:text-left">
-                <h1 className="text-3xl font-bold text-white mb-3">
+                <h1 className="text-3xl mobile:text-2xl font-bold text-white mb-3">
                   Describe the situation
                 </h1>
-                <p className="text-lg text-white/50 leading-relaxed">
+                <p className="text-lg mobile:text-base text-white/50 leading-relaxed">
                   Help us prepare the right tools for your rescue.
                 </p>
               </div>
@@ -241,7 +234,7 @@ function YesNoRadio({ label, value, onChange, error }) {
               key={isYes ? "yes" : "no"}
               selected={value === optValue}
               onClick={() => onChange(optValue)}
-              className="py-4 px-6 flex items-center justify-center text-center"
+              className="py-4 px-6 mobile:py-2 mobile:px-4 flex items-center justify-center text-center"
             >
               <span
                 className={`font-bold text-lg ${
@@ -274,7 +267,7 @@ function NumberSelector({ label, value, onChange, max = 4, error }) {
             key={n}
             selected={value === n}
             onClick={() => onChange(n)}
-            className="flex-1 py-3 flex items-center justify-center"
+            className="flex-1 py-3 mobile:py-2 flex items-center justify-center"
           >
             <span
               className={`font-bold text-lg ${
@@ -307,7 +300,7 @@ function OptionGrid({ label, options, value, onChange, error }) {
             key={opt.value}
             selected={value === opt.value}
             onClick={() => onChange(opt.value)}
-            className="py-3 px-4 flex items-center justify-center text-center"
+            className="py-3 px-4 mobile:py-2 mobile:px-2 flex items-center justify-center text-center"
           >
             <span
               className={`font-medium capitalize ${
@@ -333,7 +326,7 @@ function OptionGrid({ label, options, value, onChange, error }) {
 
 function FlatTireFields({ control, errors }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mobile:space-y-4">
       <Controller
         name="tire_count"
         control={control}
@@ -379,7 +372,7 @@ function FlatTireFields({ control, errors }) {
 
 function JumpStartFields({ control, errors }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mobile:space-y-4">
       <Controller
         name="battery_accessible"
         control={control}
@@ -411,7 +404,7 @@ function JumpStartFields({ control, errors }) {
 
 function LockoutFields({ control, errors }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mobile:space-y-4">
       <Controller
         name="keys_inside"
         control={control}
@@ -456,7 +449,7 @@ function LockoutFields({ control, errors }) {
 
 function FuelDeliveryFields({ control, errors }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mobile:space-y-4">
       <Controller
         name="fuel_type"
         control={control}
@@ -506,7 +499,7 @@ function FuelDeliveryFields({ control, errors }) {
 
 function BasicTowFields({ control, errors, needsRide }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mobile:space-y-4">
       <Controller
         name="tow_destination"
         control={control}
@@ -601,7 +594,7 @@ function BasicTowFields({ control, errors, needsRide }) {
 
 function WinchOutFields({ control, errors }) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mobile:space-y-4">
       <Controller
         name="stuck_in"
         control={control}

@@ -1,11 +1,17 @@
 import "@/styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "700", "900"],
 });
 
 export default function App({ Component, pageProps }) {
@@ -22,11 +28,11 @@ export default function App({ Component, pageProps }) {
       {googleMapsKey && (
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&libraries=places`}
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       )}
 
-      <main className={`${inter.variable} font-sans`}>
+      <main className={`${inter.variable} ${playfair.variable} font-sans`}>
         <Component {...pageProps} />
       </main>
     </>

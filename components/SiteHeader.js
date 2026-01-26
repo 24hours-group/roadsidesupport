@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Image from "next/image";
 import PhoneIcon from "@mui/icons-material/Phone";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 
@@ -10,11 +10,17 @@ export default function SiteHeader({ simple = false }) {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-              <LocationOnIcon className="text-white" style={{ fontSize: 24 }} />
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <Image
+                src="/RSS-logo.png"
+                alt="Roadside Support Logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl mobile:text-sm mobile:max-w-[100px] font-bold text-white tracking-tight">
+              <span className="text-xl mobile:text-sm mobile:max-w-[100px] font-bold text-white tracking-tight font-playfair">
                 Roadside Support
               </span>
               {!simple && (
