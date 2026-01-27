@@ -9,6 +9,7 @@ import SiteHeader from "@/components/SiteHeader";
 import { vehicleSchema } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
 import { VEHICLE_MAKES, POPULAR_MODELS } from "@/lib/vehicleMakes";
+import AnimatedStyles from "@/components/AnimatedStyles";
 
 // MUI Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -148,6 +149,7 @@ export default function VehiclePage() {
       <Head>
         <title>Vehicle Info - Roadside Support</title>
       </Head>
+      <AnimatedStyles />
 
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
         <SiteHeader simple={true} />

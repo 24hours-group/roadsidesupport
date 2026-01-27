@@ -1,17 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 import { Button, Card, Alert, Spinner, Input } from "@/components/ui";
 import SiteHeader from "@/components/SiteHeader";
 import DefaultMap from "@/components/rescue/DefaultMap";
 import { SERVICE_TYPES } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
+import AnimatedStyles from "@/components/AnimatedStyles";
 
 // MUI Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PhoneIcon from "@mui/icons-material/Phone";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -153,6 +152,7 @@ export default function RescuePage() {
         <title>Get Roadside Help - Roadside Support</title>
         <meta name="description" content="Request roadside assistance now." />
       </Head>
+      <AnimatedStyles />
 
       <div className="min-h-screen bg-dark">
         <SiteHeader simple={true} />

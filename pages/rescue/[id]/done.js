@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
-import { Button } from "@/components/ui";
 import SiteHeader from "@/components/SiteHeader";
 import { SERVICE_TYPES } from "@/lib/schemas";
+import AnimatedStyles from "@/components/AnimatedStyles";
 import PhoneIcon from "@mui/icons-material/Phone";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HomeIcon from "@mui/icons-material/Home";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 export default function DonePage() {
   const router = useRouter();
@@ -25,112 +26,116 @@ export default function DonePage() {
       <Head>
         <title>Request Submitted - Roadside Support</title>
       </Head>
+      <AnimatedStyles />
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
         <SiteHeader simple={true} />
 
         <main className="pt-24 px-4 pb-8 flex items-center justify-center min-h-screen">
-          <div className="max-w-lg mx-auto w-full">
-            <div className="bg-secondary-900/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 mobile:p-4 text-center shadow-2xl relative overflow-hidden">
-              {/* Glow Effect */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="max-w-md mx-auto w-full">
+            {/* Success Card */}
+            <div className="text-center">
+              {/* Animated Phone Icon with Pulse Rings */}
+              <div className="relative w-32 h-32 mx-auto mb-8 animate-fade-in-up">
+                {/* Outer pulse rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-accent/40 animate-pulse-ring" />
+                <div className="absolute inset-0 rounded-full border-2 border-accent/30 animate-pulse-ring-delayed" />
 
-              {/* Success Icon */}
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-green-500/10 border-4 border-green-500/20 flex items-center justify-center relative z-10">
-                <div className="absolute inset-0 rounded-full border border-green-500 animate-ping-slow opacity-20" />
-                <CheckCircleIcon
-                  className="text-green-500 drop-shadow-md"
-                  style={{ fontSize: 48 }}
-                />
+                {/* Main circle */}
+                <div className="absolute inset-4 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 backdrop-blur-sm border border-accent/20 flex items-center justify-center">
+                  <div className="animate-gentle-bounce">
+                    <PhoneIcon
+                      className="text-accent"
+                      style={{ fontSize: 40 }}
+                    />
+                  </div>
+                </div>
               </div>
 
-              <h1 className="text-3xl font-bold text-white mb-2">
-                Request Submitted!
+              {/* Main Heading */}
+              <h1 className="text-3xl font-bold text-white mb-3 tracking-tight animate-fade-in-up animate-fade-in-up-1">
+                Help Is On The Way
               </h1>
-              <p className="text-white/70 text-lg mb-8">
-                Help has been alerted.
+
+              {/* Subtext */}
+              <p className="text-white/60 text-lg mb-8 animate-fade-in-up animate-fade-in-up-2">
+                A specialist will contact you shortly
               </p>
 
-              {/* Request ID */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-6 backdrop-blur-sm">
-                <p className="text-white/50 text-sm mb-1 uppercase tracking-widest font-semibold">
-                  Request ID
-                </p>
-                <p className="text-2xl font-mono font-bold text-accent tracking-widest">
+              {/* Request ID Badge */}
+              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 mb-10 animate-fade-in-up animate-fade-in-up-2">
+                <CheckCircleOutlineIcon
+                  className="text-green-400"
+                  style={{ fontSize: 18 }}
+                />
+                <span className="text-white/50 text-sm">Request</span>
+                <span className="font-mono font-semibold text-white tracking-wider">
                   {id?.substring(0, 8).toUpperCase()}
-                </p>
+                </span>
               </div>
 
-              {/* Details */}
+              {/* Details Card */}
               {requestData && (
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-6 text-left space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-white/50">Service</span>
-                    <span className="text-white font-medium">
-                      {SERVICE_TYPES[requestData.service_type]?.label}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-white/50">Location</span>
-                    <span className="text-white font-medium text-right max-w-[60%] truncate">
-                      {requestData.pickup_location?.address?.split(",")[0]}
-                    </span>
-                  </div>
-                  {requestData.motorist && (
-                    <div className="flex justify-between">
-                      <span className="text-white/50">Phone</span>
+                <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-6 text-left animate-fade-in-up animate-fade-in-up-3">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/40 text-sm">Service</span>
                       <span className="text-white font-medium">
-                        {requestData.motorist.phone}
+                        {SERVICE_TYPES[requestData.service_type]?.label}
                       </span>
                     </div>
-                  )}
+                    <div className="h-px bg-white/[0.06]" />
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/40 text-sm">Location</span>
+                      <span className="text-white font-medium text-right max-w-[60%] truncate">
+                        {requestData.pickup_location?.address?.split(",")[0]}
+                      </span>
+                    </div>
+                    {requestData.motorist && (
+                      <>
+                        <div className="h-px bg-white/[0.06]" />
+                        <div className="flex items-center justify-between">
+                          <span className="text-white/40 text-sm">Contact</span>
+                          <span className="text-white font-medium">
+                            {requestData.motorist.phone}
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
               )}
 
-              {/* Callback Info */}
-              <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mobile:p-4 mb-8 text-left flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-accent text-dark flex items-center justify-center flex-shrink-0 font-bold shadow-lg">
-                  <PhoneIcon style={{ fontSize: 20 }} />
+              {/* Wait Time Indicator */}
+              <div className="flex items-center justify-center gap-3 mb-10 animate-fade-in-up animate-fade-in-up-4">
+                <div className="flex items-center gap-2 text-white/40">
+                  <AccessTimeIcon style={{ fontSize: 18 }} />
+                  <span className="text-sm">Typical wait time:</span>
                 </div>
-                <div>
-                  <p className="text-white font-bold text-lg mobile:text-base mb-1">
-                    Wait for our call
-                  </p>
-                  <p className="text-white/70 text-sm leading-relaxed mobile:text-sm">
-                    A specialist will call you as soon as possible to confirm
-                    pricing and dispatch.
-                  </p>
-                </div>
+                <span className="text-accent font-semibold text-sm">
+                  Under 5 minutes
+                </span>
               </div>
 
-              {/* Support Call */}
-              <div className="flex mobile:flex-col mobile:gap-4 items-center justify-between bg-white/5 border border-white/10 rounded-xl p-4 mobile:p-3 mb-6">
-                <div className="text-left mobile:text-center">
-                  <p className="text-white/50 text-xs uppercase tracking-wide font-semibold">
-                    Emergency?
-                  </p>
-                  <p className="text-white font-semibold">Call us directly</p>
-                </div>
+              {/* Action Buttons */}
+              <div className="space-y-3 animate-fade-in-up animate-fade-in-up-5">
+                {/* Emergency Call */}
                 <a
                   href="tel:+15551234567"
-                  className="bg-white/10 text-white font-bold px-4 py-3 rounded-xl flex items-center gap-2 hover:bg-white/20 transition-colors border border-white/10"
+                  className="flex items-center justify-center gap-3 w-full bg-white text-dark font-semibold py-4 px-6 rounded-xl hover:bg-white/90 transition-all duration-200 shadow-lg shadow-white/5"
                 >
-                  <PhoneIcon style={{ fontSize: 18 }} />
-                  (555) 123-4567
+                  <PhoneIcon style={{ fontSize: 20 }} />
+                  <span>Can&apos;t wait? Call (555) 123-4567</span>
                 </a>
-              </div>
 
-              {/* Return Home */}
-              <Link href="/">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="w-full bg-secondary-800/50 border-white/10 text-white hover:bg-secondary-800 hover:border-white/20"
+                {/* Return Home */}
+                <Link
+                  href="/"
+                  className="flex items-center justify-center gap-2 w-full text-white/50 font-medium py-3 px-6 rounded-xl hover:text-white/80 hover:bg-white/5 transition-all duration-200"
                 >
-                  <HomeIcon style={{ fontSize: 20 }} />
-                  Return to Home
-                </Button>
-              </Link>
+                  <HomeIcon style={{ fontSize: 18 }} />
+                  <span>Return to Home</span>
+                </Link>
+              </div>
             </div>
           </div>
         </main>

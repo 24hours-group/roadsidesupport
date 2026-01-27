@@ -8,6 +8,7 @@ import { Button, DarkStepper } from "@/components/ui";
 import SiteHeader from "@/components/SiteHeader";
 import { SERVICE_TYPES, getSituationSchema } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
+import AnimatedStyles from "@/components/AnimatedStyles";
 
 // MUI Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -92,6 +93,7 @@ export default function SituationPage() {
       <Head>
         <title>Situation Details - Roadside Support</title>
       </Head>
+      <AnimatedStyles />
 
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
         <SiteHeader simple={true} />

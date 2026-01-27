@@ -8,6 +8,7 @@ import { Button, Alert, DarkStepper } from "@/components/ui";
 import SiteHeader from "@/components/SiteHeader";
 import { motoristSchema } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
+import AnimatedStyles from "@/components/AnimatedStyles";
 
 // MUI Icons
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -79,6 +80,7 @@ export default function MotoristPage() {
       <Head>
         <title>Contact Info - Roadside Support</title>
       </Head>
+      <AnimatedStyles />
       <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
         <SiteHeader simple={true} />
 
@@ -215,8 +217,8 @@ export default function MotoristPage() {
                       Our team will call you shortly
                     </h3>
                     <p className="text-white/60 leading-relaxed mobile:text-sm">
-                      A specialist will call you as soon as possible with pricing
-                      and next steps.
+                      A specialist will call you as soon as possible with
+                      pricing and next steps.
                     </p>
                   </div>
                 </div>

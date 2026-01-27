@@ -90,74 +90,232 @@ async function sendCallCenterEmail(requestId, data) {
     timeStyle: "short",
   });
 
-  // Build situation details string
-  const situationDetails = data.situation
+  // Build situation details HTML
+  const situationDetailsHtml = data.situation
     ? Object.entries(data.situation)
-        .map(([key, value]) => `• ${formatKey(key)}: ${formatValue(value)}`)
-        .join("\n")
-    : "Not provided";
+        .map(
+          ([key, value]) =>
+            `<tr><td style="padding: 8px 16px; color: #64748b; font-size: 14px;">${formatKey(key)}</td><td style="padding: 8px 16px; color: #1e293b; font-size: 14px; font-weight: 500;">${formatValue(value)}</td></tr>`,
+        )
+        .join("")
+    : '<tr><td style="padding: 8px 16px; color: #64748b;">Not provided</td></tr>';
 
   // Build vehicle details string
   const vehicleInfo = data.vehicle
-    ? `${data.vehicle.year} ${data.vehicle.make} ${data.vehicle.model} (${data.vehicle.color})${data.vehicle.is_awd ? " - AWD" : ""}`
+    ? `${data.vehicle.year} ${data.vehicle.make} ${data.vehicle.model} (${data.vehicle.color})${data.vehicle.is_awd ? " — AWD" : ""}`
     : "Not provided";
 
-  const emailBody = `
-🚗 NEW ROADSIDE ASSISTANCE REQUEST
+  const emailHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f1f5f9; padding: 40px 20px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); padding: 32px 40px;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">New Roadside Assistance Request</h1>
+              <p style="margin: 8px 0 0 0; color: #94a3b8; font-size: 14px;">Immediate attention required</p>
+            </td>
+          </tr>
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          <!-- Request Summary -->
+          <tr>
+            <td style="padding: 32px 40px; border-bottom: 1px solid #e2e8f0;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="50%" style="padding-right: 16px;">
+                    <p style="margin: 0 0 4px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Request ID</p>
+                    <p style="margin: 0; color: #1e293b; font-size: 18px; font-weight: 600; font-family: 'Courier New', monospace;">${requestId.substring(0, 8).toUpperCase()}</p>
+                  </td>
+                  <td width="50%" style="padding-left: 16px;">
+                    <p style="margin: 0 0 4px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Service Type</p>
+                    <p style="margin: 0; color: #1e293b; font-size: 18px; font-weight: 600;">${serviceName}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="padding-top: 16px;">
+                    <p style="margin: 0 0 4px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Submitted</p>
+                    <p style="margin: 0; color: #1e293b; font-size: 14px;">${timestamp}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Motorist Contact -->
+          <tr>
+            <td style="padding: 24px 40px; border-bottom: 1px solid #e2e8f0;">
+              <h2 style="margin: 0 0 16px 0; color: #1e293b; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Motorist Contact</h2>
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <p style="margin: 0; color: #64748b; font-size: 12px;">Name</p>
+                    <p style="margin: 4px 0 0 0; color: #1e293b; font-size: 16px; font-weight: 500;">${data.motorist.first_name} ${data.motorist.last_name}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <p style="margin: 0; color: #64748b; font-size: 12px;">Phone</p>
+                    <p style="margin: 4px 0 0 0; color: #1e293b; font-size: 16px; font-weight: 500;">
+                      <a href="tel:${data.motorist.phone}" style="color: #2563eb; text-decoration: none;">${data.motorist.phone}</a>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <p style="margin: 0; color: #64748b; font-size: 12px;">Email</p>
+                    <p style="margin: 4px 0 0 0; color: #1e293b; font-size: 16px; font-weight: 500;">
+                      <a href="mailto:${data.motorist.email}" style="color: #2563eb; text-decoration: none;">${data.motorist.email}</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Pickup Location -->
+          <tr>
+            <td style="padding: 24px 40px; border-bottom: 1px solid #e2e8f0;">
+              <h2 style="margin: 0 0 16px 0; color: #1e293b; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Pickup Location</h2>
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <p style="margin: 0; color: #64748b; font-size: 12px;">Address</p>
+                    <p style="margin: 4px 0 0 0; color: #1e293b; font-size: 16px; font-weight: 500;">${data.pickup_location.address}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <p style="margin: 0; color: #64748b; font-size: 12px;">Coordinates</p>
+                    <p style="margin: 4px 0 0 0; color: #1e293b; font-size: 14px; font-family: 'Courier New', monospace;">${data.pickup_location.lat}, ${data.pickup_location.lng}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <p style="margin: 0; color: #64748b; font-size: 12px;">Location Source</p>
+                    <p style="margin: 4px 0 0 0; color: #1e293b; font-size: 14px;">${data.pickup_location.source === "gps" ? "GPS (Automatic)" : "Manual Entry"}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0 0 0;">
+                    <a href="https://www.google.com/maps?q=${data.pickup_location.lat},${data.pickup_location.lng}" style="display: inline-block; padding: 10px 20px; background-color: #f1f5f9; color: #1e293b; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">View on Google Maps</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Situation Details -->
+          <tr>
+            <td style="padding: 24px 40px; border-bottom: 1px solid #e2e8f0;">
+              <h2 style="margin: 0 0 16px 0; color: #1e293b; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Situation Details</h2>
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border-radius: 8px;">
+                ${situationDetailsHtml}
+              </table>
+            </td>
+          </tr>
+
+          <!-- Vehicle Information -->
+          <tr>
+            <td style="padding: 24px 40px; border-bottom: 1px solid #e2e8f0;">
+              <h2 style="margin: 0 0 16px 0; color: #1e293b; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Vehicle Information</h2>
+              <p style="margin: 0; color: #1e293b; font-size: 16px; font-weight: 500;">${vehicleInfo}</p>
+            </td>
+          </tr>
+
+          <!-- Action Required -->
+          <tr>
+            <td style="padding: 32px 40px; background-color: #fef3c7;">
+              <h2 style="margin: 0 0 8px 0; color: #92400e; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Action Required</h2>
+              <p style="margin: 0; color: #78350f; font-size: 16px; font-weight: 500;">Call the customer immediately to provide a quote and dispatch assistance.</p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 24px 40px; background-color: #f8fafc; text-align: center;">
+              <p style="margin: 0; color: #64748b; font-size: 12px;">Roadside Support</p>
+              <p style="margin: 4px 0 0 0; color: #94a3b8; font-size: 11px;">This is an automated notification. Please do not reply to this email.</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `.trim();
+
+  // Plain text fallback
+  const emailText = `
+NEW ROADSIDE ASSISTANCE REQUEST
+================================
 
 REQUEST DETAILS
-• Request ID: ${requestId.substring(0, 8).toUpperCase()}
-• Submitted: ${timestamp}
-• Service: ${serviceName}
+---------------
+Request ID: ${requestId.substring(0, 8).toUpperCase()}
+Submitted: ${timestamp}
+Service: ${serviceName}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MOTORIST CONTACT
+----------------
+Name: ${data.motorist.first_name} ${data.motorist.last_name}
+Phone: ${data.motorist.phone}
+Email: ${data.motorist.email}
 
-📞 MOTORIST CONTACT
-• Name: ${data.motorist.first_name} ${data.motorist.last_name}
-• Phone: ${data.motorist.phone}
-• Email: ${data.motorist.email}
+PICKUP LOCATION
+---------------
+Address: ${data.pickup_location.address}
+Coordinates: ${data.pickup_location.lat}, ${data.pickup_location.lng}
+Location Source: ${data.pickup_location.source === "gps" ? "GPS" : "Manual Entry"}
+Google Maps: https://www.google.com/maps?q=${data.pickup_location.lat},${data.pickup_location.lng}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SITUATION DETAILS
+-----------------
+${
+  data.situation
+    ? Object.entries(data.situation)
+        .map(([key, value]) => `${formatKey(key)}: ${formatValue(value)}`)
+        .join("\n")
+    : "Not provided"
+}
 
-📍 PICKUP LOCATION
-• Address: ${data.pickup_location.address}
-• Coordinates: ${data.pickup_location.lat}, ${data.pickup_location.lng}
-• Location Source: ${data.pickup_location.source === "gps" ? "GPS" : "Manual Entry"}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📋 SITUATION DETAILS
-${situationDetails}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-🚙 VEHICLE INFORMATION
+VEHICLE INFORMATION
+-------------------
 ${vehicleInfo}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ACTION REQUIRED
+---------------
+Call the customer immediately to provide a quote and dispatch assistance.
 
-⚡ ACTION REQUIRED
-Call customer immediately to quote and dispatch.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 Roadside Support
+This is an automated notification.
   `.trim();
 
   try {
     // Check if Resend API key is configured
     if (!process.env.RESEND_API_KEY) {
       console.log("Resend API key not configured. Email content:");
-      console.log(emailBody);
+      console.log(emailText);
       return { success: false, error: "Email service not configured" };
     }
 
     const { data: emailData, error } = await resend.emails.send({
-      from: "Roadside Support <onboarding@resend.dev>",
+      from: "Roadside Support <noreply@roadside-support.com>",
       to: [callCenterEmail],
       subject: `[Roadside Request] ${serviceName} — ${data.pickup_location.address.split(",")[0]} — ${requestId.substring(0, 8).toUpperCase()}`,
-      text: emailBody,
+      html: emailHtml,
+      text: emailText,
     });
 
     if (error) {
