@@ -104,18 +104,49 @@ export default function RescuePage() {
     );
   };
 
-  const handleManualLocationSubmit = (e) => {
+  const handleManualLocationSubmit = async (e) => {
     e.preventDefault();
     if (!manualAddress.trim()) return;
 
-    setLocation({
-      address: manualAddress,
-      lat: 0,
-      lng: 0,
-      source: "manual",
-    });
-    setShowManualInput(false);
-    events.locationConfirmed("manual");
+    // Try to geocode the address to get coordinates
+    if (window.google?.maps?.Geocoder) {
+      setIsGettingLocation(true);
+      const geocoder = new window.google.maps.Geocoder();
+
+      geocoder.geocode({ address: manualAddress }, (results, status) => {
+        setIsGettingLocation(false);
+
+        if (status === "OK" && results[0]) {
+          const { lat, lng } = results[0].geometry.location;
+          setLocation({
+            address: results[0].formatted_address || manualAddress,
+            lat: lat(),
+            lng: lng(),
+            source: "manual",
+          });
+        } else {
+          // Fallback: set location without coordinates
+          setLocation({
+            address: manualAddress,
+            lat: 0,
+            lng: 0,
+            source: "manual",
+          });
+        }
+        setShowManualInput(false);
+        events.locationConfirmed("manual");
+      });
+    } else {
+      // No geocoder available, set without coordinates
+      setLocation({
+        address: manualAddress,
+        lat: 0,
+        lng: 0,
+        source: "manual",
+      });
+      setShowManualInput(false);
+      events.locationConfirmed("manual");
+    }
   };
 
   const handleContinue = async () => {
@@ -158,7 +189,7 @@ export default function RescuePage() {
         <SiteHeader simple={true} />
 
         {/* Main Content */}
-        <main className="pt-20 mobile:pt-4 mobile:pb-16 min-h-screen flex flex-col">
+        <main className="pt-20 mobile:pt-16 mobile:pb-16 min-h-screen flex flex-col">
           <div className="flex-1 px-4 pb-8">
             <div className="max-w-lg mx-auto">
               {/* Map Container - Same width as content */}

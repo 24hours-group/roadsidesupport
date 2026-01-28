@@ -9,7 +9,7 @@ export default function MapPreview({ location, className = "", height = 300 }) {
     if (!location?.lat || !location?.lng) return;
 
     const initMap = () => {
-      if (!window.google || !mapRef.current) return;
+      if (!window.google?.maps?.Map || !mapRef.current) return;
 
       const position = { lat: location.lat, lng: location.lng };
 
@@ -18,8 +18,12 @@ export default function MapPreview({ location, className = "", height = 300 }) {
         googleMapRef.current = new window.google.maps.Map(mapRef.current, {
           center: position,
           zoom: 15,
-          disableDefaultUI: true,
-          zoomControl: true,
+          disableDefaultUI: false,
+          zoomControl: false,
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: false,
+          gestureHandling: "auto",
           styles: [
             {
               featureType: "poi",
@@ -41,24 +45,26 @@ export default function MapPreview({ location, className = "", height = 300 }) {
           map: googleMapRef.current,
           animation: window.google.maps.Animation.DROP,
           icon: {
-            path: window.google.maps.SymbolPath.CIRCLE,
-            scale: 12,
+            // Location pin SVG path
+            path: "M12 0C7.31 0 3.5 3.81 3.5 8.5C3.5 14.88 12 24 12 24S20.5 14.88 20.5 8.5C20.5 3.81 16.69 0 12 0ZM12 11.5C10.34 11.5 9 10.16 9 8.5C9 6.84 10.34 5.5 12 5.5C13.66 5.5 15 6.84 15 8.5C15 10.16 13.66 11.5 12 11.5Z",
             fillColor: "#1E3A8A",
             fillOpacity: 1,
             strokeColor: "#ffffff",
-            strokeWeight: 3,
+            strokeWeight: 2,
+            scale: 1.5,
+            anchor: new window.google.maps.Point(12, 24),
           },
         });
       }
     };
 
-    // Check if Google Maps is loaded
-    if (window.google) {
+    // Check if Google Maps is fully loaded (with async loading, we need to wait for the Map constructor)
+    if (window.google?.maps?.Map) {
       initMap();
     } else {
       // Wait for Google Maps to load
       const checkInterval = setInterval(() => {
-        if (window.google) {
+        if (window.google?.maps?.Map) {
           clearInterval(checkInterval);
           initMap();
         }

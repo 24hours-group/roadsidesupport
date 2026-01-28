@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Button, Card } from "@/components/ui";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { SERVICE_TYPES } from "@/lib/schemas";
@@ -14,7 +13,6 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import TireRepairIcon from "@mui/icons-material/TireRepair";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
@@ -127,7 +125,7 @@ export default function Home() {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 mobile:grid-cols-3 md:grid-cols-3 gap-4 md:gap-8 pt-12 animate-slide-up stagger-3 max-w-3xl mx-auto">
                 {[
-                  { label: "Response Time", value: "10 min", icon: SpeedIcon },
+                  { label: "Response Time", value: "5 min", icon: SpeedIcon },
                   {
                     label: "Availability",
                     value: "24/7",
