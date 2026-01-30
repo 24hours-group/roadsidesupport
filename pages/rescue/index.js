@@ -45,6 +45,67 @@ export default function RescuePage() {
 
   // Focus ref for manual input
   const manualInputRef = useRef(null);
+  const autocompleteRef = useRef(null);
+
+  // Initialize Google Places Autocomplete for manual address input
+  useEffect(() => {
+    let checkInterval;
+
+    const initAutocomplete = () => {
+      if (
+        typeof window !== "undefined" &&
+        window.google?.maps?.places &&
+        manualInputRef.current &&
+        !autocompleteRef.current &&
+        showManualInput
+      ) {
+        autocompleteRef.current = new window.google.maps.places.Autocomplete(
+          manualInputRef.current,
+          {
+            types: ["address"],
+            componentRestrictions: { country: "us" },
+          },
+        );
+
+        autocompleteRef.current.addListener("place_changed", () => {
+          const place = autocompleteRef.current.getPlace();
+          if (place.geometry) {
+            const loc = {
+              address: place.formatted_address,
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+              source: "manual",
+            };
+            setManualAddress(place.formatted_address);
+            setLocation(loc);
+            setShowManualInput(false);
+            events.locationConfirmed("manual");
+          }
+        });
+
+        if (checkInterval) clearInterval(checkInterval);
+        return true;
+      }
+      return false;
+    };
+
+    if (showManualInput) {
+      // Reset autocomplete ref when showing input
+      autocompleteRef.current = null;
+
+      if (!initAutocomplete()) {
+        checkInterval = setInterval(() => {
+          if (initAutocomplete()) {
+            clearInterval(checkInterval);
+          }
+        }, 100);
+      }
+    }
+
+    return () => {
+      if (checkInterval) clearInterval(checkInterval);
+    };
+  }, [showManualInput]);
 
   useEffect(() => {
     events.rescueStarted();

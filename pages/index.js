@@ -21,6 +21,12 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarIcon from "@mui/icons-material/Star";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import GroupsIcon from "@mui/icons-material/Groups";
+import EngineeringIcon from "@mui/icons-material/Engineering";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import SecurityIcon from "@mui/icons-material/Security";
 
 const serviceIcons = {
   tire: TireRepairIcon,
@@ -201,6 +207,186 @@ export default function Home() {
                   </Link>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Trust & Experience Section */}
+        <section className="py-24 mobile:pt-6 relative overflow-hidden">
+          {/* Background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary-900 to-dark" />
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-geometric.png')] opacity-5" />
+
+          {/* Decorative Elements */}
+          <div className="absolute top-1/3 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+
+          <div className="container-app relative z-10">
+            {/* Section Header */}
+            <div className="text-center mb-16 space-y-4">
+              <span className="text-accent font-bold tracking-widest uppercase text-sm">
+                Why Choose Us
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white">
+                Trusted by Drivers Across the Region
+              </h2>
+              <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                Over 15 years of experience getting stranded motorists safely
+                back on the road.
+              </p>
+            </div>
+
+            {/* Experience Stats */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+              {[
+                {
+                  value: "15+",
+                  label: "Years of Experience",
+                  icon: WorkspacePremiumIcon,
+                  description: "Serving since 2010",
+                },
+                {
+                  value: "50K+",
+                  label: "Happy Customers",
+                  icon: GroupsIcon,
+                  description: "And counting",
+                },
+                {
+                  value: "50+",
+                  label: "Service Vehicles",
+                  icon: EngineeringIcon,
+                  description: "Always nearby",
+                },
+                {
+                  value: "24/7",
+                  label: "Availability",
+                  icon: AccessTimeIcon,
+                  description: "Day or night",
+                },
+              ].map((stat, i) => (
+                <div
+                  key={i}
+                  className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 mobile:p-4 text-center hover:bg-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden"
+                >
+                  {/* Hover Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="relative z-10">
+                    <stat.icon
+                      className="text-accent mx-auto mb-4"
+                      style={{ fontSize: 40 }}
+                    />
+                    <div className="text-4xl mobile:text-2xl font-bold text-white mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-lg mobile:text-base font-semibold text-white/80 mb-1">
+                      {stat.label}
+                    </div>
+                    <div className="text-sm mobile:text-xs text-white/50">
+                      {stat.description}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Testimonials */}
+            <div className="mb-20">
+              <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
+                What Our Customers Say
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    name: "Sarah M.",
+                    location: "Downtown",
+                    rating: 5,
+                    text: "Got a flat tire at midnight and they were there in under 20 minutes. The technician was professional and had me back on the road in no time. Absolutely lifesaving service!",
+                    service: "Flat Tire Change",
+                  },
+                  {
+                    name: "James K.",
+                    location: "Westside",
+                    rating: 5,
+                    text: "Locked my keys in the car at a grocery store parking lot. Called them and within 15 minutes I was back in my car. Fast, professional, and reasonably priced!",
+                    service: "Lockout Service",
+                  },
+                  {
+                    name: "Maria L.",
+                    location: "North District",
+                    rating: 5,
+                    text: "My battery died on a cold morning before work. The jump start service was incredible - the technician even checked my alternator to make sure it wouldn't happen again.",
+                    service: "Jump Start",
+                  },
+                ].map((testimonial, i) => (
+                  <div
+                    key={i}
+                    className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-accent/30 transition-all duration-300"
+                  >
+                    {/* Quote Icon */}
+                    <div className="absolute top-6 right-6 text-accent/20 group-hover:text-accent/40 transition-colors">
+                      <FormatQuoteIcon style={{ fontSize: 48 }} />
+                    </div>
+
+                    {/* Stars */}
+                    <div className="flex gap-1 text-accent mb-4">
+                      {Array(testimonial.rating)
+                        .fill(0)
+                        .map((_, i) => (
+                          <StarIcon key={i} style={{ fontSize: 20 }} />
+                        ))}
+                    </div>
+
+                    {/* Testimonial Text */}
+                    <p className="text-white/70 leading-relaxed mb-6 italic">
+                      "{testimonial.text}"
+                    </p>
+
+                    {/* Author */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent/30 to-primary-500/30 flex items-center justify-center text-white font-bold">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-white">
+                          {testimonial.name}
+                        </div>
+                        <div className="text-sm text-white/50">
+                          {testimonial.location} • {testimonial.service}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-white/80 mb-8">
+                Certified & Trusted
+              </h3>
+              <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+                {[
+                  { icon: SecurityIcon, label: "Fully Insured" },
+                  { icon: VerifiedIcon, label: "Licensed Technicians" },
+                  { icon: HandshakeIcon, label: "Insurance Approved" },
+                  { icon: WorkspacePremiumIcon, label: "AAA Partner" },
+                ].map((badge, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col items-center gap-3 px-6 py-4 bg-white/5 rounded-xl border border-white/10 hover:border-accent/30 hover:bg-white/10 transition-all"
+                  >
+                    <badge.icon
+                      className="text-accent"
+                      style={{ fontSize: 32 }}
+                    />
+                    <span className="text-white/70 text-sm font-medium">
+                      {badge.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

@@ -11,37 +11,60 @@ export default function LocationPicker({ value, onChange, error }) {
   const autocompleteRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Initialize Google Places Autocomplete
+  // Initialize Google Places Autocomplete - wait for API to load
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.google &&
-      inputRef.current &&
-      !autocompleteRef.current
-    ) {
-      autocompleteRef.current = new window.google.maps.places.Autocomplete(
-        inputRef.current,
-        {
-          types: ["address"],
-          componentRestrictions: { country: "us" },
-        },
-      );
+    let checkInterval;
 
-      autocompleteRef.current.addListener("place_changed", () => {
-        const place = autocompleteRef.current.getPlace();
-        if (place.geometry) {
-          const location = {
-            address: place.formatted_address,
-            lat: place.geometry.location.lat(),
-            lng: place.geometry.location.lng(),
-            source: "manual",
-          };
-          setInputValue(place.formatted_address);
-          onChange(location);
-          setLocationError(null);
+    const initAutocomplete = () => {
+      if (
+        typeof window !== "undefined" &&
+        window.google?.maps?.places &&
+        inputRef.current &&
+        !autocompleteRef.current
+      ) {
+        autocompleteRef.current = new window.google.maps.places.Autocomplete(
+          inputRef.current,
+          {
+            types: ["address"],
+            componentRestrictions: { country: "us" },
+          },
+        );
+
+        autocompleteRef.current.addListener("place_changed", () => {
+          const place = autocompleteRef.current.getPlace();
+          if (place.geometry) {
+            const location = {
+              address: place.formatted_address,
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+              source: "manual",
+            };
+            setInputValue(place.formatted_address);
+            onChange(location);
+            setLocationError(null);
+          }
+        });
+
+        // Clear interval once initialized
+        if (checkInterval) clearInterval(checkInterval);
+        return true;
+      }
+      return false;
+    };
+
+    // Try immediately
+    if (!initAutocomplete()) {
+      // If not ready, poll every 100ms until Google Maps loads
+      checkInterval = setInterval(() => {
+        if (initAutocomplete()) {
+          clearInterval(checkInterval);
         }
-      });
+      }, 100);
     }
+
+    return () => {
+      if (checkInterval) clearInterval(checkInterval);
+    };
   }, [onChange]);
 
   // Get current GPS location

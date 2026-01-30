@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
@@ -513,17 +513,11 @@ function BasicTowFields({ control, errors, needsRide }) {
             <p className="text-white/50 text-sm">
               Tow to a trusted repair shop, dealership, body shop, or your home.
             </p>
-            <div className="relative group">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110">
-                <LocationOnIcon style={{ fontSize: 24 }} />
-              </div>
-              <input
-                type="text"
-                {...field}
-                placeholder="Enter address..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
-              />
-            </div>
+            <AddressInput
+              value={field.value}
+              onChange={field.onChange}
+              placeholder="Enter address..."
+            />
             {errors.tow_destination && (
               <div className="flex items-center gap-2 text-red-400 text-sm mt-2 animate-shake">
                 <ErrorOutlineIcon style={{ fontSize: 16 }} />
@@ -590,6 +584,74 @@ function BasicTowFields({ control, errors, needsRide }) {
           />
         </div>
       )}
+    </div>
+  );
+}
+
+// Address Input with Google Places Autocomplete
+function AddressInput({ value, onChange, placeholder }) {
+  const inputRef = useRef(null);
+  const autocompleteRef = useRef(null);
+
+  useEffect(() => {
+    let checkInterval;
+
+    const initAutocomplete = () => {
+      if (
+        typeof window !== "undefined" &&
+        window.google?.maps?.places &&
+        inputRef.current &&
+        !autocompleteRef.current
+      ) {
+        autocompleteRef.current = new window.google.maps.places.Autocomplete(
+          inputRef.current,
+          {
+            types: ["address"],
+            componentRestrictions: { country: "us" },
+          },
+        );
+
+        autocompleteRef.current.addListener("place_changed", () => {
+          const place = autocompleteRef.current.getPlace();
+          if (place.formatted_address) {
+            onChange(place.formatted_address);
+          } else if (place.name) {
+            onChange(place.name);
+          }
+        });
+
+        if (checkInterval) clearInterval(checkInterval);
+        return true;
+      }
+      return false;
+    };
+
+    if (!initAutocomplete()) {
+      checkInterval = setInterval(() => {
+        if (initAutocomplete()) {
+          clearInterval(checkInterval);
+        }
+      }, 100);
+    }
+
+    return () => {
+      if (checkInterval) clearInterval(checkInterval);
+    };
+  }, [onChange]);
+
+  return (
+    <div className="relative group">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
+        <LocationOnIcon style={{ fontSize: 24 }} />
+      </div>
+      <input
+        ref={inputRef}
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+      />
     </div>
   );
 }

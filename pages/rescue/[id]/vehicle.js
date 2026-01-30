@@ -32,10 +32,32 @@ export default function VehiclePage() {
   // State to track manual input modes
   const [isManualMake, setIsManualMake] = useState(false);
   const [isManualModel, setIsManualModel] = useState(false);
+  const [isManualColor, setIsManualColor] = useState(false);
 
   // Refs for auto-focusing
   const makeInputRef = useRef(null);
   const modelInputRef = useRef(null);
+  const colorInputRef = useRef(null);
+
+  // Popular car colors list
+  const POPULAR_COLORS = [
+    "Black",
+    "White",
+    "Silver",
+    "Gray",
+    "Red",
+    "Blue",
+    "Brown",
+    "Green",
+    "Beige",
+    "Orange",
+    "Gold",
+    "Yellow",
+    "Purple",
+    "Burgundy",
+    "Navy",
+    "Champagne",
+  ];
 
   useEffect(() => {
     if (isManualMake && makeInputRef.current) {
@@ -48,6 +70,12 @@ export default function VehiclePage() {
       modelInputRef.current.focus();
     }
   }, [isManualModel]);
+
+  useEffect(() => {
+    if (isManualColor && colorInputRef.current) {
+      colorInputRef.current.focus();
+    }
+  }, [isManualColor]);
 
   const currentYear = new Date().getFullYear();
   const years = Array.from(
@@ -103,6 +131,16 @@ export default function VehiclePage() {
     }
   };
 
+  const handleColorChange = (e) => {
+    const val = e.target.value;
+    if (val === "__manual__") {
+      setIsManualColor(true);
+      setValue("color", "");
+    } else {
+      setIsManualColor(false);
+    }
+  };
+
   // Effect: Ensure manual model is enforced if make is manual
   useEffect(() => {
     if (isManualMake && !isManualModel) {
@@ -135,6 +173,7 @@ export default function VehiclePage() {
   // Register refs for react-hook-form to share with our manual refs
   const { ref: makeRef, ...makeRest } = register("make");
   const { ref: modelRef, ...modelRest } = register("model");
+  const { ref: colorRef, ...colorRest } = register("color");
 
   if (isLoading || !requestData) {
     return (
@@ -185,7 +224,7 @@ export default function VehiclePage() {
                 {/* Make Input */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <label className="text-lg font-semibold text-white block">
+                    <label className="text-lg mobile:text-base font-semibold text-white block">
                       Make *
                     </label>
                     {isManualMake && (
@@ -218,9 +257,9 @@ export default function VehiclePage() {
                             makeRest.onChange(e);
                             handleMakeChange(e);
                           }}
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg appearance-none cursor-pointer"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
                         >
-                          <option value="" className="bg-dark text-white/50">
+                          <option value="" className="bg-dark text-white/50 ">
                             Select vehicle make...
                           </option>
                           {VEHICLE_MAKES.map((make) => (
@@ -249,7 +288,7 @@ export default function VehiclePage() {
                         }}
                         key="manual-make-input"
                         placeholder="Type vehicle make (e.g. Pontiac)"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base"
                       />
                     )}
                   </div>
@@ -266,7 +305,7 @@ export default function VehiclePage() {
                 {/* Model Input */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <label className="text-lg font-semibold text-white block">
+                    <label className="text-lg mobile:text-base font-semibold text-white block">
                       Model *
                     </label>
                     {isManualModel && !isManualMake && (
@@ -299,7 +338,7 @@ export default function VehiclePage() {
                             modelRest.onChange(e);
                             handleModelChange(e);
                           }}
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg appearance-none cursor-pointer"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
                         >
                           <option value="" className="bg-dark text-white/50">
                             Select model...
@@ -339,7 +378,7 @@ export default function VehiclePage() {
                           selectedMake ? "Type model name" : "Select make first"
                         }
                         disabled={!selectedMake && !isManualMake}
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     )}
                   </div>
@@ -356,7 +395,7 @@ export default function VehiclePage() {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Year Select */}
                   <div className="space-y-3">
-                    <label className="text-lg font-semibold text-white block">
+                    <label className="text-lg mobile:text-base font-semibold text-white block">
                       Year *
                     </label>
                     <div className="relative group">
@@ -365,7 +404,7 @@ export default function VehiclePage() {
                       </div>
                       <select
                         {...register("year", { valueAsNumber: true })}
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg appearance-none cursor-pointer"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-12 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
                       >
                         {years.map((y) => (
                           <option
@@ -382,18 +421,77 @@ export default function VehiclePage() {
 
                   {/* Color Input */}
                   <div className="space-y-3">
-                    <label className="text-lg font-semibold text-white block">
-                      Color *
-                    </label>
+                    <div className="flex items-center justify-between">
+                      <label className="text-lg mobile:text-base font-semibold text-white block">
+                        Color *
+                      </label>
+                      {isManualColor && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setIsManualColor(false);
+                            setValue("color", "");
+                          }}
+                          className="text-accent text-sm font-medium hover:underline flex items-center gap-1"
+                        >
+                          Show List
+                        </button>
+                      )}
+                    </div>
                     <div className="relative group">
-                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
                         <PaletteIcon style={{ fontSize: 20 }} />
                       </div>
-                      <input
-                        {...register("color")}
-                        placeholder="e.g. Black"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
-                      />
+
+                      {!isManualColor ? (
+                        <>
+                          <select
+                            {...colorRest}
+                            ref={colorRef}
+                            onChange={(e) => {
+                              colorRest.onChange(e);
+                              handleColorChange(e);
+                            }}
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-12 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-xs appearance-none cursor-pointer"
+                          >
+                            <option value="" className="bg-dark text-white/50">
+                              Select color...
+                            </option>
+                            {POPULAR_COLORS.map((color) => (
+                              <option
+                                key={color}
+                                value={color}
+                                className="bg-dark text-white"
+                              >
+                                {color}
+                              </option>
+                            ))}
+                            <option
+                              value="__manual__"
+                              className="bg-dark text-accent font-semibold"
+                            >
+                              + Type Other Color
+                            </option>
+                          </select>
+                          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <ArrowForwardIcon
+                              className="text-white/30 rotate-90"
+                              style={{ fontSize: 20 }}
+                            />
+                          </div>
+                        </>
+                      ) : (
+                        <input
+                          {...colorRest}
+                          ref={(e) => {
+                            colorRef(e);
+                            colorInputRef.current = e;
+                          }}
+                          key="manual-color-input"
+                          placeholder="Type color (e.g. Metallic Blue)"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                        />
+                      )}
                     </div>
                     {errors.color && (
                       <div className="flex items-center gap-2 text-red-400 text-sm mt-2 animate-shake">
