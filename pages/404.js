@@ -27,9 +27,9 @@ export default function Custom404() {
                 404
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center animate-pulse-soft">
+                <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center animate-pulse-soft">
                   <ErrorOutlineIcon
-                    className="text-accent"
+                    className="text-primary"
                     style={{ fontSize: 48 }}
                   />
                 </div>
@@ -68,7 +68,7 @@ export default function Custom404() {
                 Need immediate assistance? Call us at{" "}
                 <a
                   href="tel:+15551234567"
-                  className="text-accent hover:underline font-semibold"
+                  className="text-primary hover:underline font-semibold"
                 >
                   (555) 123-4567
                 </a>

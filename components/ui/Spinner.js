@@ -13,7 +13,7 @@ export default function Spinner({ size = "md", className = "" }) {
       <CircularProgress
         size={sizes[size]}
         className="text-primary"
-        sx={{ color: "#0F2557" }}
+        sx={{ color: "#FF6D00" }}
       />
     </div>
   );

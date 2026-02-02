@@ -83,7 +83,7 @@ export default function SituationPage() {
   if (isLoading || !requestData) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-accent border-t-transparent rounded-full" />
+        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -95,7 +95,7 @@ export default function SituationPage() {
       </Head>
       <AnimatedStyles />
 
-      <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
+      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
         <SiteHeader simple={true} />
 
         {/* Progress */}
@@ -210,14 +210,14 @@ function SelectionCard({ selected, onClick, children, className = "" }) {
       onClick={onClick}
       className={`relative cursor-pointer group rounded-xl border-2 transition-all duration-300 overflow-hidden ${
         selected
-          ? "border-accent bg-accent/5 shadow-[0_0_20px_rgba(212,160,23,0.1)]"
+          ? "border-primary bg-primary/5 shadow-[0_0_20px_rgba(255,109,0,0.1)]"
           : "border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10"
       } ${className}`}
     >
       <div className="relative z-10">{children}</div>
       {selected && (
-        <div className="absolute top-2 right-2 w-5 h-5 bg-accent rounded-full flex items-center justify-center animate-scale-in">
-          <CheckCircleIcon className="text-dark" style={{ fontSize: 14 }} />
+        <div className="absolute top-2 right-2 w-5 h-5 bg-primary rounded-full flex items-center justify-center animate-scale-in">
+          <CheckCircleIcon className="text-white" style={{ fontSize: 14 }} />
         </div>
       )}
     </div>
@@ -240,7 +240,7 @@ function YesNoRadio({ label, value, onChange, error }) {
             >
               <span
                 className={`font-bold text-lg ${
-                  value === optValue ? "text-accent" : "text-white/80"
+                  value === optValue ? "text-primary" : "text-white/80"
                 }`}
               >
                 {isYes ? "Yes" : "No"}
@@ -273,7 +273,7 @@ function NumberSelector({ label, value, onChange, max = 4, error }) {
           >
             <span
               className={`font-bold text-lg ${
-                value === n ? "text-accent" : "text-white/80"
+                value === n ? "text-primary" : "text-white/80"
               }`}
             >
               {n}
@@ -306,7 +306,7 @@ function OptionGrid({ label, options, value, onChange, error }) {
           >
             <span
               className={`font-medium capitalize ${
-                value === opt.value ? "text-accent" : "text-white/80"
+                value === opt.value ? "text-primary" : "text-white/80"
               }`}
             >
               {opt.label}
@@ -641,7 +641,7 @@ function AddressInput({ value, onChange, placeholder }) {
 
   return (
     <div className="relative group">
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
         <LocationOnIcon style={{ fontSize: 24 }} />
       </div>
       <input
@@ -650,7 +650,7 @@ function AddressInput({ value, onChange, placeholder }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-14 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-lg"
       />
     </div>
   );

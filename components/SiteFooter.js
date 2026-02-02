@@ -5,18 +5,18 @@ import { SERVICE_TYPES } from "@/lib/schemas";
 
 export default function SiteFooter() {
   return (
-    <footer className="py-16 bg-dark border-t border-white/5">
+    <footer className="py-16 bg-secondary border-t border-white/5">
       <div className="container-app">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden">
+              <div className="w-20 h-20 rounded-xl overflow-hidden">
                 <Image
                   src="/RSS-logo.png"
                   alt="Roadside Support Logo"
-                  width={40}
-                  height={40}
+                  width={160}
+                  height={160}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -53,7 +53,7 @@ export default function SiteFooter() {
                   <li key={service.id}>
                     <Link
                       href="/rescue"
-                      className="text-white/50 hover:text-accent transition-colors"
+                      className="text-white/50 hover:text-primary transition-colors"
                     >
                       {service.label}
                     </Link>
@@ -62,7 +62,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/rescue"
-                  className="text-accent hover:text-white transition-colors text-sm font-semibold uppercase tracking-wider"
+                  className="text-primary hover:text-white transition-colors text-sm font-semibold uppercase tracking-wider"
                 >
                   View All
                 </Link>

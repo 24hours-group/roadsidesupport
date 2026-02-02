@@ -70,7 +70,7 @@ export default function MotoristPage() {
   if (isLoading || !requestData) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-accent border-t-transparent rounded-full" />
+        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -81,7 +81,7 @@ export default function MotoristPage() {
         <title>Contact Info - Roadside Support</title>
       </Head>
       <AnimatedStyles />
-      <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
+      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
         <SiteHeader simple={true} />
 
         <div className="pt-24 pb-8 px-4">
@@ -122,13 +122,13 @@ export default function MotoristPage() {
                       First Name *
                     </label>
                     <div className="relative group">
-                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110">
                         <PersonIcon style={{ fontSize: 20 }} />
                       </div>
                       <input
                         {...register("first_name")}
                         placeholder="Anthony"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                       />
                     </div>
                     {errors.first_name && (
@@ -144,13 +144,13 @@ export default function MotoristPage() {
                       Last Name *
                     </label>
                     <div className="relative group">
-                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110">
                         <PersonIcon style={{ fontSize: 20 }} />
                       </div>
                       <input
                         {...register("last_name")}
                         placeholder="Smith"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                       />
                     </div>
                     {errors.last_name && (
@@ -167,14 +167,14 @@ export default function MotoristPage() {
                     Phone Number *
                   </label>
                   <div className="relative group">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110">
                       <ContactPhoneIcon style={{ fontSize: 20 }} />
                     </div>
                     <input
                       {...register("phone")}
                       type="tel"
                       placeholder="(555) 123-4567"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                     />
                   </div>
                   {errors.phone && (
@@ -190,14 +190,14 @@ export default function MotoristPage() {
                     Email *
                   </label>
                   <div className="relative group">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110">
                       <EmailIcon style={{ fontSize: 20 }} />
                     </div>
                     <input
                       {...register("email")}
                       type="email"
                       placeholder="anthony@email.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                     />
                   </div>
                   {errors.email && (
@@ -209,7 +209,7 @@ export default function MotoristPage() {
 
                 {/* Info Card */}
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 backdrop-blur-sm">
-                  <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 text-accent">
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary">
                     <PhoneIcon style={{ fontSize: 20 }} />
                   </div>
                   <div>

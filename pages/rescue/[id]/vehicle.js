@@ -178,7 +178,7 @@ export default function VehiclePage() {
   if (isLoading || !requestData) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-accent border-t-transparent rounded-full" />
+        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -190,7 +190,7 @@ export default function VehiclePage() {
       </Head>
       <AnimatedStyles />
 
-      <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
+      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
         <SiteHeader simple={true} />
 
         {/* Progress */}
@@ -236,7 +236,7 @@ export default function VehiclePage() {
                           setValue("make", "");
                           setValue("model", "");
                         }}
-                        className="text-accent text-sm font-medium hover:underline flex items-center gap-1"
+                        className="text-primary text-sm font-medium hover:underline flex items-center gap-1"
                       >
                         Show List
                       </button>
@@ -244,7 +244,7 @@ export default function VehiclePage() {
                   </div>
 
                   <div className="relative group">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
                       <DriveEtaIcon style={{ fontSize: 24 }} />
                     </div>
 
@@ -257,7 +257,7 @@ export default function VehiclePage() {
                             makeRest.onChange(e);
                             handleMakeChange(e);
                           }}
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
                         >
                           <option value="" className="bg-dark text-white/50 ">
                             Select vehicle make...
@@ -288,7 +288,7 @@ export default function VehiclePage() {
                         }}
                         key="manual-make-input"
                         placeholder="Type vehicle make (e.g. Pontiac)"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base"
                       />
                     )}
                   </div>
@@ -315,7 +315,7 @@ export default function VehiclePage() {
                           setIsManualModel(false);
                           setValue("model", "");
                         }}
-                        className="text-accent text-sm font-medium hover:underline flex items-center gap-1"
+                        className="text-primary text-sm font-medium hover:underline flex items-center gap-1"
                       >
                         Show List
                       </button>
@@ -323,7 +323,7 @@ export default function VehiclePage() {
                   </div>
 
                   <div className="relative group">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
                       <DirectionsCarIcon style={{ fontSize: 24 }} />
                     </div>
 
@@ -338,7 +338,7 @@ export default function VehiclePage() {
                             modelRest.onChange(e);
                             handleModelChange(e);
                           }}
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
                         >
                           <option value="" className="bg-dark text-white/50">
                             Select model...
@@ -354,7 +354,7 @@ export default function VehiclePage() {
                           ))}
                           <option
                             value="__manual__"
-                            className="bg-dark text-accent font-semibold"
+                            className="bg-dark text-primary font-semibold"
                           >
                             + Type Manual Model
                           </option>
@@ -378,7 +378,7 @@ export default function VehiclePage() {
                           selectedMake ? "Type model name" : "Select make first"
                         }
                         disabled={!selectedMake && !isManualMake}
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-14 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     )}
                   </div>
@@ -399,12 +399,12 @@ export default function VehiclePage() {
                       Year *
                     </label>
                     <div className="relative group">
-                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
                         <CalendarTodayIcon style={{ fontSize: 20 }} />
                       </div>
                       <select
                         {...register("year", { valueAsNumber: true })}
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-12 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-12 text-white focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-base appearance-none cursor-pointer"
                       >
                         {years.map((y) => (
                           <option
@@ -432,14 +432,14 @@ export default function VehiclePage() {
                             setIsManualColor(false);
                             setValue("color", "");
                           }}
-                          className="text-accent text-sm font-medium hover:underline flex items-center gap-1"
+                          className="text-primary text-sm font-medium hover:underline flex items-center gap-1"
                         >
                           Show List
                         </button>
                       )}
                     </div>
                     <div className="relative group">
-                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300 group-focus-within:scale-110 pointer-events-none">
                         <PaletteIcon style={{ fontSize: 20 }} />
                       </div>
 
@@ -452,7 +452,7 @@ export default function VehiclePage() {
                               colorRest.onChange(e);
                               handleColorChange(e);
                             }}
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-12 text-white focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-xs appearance-none cursor-pointer"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-2 py-2 pl-12 text-white focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg mobile:text-xs appearance-none cursor-pointer"
                           >
                             <option value="" className="bg-dark text-white/50">
                               Select color...
@@ -468,7 +468,7 @@ export default function VehiclePage() {
                             ))}
                             <option
                               value="__manual__"
-                              className="bg-dark text-accent font-semibold"
+                              className="bg-dark text-primary font-semibold"
                             >
                               + Type Other Color
                             </option>
@@ -489,7 +489,7 @@ export default function VehiclePage() {
                           }}
                           key="manual-color-input"
                           placeholder="Type color (e.g. Metallic Blue)"
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                         />
                       )}
                     </div>
@@ -509,12 +509,12 @@ export default function VehiclePage() {
                   onClick={() => setValue("is_awd", !isAwd)}
                   className={`relative cursor-pointer group rounded-xl border-2 transition-all duration-300 overflow-hidden flex items-center p-4 gap-4 ${
                     isAwd
-                      ? "border-accent bg-accent/5 shadow-[0_0_20px_rgba(212,160,23,0.1)]"
+                      ? "border-primary bg-primary/5 shadow-[0_0_20px_rgba(255,109,0,0.1)]"
                       : "border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10"
                   }`}
                 >
                   <div
-                    className={`w-6 h-6 rounded flex items-center justify-center border-2 transition-colors ${isAwd ? "bg-accent border-accent" : "border-white/30"}`}
+                    className={`w-6 h-6 rounded flex items-center justify-center border-2 transition-colors ${isAwd ? "bg-primary border-primary" : "border-white/30"}`}
                   >
                     {isAwd && (
                       <CheckCircleIcon

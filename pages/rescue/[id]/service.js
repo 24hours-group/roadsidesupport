@@ -52,7 +52,7 @@ export default function ServiceConfirmPage() {
   if (isLoading || !requestData) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-accent border-t-transparent rounded-full" />
+        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -71,7 +71,7 @@ export default function ServiceConfirmPage() {
       </Head>
       <AnimatedStyles />
 
-      <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
+      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
         <SiteHeader simple={true} />
 
         <main className="pt-24 px-4 pb-20">
@@ -103,9 +103,9 @@ export default function ServiceConfirmPage() {
             {/* Location Card */}
             <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 mb-4 animate-fade-in-up animate-fade-in-up-2">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                   <LocationOnIcon
-                    className="text-accent"
+                    className="text-primary"
                     style={{ fontSize: 24 }}
                   />
                 </div>
@@ -143,11 +143,11 @@ export default function ServiceConfirmPage() {
             </div>
 
             {/* Info Card */}
-            <div className="bg-accent/5 border border-accent/10 rounded-2xl p-5 mb-10 animate-fade-in-up animate-fade-in-up-3">
+            <div className="bg-primary/5 border border-primary/10 rounded-2xl p-5 mb-10 animate-fade-in-up animate-fade-in-up-3">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <InfoOutlinedIcon
-                    className="text-accent"
+                    className="text-primary"
                     style={{ fontSize: 20 }}
                   />
                 </div>

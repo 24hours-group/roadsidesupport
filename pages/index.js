@@ -50,18 +50,18 @@ export default function Home() {
         <link rel="icon" type="image/png" href="/RSS-logo.png" />
       </Head>
 
-      <div className="min-h-screen bg-dark overflow-x-hidden selection:bg-accent selection:text-dark">
+      <div className="min-h-screen bg-dark overflow-x-hidden selection:bg-primary selection:text-dark">
         <SiteHeader />
 
         {/* Hero Section */}
         <section className="min-h-screen flex items-center relative pt-20 mobile:pt-24">
           {/* Enhanced Background */}
-          <div className="absolute inset-0 bg-dark">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-900/40 via-dark to-dark opacity-70" />
+          <div className="absolute inset-0 bg-secondary">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-900/40 via-secondary to-secondary opacity-70" />
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
 
             {/* Animated Blobs */}
-            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] animate-pulse-soft" />
+            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] animate-pulse-soft" />
             <div
               className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] animate-pulse-soft"
               style={{ animationDelay: "2s" }}
@@ -72,15 +72,15 @@ export default function Home() {
             <div className="max-w-4xl mx-auto text-center space-y-8">
               {/* Trust Badge */}
               <div className="animate-fade-in inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-white/90 text-sm font-semibold shadow-xl hover:bg-white/10 transition-colors cursor-default">
-                <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
                   <VerifiedIcon
-                    className="text-accent"
+                    className="text-primary"
                     style={{ fontSize: 14 }}
                   />
                 </div>
                 <span>Trusted by 10,000+ Drivers</span>
                 <div className="w-1 h-1 rounded-full bg-white/30 mx-1" />
-                <div className="flex text-accent">
+                <div className="flex text-primary">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <StarIcon key={i} style={{ fontSize: 14 }} />
                   ))}
@@ -109,7 +109,7 @@ export default function Home() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up stagger-2 pt-4">
                 <Link href="/rescue" className="w-full sm:w-auto">
-                  <button className="w-full bg-accent text-dark font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-[1.02] text-lg group">
+                  <button className="w-full bg-primary text-dark font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-[1.02] text-lg group">
                     <SupportAgentIcon style={{ fontSize: 26 }} />
                     Request Service
                     <ArrowForwardIcon
@@ -144,7 +144,7 @@ export default function Home() {
                     className="bg-white/5 border border-white/5 rounded-2xl p-4 mobile:p-2 backdrop-blur-sm flex flex-col items-center justify-center hover:bg-white/10 transition-colors"
                   >
                     <stat.icon
-                      className="text-accent mobile:!text-lg mb-2"
+                      className="text-primary mobile:!text-lg mb-2"
                       style={{ fontSize: 28 }}
                     />
                     <div className="text-2xl mobile:text-xl font-bold text-white">
@@ -160,18 +160,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-dark to-secondary-900 pointer-events-none" />
+        {/* Services Section - White Background */}
+        <section className="py-24 relative bg-white">
           <div className="container-app relative z-10">
             <div className="text-center mb-16 space-y-4">
-              <span className="text-accent font-bold tracking-widest uppercase text-sm">
+              <span className="text-primary font-bold tracking-widest uppercase text-sm">
                 Our Services
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-white">
+              <h2 className="text-3xl md:text-5xl font-bold text-secondary">
                 How Can We Help You?
               </h2>
-              <p className="text-white/60 max-w-2xl mx-auto text-lg">
+              <p className="text-secondary-500 max-w-2xl mx-auto text-lg">
                 Professional assistance for every roadside emergency.
               </p>
             </div>
@@ -181,26 +180,26 @@ export default function Home() {
                 const IconComponent = serviceIcons[service.icon];
                 return (
                   <Link key={service.id} href="/rescue" className="group">
-                    <div className="relative h-full bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:-translate-y-1">
+                    <div className="relative h-full bg-secondary/5 border border-secondary/10 rounded-2xl p-8 hover:bg-secondary/10 hover:border-primary/30 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:-translate-y-1">
                       {/* Hover Gradient Background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                       <div className="relative z-10">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-900/20 border border-primary-500/20 flex items-center justify-center text-primary-300 group-hover:text-accent group-hover:border-accent/30 group-hover:shadow-[0_0_20px_rgba(212,160,23,0.2)] transition-all duration-300 mb-6">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 border border-primary/20 flex items-center justify-center text-primary group-hover:text-primary-800 group-hover:border-primary/40 group-hover:shadow-[0_0_20px_rgba(255,109,0,0.2)] transition-all duration-300 mb-6">
                           {IconComponent && (
                             <IconComponent style={{ fontSize: 36 }} />
                           )}
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                        <h3 className="text-xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">
                           {service.label}
                         </h3>
-                        <p className="text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">
+                        <p className="text-secondary-500 leading-relaxed group-hover:text-secondary-700 transition-colors">
                           {service.description}
                         </p>
                       </div>
 
                       {/* Arrow Icon */}
-                      <div className="absolute bottom-8 right-8 text-white/10 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
+                      <div className="absolute bottom-8 right-8 text-secondary/20 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">
                         <ArrowForwardIcon style={{ fontSize: 24 }} />
                       </div>
                     </div>
@@ -212,19 +211,19 @@ export default function Home() {
         </section>
 
         {/* Trust & Experience Section */}
-        <section className="py-24 mobile:pt-6 relative overflow-hidden">
+        <section className="py-24 mobile:pt-6 relative overflow-hidden ">
           {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary-900 to-dark" />
+          <div className="absolute inset-0 bg-secondary" />
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-geometric.png')] opacity-5" />
 
           {/* Decorative Elements */}
-          <div className="absolute top-1/3 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
+          <div className="absolute top-1/3 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
 
-          <div className="container-app relative z-10">
+          <div className="container-app relative z-10 ">
             {/* Section Header */}
             <div className="text-center mb-16 space-y-4">
-              <span className="text-accent font-bold tracking-widest uppercase text-sm">
+              <span className="text-primary font-bold tracking-widest uppercase text-sm">
                 Why Choose Us
               </span>
               <h2 className="text-3xl md:text-5xl font-bold text-white">
@@ -266,14 +265,14 @@ export default function Home() {
               ].map((stat, i) => (
                 <div
                   key={i}
-                  className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 mobile:p-4 text-center hover:bg-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden"
+                  className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 mobile:p-4 text-center hover:bg-white/10 hover:border-primary/30 transition-all duration-300 overflow-hidden"
                 >
                   {/* Hover Glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                   <div className="relative z-10">
                     <stat.icon
-                      className="text-accent mx-auto mb-4"
+                      className="text-primary mx-auto mb-4"
                       style={{ fontSize: 40 }}
                     />
                     <div className="text-4xl mobile:text-2xl font-bold text-white mb-2">
@@ -321,15 +320,15 @@ export default function Home() {
                 ].map((testimonial, i) => (
                   <div
                     key={i}
-                    className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-accent/30 transition-all duration-300"
+                    className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-primary/30 transition-all duration-300"
                   >
                     {/* Quote Icon */}
-                    <div className="absolute top-6 right-6 text-accent/20 group-hover:text-accent/40 transition-colors">
+                    <div className="absolute top-6 right-6 text-primary/20 group-hover:text-primary/40 transition-colors">
                       <FormatQuoteIcon style={{ fontSize: 48 }} />
                     </div>
 
                     {/* Stars */}
-                    <div className="flex gap-1 text-accent mb-4">
+                    <div className="flex gap-1 text-primary mb-4">
                       {Array(testimonial.rating)
                         .fill(0)
                         .map((_, i) => (
@@ -375,10 +374,10 @@ export default function Home() {
                 ].map((badge, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center gap-3 px-6 py-4 bg-white/5 rounded-xl border border-white/10 hover:border-accent/30 hover:bg-white/10 transition-all"
+                    className="flex flex-col items-center gap-3 px-6 py-4 bg-white/5 rounded-xl border border-white/10 hover:border-primary/30 hover:bg-white/10 transition-all"
                   >
                     <badge.icon
-                      className="text-accent"
+                      className="text-primary"
                       style={{ fontSize: 32 }}
                     />
                     <span className="text-white/70 text-sm font-medium">
@@ -391,28 +390,28 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works - Reimagined */}
-        <section className="py-24 bg-dark relative overflow-hidden">
+        {/* How It Works - White Background */}
+        <section className="py-24 bg-white relative overflow-hidden">
           {/* Decorative Background */}
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none" />
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-secondary/5 to-transparent pointer-events-none" />
 
           <div className="container-app relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="lg:w-1/2 space-y-8">
-                <span className="text-accent font-bold tracking-widest uppercase text-sm">
+                <span className="text-primary font-bold tracking-widest uppercase text-sm">
                   The Process
                 </span>
-                <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-secondary leading-tight">
                   Help arrives in <br />
-                  <span className="text-primary-300">3 simple steps.</span>
+                  <span className="text-primary">3 simple steps.</span>
                 </h2>
-                <p className="text-white/60 text-lg leading-relaxed">
+                <p className="text-secondary-500 text-lg leading-relaxed">
                   Our streamlined process ensures you get the right help as fast
                   as possible. No accounts, no subscriptions, just help.
                 </p>
 
                 <Link href="/rescue">
-                  <button className="bg-white/10 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/20 transition-all border border-white/10 backdrop-blur-sm flex items-center gap-2 mt-8">
+                  <button className="bg-primary text-white font-bold py-4 px-8 rounded-xl hover:bg-primary-800 transition-all border border-primary shadow-lg flex items-center gap-2 mt-8">
                     Start Request <ArrowForwardIcon style={{ fontSize: 20 }} />
                   </button>
                 </Link>
@@ -435,7 +434,7 @@ export default function Home() {
                       description:
                         "Enter your vehicle info and contact details so we can reach you.",
                       icon: PhoneInTalkIcon,
-                      color: "bg-accent",
+                      color: "bg-primary",
                     },
                     {
                       step: 3,
@@ -448,20 +447,20 @@ export default function Home() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-6 bg-secondary-900/50 border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors"
+                      className="flex items-start gap-6 bg-secondary/5 border border-secondary/10 p-6 rounded-2xl hover:border-primary/20 hover:bg-secondary/10 transition-colors"
                     >
                       <div className="flex-shrink-0">
                         <div
-                          className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold shadow-lg ${i === 1 ? "bg-accent text-dark" : "bg-primary/30 text-white"}`}
+                          className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold shadow-lg ${i === 1 ? "bg-primary text-white" : "bg-secondary text-white"}`}
                         >
                           <item.icon style={{ fontSize: 24 }} />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-2">
+                        <h3 className="text-xl font-bold text-secondary mb-2">
                           {item.title}
                         </h3>
-                        <p className="text-white/50">{item.description}</p>
+                        <p className="text-secondary-500">{item.description}</p>
                       </div>
                     </div>
                   ))}
@@ -487,7 +486,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col mobile:items-center sm:flex-row justify-center gap-4">
                 <Link href="/rescue">
-                  <button className="bg-accent text-dark font-bold py-5 px-10 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 transform duration-300 text-lg">
+                  <button className="bg-primary text-dark font-bold py-5 px-10 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 transform duration-300 text-lg">
                     <SupportAgentIcon style={{ fontSize: 28 }} />
                     Request Assistance
                   </button>

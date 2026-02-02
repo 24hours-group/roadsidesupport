@@ -22,7 +22,7 @@ const Button = forwardRef(
       secondary:
         "bg-secondary-100 text-secondary-800 hover:bg-secondary-200 border border-secondary-300",
       accent:
-        "bg-accent text-dark font-bold hover:bg-accent-400 hover:shadow-lg",
+        "bg-primary text-white font-bold hover:bg-primary-800 hover:shadow-lg",
       outline:
         "border-2 border-primary text-primary hover:bg-primary hover:text-white",
       ghost: "text-secondary-700 hover:bg-secondary-100",

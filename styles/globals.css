@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #3d4f5f;
-  --secondary-color: #2d3e4e;
-  --accent-color: #d4a017;
-  --bg-dark: #1a2633;
+  --primary-color: #ff6d00;
+  --secondary-color: #010513;
+  --accent-color: #cfd8dc;
+  --alert-color: #d50000;
+  --bg-dark: #010513;
+  --bg-white: #ffffff;
 }
 
 @layer base {
@@ -143,14 +145,14 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a2633;
+  background: #010513;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3d4f5f;
+  background: #101532;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4a5f70;
+  background: #171e41;
 }
 
 /* Glassmorphism utilities */
@@ -159,17 +161,25 @@
 }
 
 .shadow-accent-glow {
-  box-shadow: 0 0 15px rgba(212, 160, 23, 0.3);
+  box-shadow: 0 0 15px rgba(255, 109, 0, 0.3);
 }
 
 .shadow-accent-glow-lg {
-  box-shadow: 0 0 25px rgba(212, 160, 23, 0.5);
+  box-shadow: 0 0 25px rgba(255, 109, 0, 0.5);
+}
+
+.shadow-primary-glow {
+  box-shadow: 0 0 15px rgba(255, 109, 0, 0.3);
+}
+
+.shadow-primary-glow-lg {
+  box-shadow: 0 0 25px rgba(255, 109, 0, 0.5);
 }
 
 /* Google Places Autocomplete Dropdown */
 .pac-container {
   z-index: 10000 !important;
-  background-color: #1a2633 !important;
+  background-color: #010513 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 12px !important;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
@@ -183,14 +193,13 @@
 
 .pac-item {
   @apply !font-playfair;
-  background-color: #1a2633 !important;
+  background-color: #010513 !important;
   color: rgba(255, 255, 255, 0.8) !important;
   padding: 12px 16px !important;
   border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
   cursor: pointer !important;
   font-size: 14px !important;
   line-height: 1.5 !important;
-
 }
 
 .pac-item:first-child {
@@ -208,7 +217,7 @@
 }
 
 .pac-matched {
-  color: #d4a017 !important;
+  color: #ff6d00 !important;
   font-weight: 700 !important;
 }
 

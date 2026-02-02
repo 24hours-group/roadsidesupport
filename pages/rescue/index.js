@@ -246,7 +246,7 @@ export default function RescuePage() {
       </Head>
       <AnimatedStyles />
 
-      <div className="min-h-screen bg-dark">
+      <div className="min-h-screen bg-dark text-white selection:bg-primary">
         <SiteHeader simple={true} />
 
         {/* Main Content */}
@@ -262,7 +262,7 @@ export default function RescuePage() {
                 <div className="mb-4 flex items-center gap-2 text-white/80 text-sm">
                   <LocationOnIcon
                     style={{ fontSize: 18 }}
-                    className="text-accent"
+                    className="text-primary"
                   />
                   <span className="truncate flex-1">{location.address}</span>
                   <button
@@ -272,7 +272,7 @@ export default function RescuePage() {
                       setShowManualInput(true);
                       setLocation(null);
                     }}
-                    className="text-accent hover:underline font-medium"
+                    className="text-primary hover:underline font-medium"
                   >
                     EDIT
                   </button>
@@ -305,7 +305,7 @@ export default function RescuePage() {
 
               {/* Step: Service Selection */}
               {step === "service" && (
-                <div className="bg-secondary-900/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6">
+                <div className="bg-secondary/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6">
                   <h1 className="text-2xl font-bold text-white mb-2">
                     What do you need?
                   </h1>
@@ -326,14 +326,14 @@ export default function RescuePage() {
                           }}
                           className={`p-4 rounded-xl border-2 transition-all duration-200 flex flex-col items-center gap-2 ${
                             isSelected
-                              ? "border-accent bg-accent/10 text-white"
+                              ? "border-primary bg-primary/10 text-white"
                               : "border-secondary-600 bg-secondary-800/50 text-white/70 hover:border-secondary-500"
                           }`}
                         >
                           {Icon && (
                             <Icon
                               style={{ fontSize: 32 }}
-                              className={isSelected ? "text-accent" : ""}
+                              className={isSelected ? "text-primary" : ""}
                             />
                           )}
                           <span className="font-medium text-sm">
@@ -359,13 +359,13 @@ export default function RescuePage() {
 
               {/* Step: Location */}
               {step === "location" && (
-                <div className="bg-secondary-900/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6 text-center">
+                <div className="bg-secondary/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6 text-center">
                   {/* Illustration */}
                   <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-secondary-800 border-4 border-secondary-700 flex items-center justify-center relative">
                     <div
-                      className={`absolute w-20 h-20 rounded-full bg-accent/20 ${!location ? "animate-ping" : ""}`}
+                      className={`absolute w-20 h-20 rounded-full bg-primary/20 ${!location ? "animate-ping" : ""}`}
                     />
-                    <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center z-10">
+                    <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center z-10">
                       <LocationOnIcon
                         className="text-dark"
                         style={{ fontSize: 32 }}
@@ -434,7 +434,7 @@ export default function RescuePage() {
                       className="space-y-4 animate-fade-in-up"
                     >
                       <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-accent">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary">
                           <SearchIcon style={{ fontSize: 20 }} />
                         </div>
                         <input
@@ -443,7 +443,7 @@ export default function RescuePage() {
                           value={manualAddress}
                           onChange={(e) => setManualAddress(e.target.value)}
                           placeholder="Enter address, highway marker, or landmark..."
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-accent focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg"
                         />
                       </div>
 
@@ -460,7 +460,7 @@ export default function RescuePage() {
                       <button
                         type="button"
                         onClick={() => setShowManualInput(false)}
-                        className="text-accent hover:underline font-semibold text-sm"
+                        className="text-primary hover:underline font-semibold text-sm"
                       >
                         Use GPS Instead
                       </button>
@@ -492,7 +492,7 @@ export default function RescuePage() {
                         }}
                         className="w-full bg-white/5 border border-white/10 text-white font-semibold py-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2 group mobile:text-sm"
                       >
-                        <EditLocationIcon className="text-white/50 group-hover:text-accent transition-colors" />
+                        <EditLocationIcon className="text-white/50 group-hover:text-primary transition-colors" />
                         ENTER ADDRESS MANUALLY
                       </button>
                     </div>

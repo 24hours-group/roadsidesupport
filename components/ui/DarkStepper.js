@@ -13,18 +13,18 @@ const DarkConnector = styled(StepConnector)(({ theme }) => ({
   },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundColor: "#D4A017",
+      backgroundColor: "#FF6D00",
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundColor: "#D4A017",
+      backgroundColor: "#FF6D00",
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
     height: 2,
     border: 0,
-    backgroundColor: "#3D4F5F",
+    backgroundColor: "#455A64",
     borderRadius: 1,
   },
 }));
@@ -35,7 +35,7 @@ function StepIcon({ active, completed, icon }) {
     <div
       className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
         completed || active
-          ? "bg-accent text-dark"
+          ? "bg-primary text-white"
           : "bg-secondary-700 text-white/50 border border-white/5"
       }`}
     >
@@ -62,7 +62,7 @@ export default function DarkStepper({
             fontSize: "0.75rem",
             marginTop: "8px",
             "&.Mui-active": {
-              color: "#D4A017",
+              color: "#FF6D00",
             },
             "&.Mui-completed": {
               color: "rgba(255,255,255,0.7)",

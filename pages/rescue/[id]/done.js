@@ -27,7 +27,7 @@ export default function DonePage() {
         <title>Request Submitted - Roadside Support</title>
       </Head>
       <AnimatedStyles />
-      <div className="min-h-screen bg-dark text-white selection:bg-accent selection:text-dark">
+      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
         <SiteHeader simple={true} />
 
         <main className="pt-24 px-4 pb-8 flex items-center justify-center min-h-screen">
@@ -37,14 +37,14 @@ export default function DonePage() {
               {/* Animated Phone Icon with Pulse Rings */}
               <div className="relative w-32 h-32 mx-auto mb-8 animate-fade-in-up">
                 {/* Outer pulse rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-accent/40 animate-pulse-ring" />
-                <div className="absolute inset-0 rounded-full border-2 border-accent/30 animate-pulse-ring-delayed" />
+                <div className="absolute inset-0 rounded-full border-2 border-primary/40 animate-pulse-ring" />
+                <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-pulse-ring-delayed" />
 
                 {/* Main circle */}
-                <div className="absolute inset-4 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 backdrop-blur-sm border border-accent/20 flex items-center justify-center">
+                <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/20 flex items-center justify-center">
                   <div className="animate-gentle-bounce">
                     <PhoneIcon
-                      className="text-accent"
+                      className="text-primary"
                       style={{ fontSize: 40 }}
                     />
                   </div>
@@ -111,7 +111,7 @@ export default function DonePage() {
                   <AccessTimeIcon style={{ fontSize: 18 }} />
                   <span className="text-sm">Typical wait time:</span>
                 </div>
-                <span className="text-accent font-semibold text-sm">
+                <span className="text-primary font-semibold text-sm">
                   Under 5 minutes
                 </span>
               </div>
