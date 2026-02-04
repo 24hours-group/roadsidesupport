@@ -7,6 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import { MapPreview } from "@/components/rescue";
 import { SERVICE_TYPES } from "@/lib/schemas";
 import AnimatedStyles from "@/components/AnimatedStyles";
+import styles from "./service.module.css";
 
 // MUI Icons
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -71,49 +72,42 @@ export default function ServiceConfirmPage() {
       </Head>
       <AnimatedStyles />
 
-      <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
+      <div className={styles.page}>
         <SiteHeader simple={true} />
 
-        <main className="pt-24 px-4 pb-20">
-          <div className="max-w-xl mx-auto">
+        <main className={styles.main}>
+          <div className={styles.container}>
             {/* Back Link */}
-            <button
-              onClick={() => router.back()}
-              className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors mb-8"
-            >
+            <button onClick={() => router.back()} className={styles.backLink}>
               <ArrowBackIcon style={{ fontSize: 20 }} />
-              <span className="font-medium">Change Selection</span>
+              <span className={styles.backLinkText}>Change Selection</span>
             </button>
 
             {/* Header */}
-            <div className="text-center mb-8 animate-fade-in-up">
-              <h1 className="text-3xl mobile:text-2xl font-bold text-white mb-3 tracking-tight">
-                Confirm Your Details
-              </h1>
-              <p className="text-white/50 text-lg mobile:text-base">
+            <div className={`${styles.header} animate-fade-in-up`}>
+              <h1 className={styles.title}>Confirm Your Details</h1>
+              <p className={styles.subtitle}>
                 Please verify the information below is correct
               </p>
             </div>
 
             {/* Map Preview */}
-            <div className="rounded-2xl overflow-hidden mb-6 border border-white/10 animate-fade-in-up animate-fade-in-up-1">
+            <div className={`${styles.mapPreview} animate-fade-in-up-1`}>
               <MapPreview location={requestData.pickup_location} height={200} />
             </div>
 
             {/* Location Card */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 mb-4 animate-fade-in-up animate-fade-in-up-2">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+            <div className={`${styles.infoCard} animate-fade-in-up-2`}>
+              <div className={styles.infoCardInner}>
+                <div className={styles.infoIconWrapper}>
                   <LocationOnIcon
                     className="text-primary"
                     style={{ fontSize: 24 }}
                   />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-white/40 text-xs uppercase tracking-wider font-medium mb-1">
-                    Pickup Location
-                  </p>
-                  <p className="text-white font-medium text-lg leading-snug">
+                <div className={styles.infoContent}>
+                  <p className={styles.infoLabel}>Pickup Location</p>
+                  <p className={styles.infoValue}>
                     {requestData.pickup_location?.address}
                   </p>
                 </div>
@@ -121,9 +115,9 @@ export default function ServiceConfirmPage() {
             </div>
 
             {/* Service Card */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 mb-8 animate-fade-in-up animate-fade-in-up-2">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary-500/10 border border-primary-500/20 flex items-center justify-center flex-shrink-0">
+            <div className={`${styles.serviceCard} animate-fade-in-up-2`}>
+              <div className={styles.serviceCardInner}>
+                <div className={styles.serviceIconWrapper}>
                   {IconComponent && (
                     <IconComponent
                       className="text-primary-400"
@@ -131,11 +125,9 @@ export default function ServiceConfirmPage() {
                     />
                   )}
                 </div>
-                <div className="flex-1">
-                  <p className="text-white/40 text-xs uppercase tracking-wider font-medium mb-1">
-                    Service Requested
-                  </p>
-                  <p className="text-white font-semibold text-lg">
+                <div className={styles.infoContent}>
+                  <p className={styles.infoLabel}>Service Requested</p>
+                  <p className={styles.serviceTitle}>
                     {service?.label || requestData.service_type}
                   </p>
                 </div>
@@ -143,19 +135,17 @@ export default function ServiceConfirmPage() {
             </div>
 
             {/* Info Card */}
-            <div className="bg-primary/5 border border-primary/10 rounded-2xl p-5 mb-10 animate-fade-in-up animate-fade-in-up-3">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+            <div className={`${styles.infoBox} animate-fade-in-up-3`}>
+              <div className={styles.infoBoxInner}>
+                <div className={styles.infoBoxIcon}>
                   <InfoOutlinedIcon
                     className="text-primary"
                     style={{ fontSize: 20 }}
                   />
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-1">
-                    What happens next?
-                  </p>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className={styles.infoBoxTitle}>What happens next?</p>
+                  <p className={styles.infoBoxText}>
                     After completing the form, a specialist will call you within
                     10 minutes to provide pricing and dispatch help.
                   </p>
@@ -164,7 +154,7 @@ export default function ServiceConfirmPage() {
             </div>
 
             {/* Actions */}
-            <div className="space-y-4 animate-fade-in-up animate-fade-in-up-4">
+            <div className={`${styles.actions} animate-fade-in-up-4`}>
               <Button
                 variant="accent"
                 size="lg"
@@ -176,9 +166,7 @@ export default function ServiceConfirmPage() {
               </Button>
 
               <Link href="/rescue">
-                <button className="w-full text-center text-white/40 hover:text-white font-semibold text-sm py-3 transition-colors duration-200">
-                  CHANGE SELECTION
-                </button>
+                <button className={styles.changeLink}>CHANGE SELECTION</button>
               </Link>
             </div>
           </div>

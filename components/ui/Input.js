@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import styles from "./Input.module.css";
 
 const Input = forwardRef(
   (
@@ -6,22 +7,22 @@ const Input = forwardRef(
     ref,
   ) => {
     return (
-      <div className="w-full">
+      <div className={styles.wrapper}>
         {label && (
-          <label className="input-label">
+          <label className={styles.label}>
             {label}
-            {props.required && <span className="text-red-500 ml-1">*</span>}
+            {props.required && <span className={styles.required}>*</span>}
           </label>
         )}
         <input
           ref={ref}
           type={type}
-          className={`input-field ${error ? "input-field-error" : ""} ${className}`}
+          className={`${styles.input} ${error ? styles.inputError : ""} ${className}`}
           {...props}
         />
-        {error && <p className="input-error">{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
         {helperText && !error && (
-          <p className="text-sm text-secondary-500 mt-1">{helperText}</p>
+          <p className={styles.helperText}>{helperText}</p>
         )}
       </div>
     );

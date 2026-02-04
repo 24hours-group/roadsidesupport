@@ -3,6 +3,7 @@ import { Button, Alert, Spinner } from "@/components/ui";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import SearchIcon from "@mui/icons-material/Search";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import styles from "./LocationPicker.module.css";
 
 export default function LocationPicker({ value, onChange, error }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -168,7 +169,7 @@ export default function LocationPicker({ value, onChange, error }) {
   }, [onChange]);
 
   return (
-    <div className="w-full space-y-4">
+    <div className={styles.wrapper}>
       {/* GPS Button */}
       <Button
         type="button"
@@ -191,17 +192,15 @@ export default function LocationPicker({ value, onChange, error }) {
       </Button>
 
       {/* Divider */}
-      <div className="flex items-center gap-4">
-        <div className="flex-1 h-px bg-secondary-300" />
-        <span className="text-sm text-secondary-600 font-medium">
-          or enter address
-        </span>
-        <div className="flex-1 h-px bg-secondary-300" />
+      <div className={styles.divider}>
+        <div className={styles.dividerLine} />
+        <span className={styles.dividerText}>or enter address</span>
+        <div className={styles.dividerLine} />
       </div>
 
       {/* Address Input */}
-      <div className="relative">
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-secondary-500">
+      <div className={styles.inputWrapper}>
+        <div className={styles.inputIcon}>
           <SearchIcon style={{ fontSize: 20 }} />
         </div>
         <input
@@ -210,22 +209,22 @@ export default function LocationPicker({ value, onChange, error }) {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Search for your address..."
-          className="input-field pl-12"
+          className={styles.addressInput}
         />
       </div>
 
       {/* Success indicator */}
       {value?.address && !locationError && (
         <Alert variant="success">
-          <div className="flex items-start gap-2">
+          <div className={styles.successContent}>
             <CheckCircleIcon
-              className="text-success flex-shrink-0 mt-0.5"
+              className={styles.successIcon}
               style={{ fontSize: 20 }}
             />
             <div>
-              <p className="font-semibold">Location set</p>
-              <p className="text-sm opacity-80">{value.address}</p>
-              <p className="text-xs opacity-60 mt-1">
+              <p className={styles.successTitle}>Location set</p>
+              <p className={styles.successAddress}>{value.address}</p>
+              <p className={styles.successSource}>
                 via {value.source === "gps" ? "GPS" : "address search"}
               </p>
             </div>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import styles from "./DefaultMap.module.css";
 
 /**
  * Default map component that shows a US-centered map
@@ -147,16 +148,12 @@ export default function DefaultMap({ location, className = "" }) {
   }, [location]);
 
   return (
-    <div className={`w-full h-full ${className}`}>
-      <div
-        ref={mapRef}
-        className="w-full h-full"
-        style={{ minHeight: "200px" }}
-      />
+    <div className={`${styles.wrapper} ${className}`}>
+      <div ref={mapRef} className={styles.mapContainer} />
       {/* Loading fallback */}
       {!isMapReady && (
-        <div className="absolute inset-0 bg-secondary-900 flex items-center justify-center">
-          <div className="text-white/40 text-sm">Loading map...</div>
+        <div className={styles.loadingOverlay}>
+          <div className={styles.loadingText}>Loading map...</div>
         </div>
       )}
     </div>

@@ -10,6 +10,7 @@ import { vehicleSchema } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
 import { VEHICLE_MAKES, POPULAR_MODELS } from "@/lib/vehicleMakes";
 import AnimatedStyles from "@/components/AnimatedStyles";
+import styles from "./vehicle.module.css";
 
 // MUI Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";

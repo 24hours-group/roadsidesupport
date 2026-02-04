@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { SERVICE_TYPES } from "@/lib/schemas";
+import styles from "./index.module.css";
 
 // MUI Icons
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
@@ -179,7 +180,11 @@ export default function Home() {
               {Object.values(SERVICE_TYPES).map((service, idx) => {
                 const IconComponent = serviceIcons[service.icon];
                 return (
-                  <Link key={service.id} href="/rescue" className="group">
+                  <Link
+                    key={service.id}
+                    href={`/rescue?service=${service.id}`}
+                    className="group"
+                  >
                     <div className="relative h-full bg-secondary/5 border border-secondary/10 rounded-2xl p-8 hover:bg-secondary/10 hover:border-primary/30 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:-translate-y-1">
                       {/* Hover Gradient Background */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

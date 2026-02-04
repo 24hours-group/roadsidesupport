@@ -1,0 +1,49 @@
+/* Checkbox Component Styles */
+
+.wrapper {
+  @apply w-full;
+}
+
+.label {
+  @apply flex items-center gap-3 cursor-pointer;
+}
+
+.label:hover .labelText {
+  @apply text-secondary-900;
+}
+
+.inputWrapper {
+  @apply relative;
+}
+
+.input {
+  @apply sr-only;
+}
+
+.checkbox {
+  @apply w-6 h-6 rounded-lg border-2 border-secondary-300 bg-white transition-all duration-200 flex items-center justify-center;
+}
+
+.input:checked + .checkbox {
+  @apply bg-primary border-primary;
+}
+
+.input:focus + .checkbox {
+  @apply ring-2 ring-primary/20;
+}
+
+.checkIcon {
+  @apply w-4 h-4 text-white opacity-0 transition-opacity;
+}
+
+.input:checked ~ .checkIcon {
+  @apply opacity-100;
+}
+
+.labelText {
+  @apply text-secondary-700 transition-colors;
+}
+
+.error {
+  @apply text-red-500 text-sm mt-1;
+}

@@ -5,6 +5,7 @@ import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
 import { styled } from "@mui/material/styles";
+import styles from "./DarkStepper.module.css";
 
 // Custom connector with dark theme styling
 const DarkConnector = styled(StepConnector)(({ theme }) => ({
@@ -33,10 +34,8 @@ const DarkConnector = styled(StepConnector)(({ theme }) => ({
 function StepIcon({ active, completed, icon }) {
   return (
     <div
-      className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
-        completed || active
-          ? "bg-primary text-white"
-          : "bg-secondary-700 text-white/50 border border-white/5"
+      className={`${styles.stepIcon} ${
+        completed || active ? styles.stepIconActive : styles.stepIconInactive
       }`}
     >
       {icon}

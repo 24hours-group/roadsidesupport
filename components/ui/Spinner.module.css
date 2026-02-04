@@ -1,0 +1,9 @@
+/* Spinner Component Styles */
+
+.wrapper {
+  @apply flex items-center justify-center;
+}
+
+.spinner {
+  @apply text-primary;
+}

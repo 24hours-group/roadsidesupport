@@ -1,4 +1,5 @@
 import CircularProgress from "@mui/material/CircularProgress";
+import styles from "./Spinner.module.css";
 
 export default function Spinner({ size = "md", className = "" }) {
   const sizes = {
@@ -9,10 +10,10 @@ export default function Spinner({ size = "md", className = "" }) {
   };
 
   return (
-    <div className={`flex items-center justify-center ${className}`}>
+    <div className={`${styles.wrapper} ${className}`}>
       <CircularProgress
         size={sizes[size]}
-        className="text-primary"
+        className={styles.spinner}
         sx={{ color: "#FF6D00" }}
       />
     </div>

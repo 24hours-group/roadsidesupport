@@ -1,0 +1,17 @@
+/* DarkStepper Component Styles */
+
+.wrapper {
+  /* Main wrapper */
+}
+
+.stepIcon {
+  @apply w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all;
+}
+
+.stepIconActive {
+  @apply bg-primary text-white;
+}
+
+.stepIconInactive {
+  @apply bg-secondary-700 text-white/50 border border-white/5;
+}

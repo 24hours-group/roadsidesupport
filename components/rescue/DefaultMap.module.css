@@ -1,0 +1,18 @@
+/* DefaultMap Component Styles */
+
+.wrapper {
+  @apply w-full h-full;
+}
+
+.mapContainer {
+  @apply w-full h-full;
+  min-height: 200px;
+}
+
+.loadingOverlay {
+  @apply absolute inset-0 bg-secondary-900 flex items-center justify-center;
+}
+
+.loadingText {
+  @apply text-white/40 text-sm;
+}

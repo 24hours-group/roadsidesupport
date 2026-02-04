@@ -1,0 +1,61 @@
+/* RadioGroup Component Styles */
+
+.wrapper {
+  @apply w-full;
+}
+
+.label {
+  @apply block text-sm font-semibold text-secondary-700 mb-3;
+}
+
+.optionsVertical {
+  @apply flex flex-col gap-3;
+}
+
+.optionsHorizontal {
+  @apply flex flex-row flex-wrap gap-4;
+}
+
+.option {
+  @apply flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200;
+}
+
+.optionDefault {
+  @apply border-secondary-200 bg-white hover:border-primary/50 hover:shadow-sm;
+}
+
+.optionSelected {
+  @apply border-primary bg-primary-50 shadow-md;
+}
+
+.radioWrapper {
+  @apply relative;
+}
+
+.radioInput {
+  @apply sr-only;
+}
+
+.radioCircle {
+  @apply w-5 h-5 rounded-full border-2 border-secondary-300 transition-all duration-200;
+}
+
+.radioInput:checked + .radioCircle {
+  @apply border-primary border-[6px];
+}
+
+.optionContent {
+  @apply flex flex-col;
+}
+
+.optionLabel {
+  @apply font-medium text-secondary-800;
+}
+
+.optionDescription {
+  @apply text-sm text-secondary-500;
+}
+
+.error {
+  @apply text-red-500 text-sm mt-2;
+}

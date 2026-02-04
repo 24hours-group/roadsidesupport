@@ -2,68 +2,51 @@ import Link from "next/link";
 import Image from "next/image";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { SERVICE_TYPES } from "@/lib/schemas";
+import styles from "./SiteFooter.module.css";
 
 export default function SiteFooter() {
   return (
-    <footer className="py-16 bg-secondary border-t border-white/5">
+    <footer className={styles.footer}>
       <div className="container-app">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className={styles.gridLayout}>
           {/* Brand */}
-          <div className="md:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-20 h-20 rounded-xl overflow-hidden">
+          <div className={styles.brandSection}>
+            <Link href="/" className={styles.brandLink}>
+              <div className={styles.logoWrapper}>
                 <Image
                   src="/RSS-logo.png"
                   alt="Roadside Support Logo"
                   width={160}
                   height={160}
-                  className="w-full h-full object-cover"
+                  className={styles.logoImage}
                 />
               </div>
-              <span className="text-2xl font-bold text-white font-playfair">
-                Roadside Support
-              </span>
+              <span className={styles.brandName}>Roadside Support</span>
             </Link>
-            <p className="text-white/50 max-w-sm text-lg leading-relaxed">
+            <p className={styles.tagline}>
               The modern way to get roadside assistance. Fast, transparent, and
               membership-free.
             </p>
-            <div className="flex gap-4">
+            <div className={styles.socialLinks}>
               {/* Social placeholders */}
-              {/* {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-accent hover:text-dark flex items-center justify-center transition-all cursor-pointer text-white/50"
-                >
-                  <div className="w-4 h-4 bg-current rounded-sm" />
-                </div>
-              ))} */}
             </div>
           </div>
 
           {/* Links */}
-          <div>
-            <h4 className="font-bold text-white text-lg mb-6 tracking-wide">
-              Services
-            </h4>
-            <ul className="space-y-4">
+          <div className={styles.linksSection}>
+            <h4 className={styles.sectionTitle}>Services</h4>
+            <ul className={styles.linksList}>
               {Object.values(SERVICE_TYPES)
                 .slice(0, 4)
                 .map((service) => (
                   <li key={service.id}>
-                    <Link
-                      href="/rescue"
-                      className="text-white/50 hover:text-primary transition-colors"
-                    >
+                    <Link href="/rescue" className={styles.serviceLink}>
                       {service.label}
                     </Link>
                   </li>
                 ))}
               <li>
-                <Link
-                  href="/rescue"
-                  className="text-primary hover:text-white transition-colors text-sm font-semibold uppercase tracking-wider"
-                >
+                <Link href="/rescue" className={styles.viewAllLink}>
                   View All
                 </Link>
               </li>
@@ -72,15 +55,10 @@ export default function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-white text-lg mb-6 tracking-wide">
-              Contact
-            </h4>
-            <ul className="space-y-4">
+            <h4 className={styles.sectionTitle}>Contact</h4>
+            <ul className={styles.linksList}>
               <li>
-                <a
-                  href="tel:+15551234567"
-                  className="text-white/50 hover:text-white transition-colors flex items-center gap-2"
-                >
+                <a href="tel:+15551234567" className={styles.contactLink}>
                   <PhoneIcon style={{ fontSize: 18 }} />
                   (555) 123-4567
                 </a>
@@ -88,7 +66,7 @@ export default function SiteFooter() {
               <li>
                 <a
                   href="mailto:help@roadsidesupport.com"
-                  className="text-white/50 hover:text-white transition-colors"
+                  className={styles.emailLink}
                 >
                   help@roadsidesupport.com
                 </a>
@@ -98,13 +76,13 @@ export default function SiteFooter() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30">
+        <div className={styles.bottomBar}>
           <p>© {new Date().getFullYear()} Roadside Support.</p>
-          <div className="flex gap-8">
-            <Link href="#" className="hover:text-white transition-colors">
+          <div className={styles.legalLinks}>
+            <Link href="#" className={styles.legalLink}>
               Privacy
             </Link>
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="#" className={styles.legalLink}>
               Terms
             </Link>
           </div>

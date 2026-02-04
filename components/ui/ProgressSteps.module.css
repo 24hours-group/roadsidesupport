@@ -1,0 +1,62 @@
+/* ProgressSteps Component Styles */
+
+.wrapper {
+  @apply w-full;
+}
+
+.container {
+  @apply flex items-center justify-between;
+}
+
+.stepWrapper {
+  @apply flex items-center flex-1;
+}
+
+.stepContent {
+  @apply flex flex-col items-center;
+}
+
+.stepCircle {
+  @apply w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300;
+}
+
+.stepCompleted {
+  @apply bg-primary text-white;
+}
+
+.stepActive {
+  @apply bg-primary text-white ring-4 ring-primary/20;
+}
+
+.stepPending {
+  @apply bg-secondary-200 text-secondary-500;
+}
+
+.stepLabel {
+  @apply mt-2 text-xs font-semibold text-center max-w-[80px] hidden sm:block;
+}
+
+.stepLabelActive {
+  @apply text-primary;
+}
+
+.stepLabelInactive {
+  @apply text-secondary-500;
+}
+
+/* Connector Line */
+.connector {
+  @apply flex-1 h-1 mx-2 rounded-full bg-secondary-200 overflow-hidden;
+}
+
+.connectorFill {
+  @apply h-full bg-primary transition-all duration-500;
+}
+
+.connectorComplete {
+  @apply w-full;
+}
+
+.connectorIncomplete {
+  @apply w-0;
+}

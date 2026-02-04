@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import styles from "./Select.module.css";
 
 const Select = forwardRef(
   (
@@ -13,16 +14,16 @@ const Select = forwardRef(
     ref,
   ) => {
     return (
-      <div className="w-full">
+      <div className={styles.wrapper}>
         {label && (
-          <label className="input-label">
+          <label className={styles.label}>
             {label}
-            {props.required && <span className="text-red-500 ml-1">*</span>}
+            {props.required && <span className={styles.required}>*</span>}
           </label>
         )}
         <select
           ref={ref}
-          className={`input-field ${error ? "input-field-error" : ""} ${className}`}
+          className={`${styles.select} ${error ? styles.selectError : ""} ${className}`}
           {...props}
         >
           <option value="" disabled>
@@ -34,7 +35,7 @@ const Select = forwardRef(
             </option>
           ))}
         </select>
-        {error && <p className="input-error">{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     );
   },

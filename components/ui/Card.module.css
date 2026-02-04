@@ -1,0 +1,48 @@
+/* Card Component Styles */
+
+.card {
+  @apply rounded-2xl;
+}
+
+/* Variant Styles */
+.default {
+  @apply bg-white border border-secondary-200 shadow-card;
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-glass;
+}
+
+.glassDark {
+  @apply bg-secondary/80 backdrop-blur-xl border border-white/10 shadow-glass-lg;
+}
+
+.outline {
+  @apply bg-white border-2 border-secondary-200;
+}
+
+.elevated {
+  @apply bg-white shadow-lg;
+}
+
+/* Padding Sizes */
+.paddingNone {
+  /* No padding */
+}
+
+.paddingSm {
+  @apply p-4;
+}
+
+.paddingMd {
+  @apply p-6;
+}
+
+.paddingLg {
+  @apply p-8;
+}
+
+/* Hover State */
+.hoverable {
+  @apply hover:shadow-card-hover transition-shadow duration-300;
+}

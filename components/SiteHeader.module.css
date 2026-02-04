@@ -1,0 +1,71 @@
+/* SiteHeader Component Styles */
+
+.header {
+  @apply fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-md border-b border-white/10 transition-all duration-300;
+}
+
+.container {
+  @apply flex items-center justify-between h-16 md:h-20;
+}
+
+/* Logo Section */
+.logoLink {
+  @apply flex items-center gap-3;
+}
+
+.logoLink:hover .logoWrapper {
+  @apply scale-110;
+}
+
+.logoWrapper {
+  @apply w-16 h-16 mobile:w-10 mobile:h-10 rounded-xl overflow-hidden shadow-lg transition-transform duration-300;
+}
+
+.logoImage {
+  @apply w-full h-full object-cover;
+}
+
+.brandText {
+  @apply flex flex-col;
+}
+
+.brandName {
+  @apply text-xl mobile:text-sm mobile:max-w-[100px] font-bold text-white tracking-tight font-playfair;
+}
+
+.brandTagline {
+  @apply text-[10px] uppercase tracking-widest text-primary font-semibold hidden sm:block;
+}
+
+/* Actions Section */
+.actions {
+  @apply flex items-center gap-6;
+}
+
+.phoneLink {
+  @apply hidden md:flex items-center gap-2 text-white/70 hover:text-white transition-colors;
+}
+
+.phoneLink:hover .phoneIcon {
+  @apply bg-primary text-white;
+}
+
+.phoneLink:hover .phoneNumber {
+  @apply text-primary;
+}
+
+.phoneIcon {
+  @apply w-8 h-8 rounded-full bg-white/5 flex items-center justify-center transition-all duration-300;
+}
+
+.phoneNumber {
+  @apply font-semibold transition-colors;
+}
+
+.ctaButton {
+  @apply bg-primary mobile:text-sm text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+.mobilePhoneButton {
+  @apply md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-primary border border-white/10;
+}

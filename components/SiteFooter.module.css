@@ -1,0 +1,85 @@
+/* SiteFooter Component Styles */
+
+.footer {
+  @apply py-16 bg-secondary border-t border-white/5;
+}
+
+.gridLayout {
+  @apply grid grid-cols-1 md:grid-cols-4 gap-12 mb-16;
+}
+
+/* Brand Section */
+.brandSection {
+  @apply md:col-span-2 space-y-6;
+}
+
+.brandLink {
+  @apply flex items-center gap-3;
+}
+
+.logoWrapper {
+  @apply w-20 h-20 rounded-xl overflow-hidden;
+}
+
+.logoImage {
+  @apply w-full h-full object-cover;
+}
+
+.brandName {
+  @apply text-2xl font-bold text-white font-playfair;
+}
+
+.tagline {
+  @apply text-white/50 max-w-sm text-lg leading-relaxed;
+}
+
+.socialLinks {
+  @apply flex gap-4;
+}
+
+/* Links Section */
+.linksSection {
+  /* Container for links column */
+}
+
+.sectionTitle {
+  @apply font-bold text-white text-lg mb-6 tracking-wide;
+}
+
+.linksList {
+  @apply space-y-4;
+}
+
+.serviceLink {
+  @apply text-white/50 hover:text-primary transition-colors;
+}
+
+.viewAllLink {
+  @apply text-primary hover:text-white transition-colors text-sm font-semibold uppercase tracking-wider;
+}
+
+/* Contact Section */
+.contactLink {
+  @apply text-white/50 hover:text-white transition-colors flex items-center gap-2;
+}
+
+.emailLink {
+  @apply text-white/50 hover:text-white transition-colors;
+}
+
+/* Bottom Bar */
+.bottomBar {
+  @apply pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30;
+}
+
+.copyright {
+  /* Copyright text */
+}
+
+.legalLinks {
+  @apply flex gap-8;
+}
+
+.legalLink {
+  @apply hover:text-white transition-colors;
+}

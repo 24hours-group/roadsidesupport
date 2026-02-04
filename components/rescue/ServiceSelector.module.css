@@ -1,0 +1,37 @@
+/* ServiceSelector Component Styles */
+
+.wrapper {
+  @apply w-full;
+}
+
+.gridLayout {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-4;
+}
+
+.serviceCard {
+  @apply flex flex-col items-center gap-3 p-6 rounded-2xl border-2 border-secondary-200 bg-white cursor-pointer transition-all duration-200 hover:border-primary/50 hover:shadow-md;
+}
+
+.serviceCardSelected {
+  @apply border-primary bg-primary-50 shadow-lg;
+}
+
+.iconDefault {
+  @apply text-secondary-500 transition-colors;
+}
+
+.iconSelected {
+  @apply text-primary transition-colors;
+}
+
+.serviceLabel {
+  @apply font-semibold text-secondary-800;
+}
+
+.serviceDescription {
+  @apply text-sm text-secondary-500 hidden sm:block;
+}
+
+.error {
+  @apply text-red-500 text-sm mt-3 text-center;
+}

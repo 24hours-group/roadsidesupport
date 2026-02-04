@@ -1,0 +1,52 @@
+/* LocationPicker Component Styles */
+
+.wrapper {
+  @apply w-full space-y-4;
+}
+
+/* Divider */
+.divider {
+  @apply flex items-center gap-4;
+}
+
+.dividerLine {
+  @apply flex-1 h-px bg-secondary-300;
+}
+
+.dividerText {
+  @apply text-sm text-secondary-600 font-medium;
+}
+
+/* Address Input */
+.inputWrapper {
+  @apply relative;
+}
+
+.inputIcon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 text-secondary-500;
+}
+
+.addressInput {
+  @apply input-field pl-12;
+}
+
+/* Success Alert */
+.successContent {
+  @apply flex items-start gap-2;
+}
+
+.successIcon {
+  @apply text-success flex-shrink-0 mt-0.5;
+}
+
+.successTitle {
+  @apply font-semibold;
+}
+
+.successAddress {
+  @apply text-sm opacity-80;
+}
+
+.successSource {
+  @apply text-xs opacity-60 mt-1;
+}

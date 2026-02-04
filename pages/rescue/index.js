@@ -8,6 +8,7 @@ import DefaultMap from "@/components/rescue/DefaultMap";
 import { SERVICE_TYPES } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
 import AnimatedStyles from "@/components/AnimatedStyles";
+import styles from "./index.module.css";
 
 // MUI Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -106,6 +107,18 @@ export default function RescuePage() {
       if (checkInterval) clearInterval(checkInterval);
     };
   }, [showManualInput]);
+
+  // Check for pre-selected service from query parameter
+  useEffect(() => {
+    if (router.isReady) {
+      const { service } = router.query;
+      if (service && SERVICE_TYPES[service]) {
+        setServiceType(service);
+        setStep("location");
+        events.serviceSelected(service);
+      }
+    }
+  }, [router.isReady, router.query]);
 
   useEffect(() => {
     events.rescueStarted();
@@ -471,7 +484,7 @@ export default function RescuePage() {
                       <Button
                         variant="accent"
                         size="lg"
-                        className="w-full py-4 text-lg mobile:text-sm"
+                        className="w-full py-4 text-lg mobile:!text-sm"
                         isLoading={isGettingLocation}
                         onClick={handleGetCurrentLocation}
                       >

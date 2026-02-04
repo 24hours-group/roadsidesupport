@@ -2,54 +2,44 @@ import Link from "next/link";
 import Image from "next/image";
 import PhoneIcon from "@mui/icons-material/Phone";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import styles from "./SiteHeader.module.css";
 
 export default function SiteHeader({ simple = false }) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <header className={styles.header}>
       <div className="container-app">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className={styles.container}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-16 h-16 mobile:w-10 mobile:h-10 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <Link href="/" className={styles.logoLink}>
+            <div className={`${styles.logoWrapper}`}>
               <Image
                 src="/RSS-logo.png"
                 alt="Roadside Support Logo"
                 width={160}
                 height={160}
-                className="w-full h-full object-cover"
+                priority
+                className={styles.logoImage}
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl mobile:text-sm mobile:max-w-[100px] font-bold text-white tracking-tight font-playfair">
-                Roadside Support
-              </span>
+            <div className={styles.brandText}>
+              <span className={`${styles.brandName}`}>Roadside Support</span>
               {!simple && (
-                <span className="text-[10px] uppercase tracking-widest text-primary font-semibold hidden sm:block">
-                  Roadside Assistance
-                </span>
+                <span className={styles.brandTagline}>Roadside Assistance</span>
               )}
             </div>
           </Link>
 
           {/* Actions */}
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:+15551234567"
-              className="hidden md:flex items-center gap-2 text-white/70 hover:text-white transition-colors group"
-            >
-              <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+          <div className={styles.actions}>
+            <a href="tel:+15551234567" className={styles.phoneLink}>
+              <div className={styles.phoneIcon}>
                 <PhoneIcon style={{ fontSize: 18 }} />
               </div>
-              <span className="font-semibold group-hover:text-primary transition-colors">
-                (555) 123-4567
-              </span>
+              <span className={styles.phoneNumber}>(555) 123-4567</span>
             </a>
 
             {!simple && (
-              <Link
-                href="/rescue"
-                className="bg-primary text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all hover:shadow-lg transform hover:-translate-y-0.5 mobile:text-sm"
-              >
+              <Link href="/rescue" className={`${styles.ctaButton}`}>
                 <SupportAgentIcon style={{ fontSize: 20 }} />
                 <span>Get Help Now</span>
               </Link>
@@ -57,10 +47,7 @@ export default function SiteHeader({ simple = false }) {
 
             {/* Simple Mobile Phone Button for Rescue Flow */}
             {simple && (
-              <a
-                href="tel:+15551234567"
-                className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-primary border border-white/10"
-              >
+              <a href="tel:+15551234567" className={styles.mobilePhoneButton}>
                 <PhoneIcon style={{ fontSize: 18 }} />
               </a>
             )}

@@ -1,3 +1,5 @@
+import styles from "./Card.module.css";
+
 export default function Card({
   children,
   className = "",
@@ -6,24 +8,24 @@ export default function Card({
   padding = "md",
 }) {
   const variants = {
-    default: "bg-white border border-secondary-200 shadow-card",
-    glass: "glass-card",
-    glassDark: "glass-card-dark",
-    outline: "bg-white border-2 border-secondary-200",
-    elevated: "bg-white shadow-lg",
+    default: styles.default,
+    glass: styles.glass,
+    glassDark: styles.glassDark,
+    outline: styles.outline,
+    elevated: styles.elevated,
   };
 
   const paddings = {
-    none: "",
-    sm: "p-4",
-    md: "p-6",
-    lg: "p-8",
+    none: styles.paddingNone,
+    sm: styles.paddingSm,
+    md: styles.paddingMd,
+    lg: styles.paddingLg,
   };
 
   return (
     <div
-      className={`rounded-2xl ${variants[variant]} ${paddings[padding]} 
-                  ${hover ? "hover:shadow-card-hover transition-shadow duration-300" : ""} 
+      className={`${styles.card} ${variants[variant]} ${paddings[padding]} 
+                  ${hover ? styles.hoverable : ""} 
                   ${className}`}
     >
       {children}

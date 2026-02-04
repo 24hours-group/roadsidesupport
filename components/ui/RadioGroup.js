@@ -1,3 +1,5 @@
+import styles from "./RadioGroup.module.css";
+
 export default function RadioGroup({
   name,
   options = [],
@@ -8,42 +10,39 @@ export default function RadioGroup({
   orientation = "vertical",
 }) {
   return (
-    <div className="w-full">
-      {label && <label className="input-label mb-3">{label}</label>}
+    <div className={styles.wrapper}>
+      {label && <label className={styles.label}>{label}</label>}
       <div
-        className={`flex ${orientation === "vertical" ? "flex-col gap-3" : "flex-row flex-wrap gap-4"}`}
+        className={
+          orientation === "vertical"
+            ? styles.optionsVertical
+            : styles.optionsHorizontal
+        }
       >
         {options.map((option) => (
           <label
             key={option.value}
-            className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200
-              ${
-                value === option.value
-                  ? "border-primary bg-primary-50 shadow-md"
-                  : "border-secondary-200 bg-white hover:border-primary/50 hover:shadow-sm"
-              }`}
+            className={`${styles.option} ${
+              value === option.value
+                ? styles.optionSelected
+                : styles.optionDefault
+            }`}
           >
-            <div className="relative">
+            <div className={styles.radioWrapper}>
               <input
                 type="radio"
                 name={name}
                 value={option.value}
                 checked={value === option.value}
                 onChange={(e) => onChange(e.target.value)}
-                className="sr-only peer"
+                className={styles.radioInput}
               />
-              <div
-                className="w-5 h-5 rounded-full border-2 border-secondary-300 
-                              peer-checked:border-primary peer-checked:border-[6px]
-                              transition-all duration-200"
-              />
+              <div className={styles.radioCircle} />
             </div>
-            <div className="flex flex-col">
-              <span className="font-medium text-secondary-800">
-                {option.label}
-              </span>
+            <div className={styles.optionContent}>
+              <span className={styles.optionLabel}>{option.label}</span>
               {option.description && (
-                <span className="text-sm text-secondary-500">
+                <span className={styles.optionDescription}>
                   {option.description}
                 </span>
               )}
@@ -51,7 +50,7 @@ export default function RadioGroup({
           </label>
         ))}
       </div>
-      {error && <p className="input-error mt-2">{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 }

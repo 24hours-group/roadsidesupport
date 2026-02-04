@@ -1,4 +1,5 @@
 import CheckIcon from "@mui/icons-material/Check";
+import styles from "./ProgressSteps.module.css";
 
 export default function ProgressSteps({
   steps = [],
@@ -6,19 +7,19 @@ export default function ProgressSteps({
   className = "",
 }) {
   return (
-    <div className={`w-full ${className}`}>
-      <div className="flex items-center justify-between">
+    <div className={`${styles.wrapper} ${className}`}>
+      <div className={styles.container}>
         {steps.map((step, index) => (
-          <div key={index} className="flex items-center flex-1">
+          <div key={index} className={styles.stepWrapper}>
             {/* Step Circle */}
-            <div className="flex flex-col items-center">
+            <div className={styles.stepContent}>
               <div
-                className={`progress-step ${
+                className={`${styles.stepCircle} ${
                   index < currentStep
-                    ? "progress-step-completed"
+                    ? styles.stepCompleted
                     : index === currentStep
-                      ? "progress-step-active"
-                      : "progress-step-pending"
+                      ? styles.stepActive
+                      : styles.stepPending
                 }`}
               >
                 {index < currentStep ? (
@@ -28,8 +29,10 @@ export default function ProgressSteps({
                 )}
               </div>
               <span
-                className={`mt-2 text-xs font-semibold text-center max-w-[80px] hidden sm:block ${
-                  index <= currentStep ? "text-primary" : "text-secondary-500"
+                className={`${styles.stepLabel} ${
+                  index <= currentStep
+                    ? styles.stepLabelActive
+                    : styles.stepLabelInactive
                 }`}
               >
                 {step}
@@ -38,10 +41,12 @@ export default function ProgressSteps({
 
             {/* Connector Line */}
             {index < steps.length - 1 && (
-              <div className="flex-1 h-1 mx-2 rounded-full bg-secondary-200 overflow-hidden">
+              <div className={styles.connector}>
                 <div
-                  className={`h-full bg-primary transition-all duration-500 ${
-                    index < currentStep ? "w-full" : "w-0"
+                  className={`${styles.connectorFill} ${
+                    index < currentStep
+                      ? styles.connectorComplete
+                      : styles.connectorIncomplete
                   }`}
                 />
               </div>

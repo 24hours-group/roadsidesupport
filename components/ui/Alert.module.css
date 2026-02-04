@@ -1,0 +1,61 @@
+/* Alert Component Styles */
+
+.alert {
+  @apply flex items-start gap-3 p-4 rounded-xl border;
+}
+
+/* Variant Styles */
+.info {
+  @apply bg-blue-50 border-blue-200 text-blue-800;
+}
+
+.success {
+  @apply bg-green-50 border-green-200 text-green-800;
+}
+
+.warning {
+  @apply bg-amber-50 border-amber-200 text-amber-800;
+}
+
+.error {
+  @apply bg-red-50 border-red-200 text-red-800;
+}
+
+/* Icon Styles */
+.iconWrapper {
+  @apply flex-shrink-0;
+}
+
+.infoIcon {
+  @apply text-blue-500;
+}
+
+.successIcon {
+  @apply text-green-500;
+}
+
+.warningIcon {
+  @apply text-amber-500;
+}
+
+.errorIcon {
+  @apply text-red-500;
+}
+
+/* Content Styles */
+.content {
+  @apply flex-1;
+}
+
+.title {
+  @apply font-semibold mb-1;
+}
+
+.message {
+  @apply text-sm;
+}
+
+/* Close Button */
+.closeButton {
+  @apply flex-shrink-0 p-1 rounded-lg hover:bg-black/5 transition-colors;
+}

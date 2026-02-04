@@ -9,6 +9,7 @@ import SiteHeader from "@/components/SiteHeader";
 import { SERVICE_TYPES, getSituationSchema } from "@/lib/schemas";
 import { events } from "@/lib/analytics";
 import AnimatedStyles from "@/components/AnimatedStyles";
+import styles from "./situation.module.css";
 
 // MUI Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";

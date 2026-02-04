@@ -1,25 +1,21 @@
 import { forwardRef } from "react";
+import styles from "./Checkbox.module.css";
 
 const Checkbox = forwardRef(
   ({ label, error, className = "", ...props }, ref) => {
     return (
-      <div className="w-full">
-        <label className="flex items-center gap-3 cursor-pointer group">
-          <div className="relative">
+      <div className={styles.wrapper}>
+        <label className={styles.label}>
+          <div className={styles.inputWrapper}>
             <input
               ref={ref}
               type="checkbox"
-              className="sr-only peer"
+              className={styles.input}
               {...props}
             />
-            <div
-              className="w-6 h-6 rounded-lg border-2 border-secondary-300 bg-white 
-                          peer-checked:bg-primary peer-checked:border-primary
-                          peer-focus:ring-2 peer-focus:ring-primary/20
-                          transition-all duration-200 flex items-center justify-center"
-            >
+            <div className={styles.checkbox}>
               <svg
-                className="w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity"
+                className={styles.checkIcon}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -33,11 +29,9 @@ const Checkbox = forwardRef(
               </svg>
             </div>
           </div>
-          <span className="text-secondary-700 group-hover:text-secondary-900 transition-colors">
-            {label}
-          </span>
+          <span className={styles.labelText}>{label}</span>
         </label>
-        {error && <p className="input-error mt-1">{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     );
   },

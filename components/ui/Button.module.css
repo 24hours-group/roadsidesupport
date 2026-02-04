@@ -1,0 +1,43 @@
+/* Button Component Styles */
+
+.button {
+  @apply inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed gap-2;
+}
+
+/* Size Variants */
+.sm {
+  @apply py-2 px-4 text-sm;
+}
+
+.md {
+  @apply py-3 px-6 text-base;
+}
+
+.lg {
+  @apply py-4 px-8 text-lg;
+}
+
+/* Style Variants */
+.primary {
+  @apply bg-primary text-white hover:bg-primary-700 hover:shadow-lg;
+}
+
+.secondary {
+  @apply bg-secondary-100 text-secondary-800 hover:bg-secondary-200 border border-secondary-300;
+}
+
+.accent {
+  @apply bg-primary text-white font-bold hover:bg-primary-800 hover:shadow-lg;
+}
+
+.outline {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+.ghost {
+  @apply text-secondary-700 hover:bg-secondary-100;
+}
+
+.danger {
+  @apply bg-error text-white hover:bg-red-700 shadow-lg shadow-error/25;
+}

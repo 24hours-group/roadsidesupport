@@ -3,6 +3,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import WarningIcon from "@mui/icons-material/Warning";
 import ErrorIcon from "@mui/icons-material/Error";
 import CloseIcon from "@mui/icons-material/Close";
+import styles from "./Alert.module.css";
 
 export default function Alert({
   children,
@@ -13,37 +14,35 @@ export default function Alert({
   onClose,
 }) {
   const variants = {
-    info: "bg-blue-50 border-blue-200 text-blue-800",
-    success: "bg-green-50 border-green-200 text-green-800",
-    warning: "bg-amber-50 border-amber-200 text-amber-800",
-    error: "bg-red-50 border-red-200 text-red-800",
+    info: styles.info,
+    success: styles.success,
+    warning: styles.warning,
+    error: styles.error,
   };
 
   const icons = {
-    info: <InfoIcon className="text-blue-500" style={{ fontSize: 22 }} />,
+    info: <InfoIcon className={styles.infoIcon} style={{ fontSize: 22 }} />,
     success: (
-      <CheckCircleIcon className="text-green-500" style={{ fontSize: 22 }} />
+      <CheckCircleIcon
+        className={styles.successIcon}
+        style={{ fontSize: 22 }}
+      />
     ),
     warning: (
-      <WarningIcon className="text-amber-500" style={{ fontSize: 22 }} />
+      <WarningIcon className={styles.warningIcon} style={{ fontSize: 22 }} />
     ),
-    error: <ErrorIcon className="text-red-500" style={{ fontSize: 22 }} />,
+    error: <ErrorIcon className={styles.errorIcon} style={{ fontSize: 22 }} />,
   };
 
   return (
-    <div
-      className={`flex items-start gap-3 p-4 rounded-xl border ${variants[variant]} ${className}`}
-    >
-      <div className="flex-shrink-0">{icon || icons[variant]}</div>
-      <div className="flex-1">
-        {title && <p className="font-semibold mb-1">{title}</p>}
-        <div className="text-sm">{children}</div>
+    <div className={`${styles.alert} ${variants[variant]} ${className}`}>
+      <div className={styles.iconWrapper}>{icon || icons[variant]}</div>
+      <div className={styles.content}>
+        {title && <p className={styles.title}>{title}</p>}
+        <div className={styles.message}>{children}</div>
       </div>
       {onClose && (
-        <button
-          onClick={onClose}
-          className="flex-shrink-0 p-1 rounded-lg hover:bg-black/5 transition-colors"
-        >
+        <button onClick={onClose} className={styles.closeButton}>
           <CloseIcon style={{ fontSize: 18 }} />
         </button>
       )}

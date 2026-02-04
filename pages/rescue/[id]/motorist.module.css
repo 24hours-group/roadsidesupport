@@ -1,0 +1,103 @@
+/* Motorist Page Styles */
+
+.page {
+  @apply min-h-screen bg-dark text-white selection:bg-primary selection:text-white;
+}
+
+/* Progress */
+.progressContainer {
+  @apply pt-24 pb-8 px-4;
+}
+
+.progressInner {
+  @apply max-w-2xl mx-auto;
+}
+
+/* Main */
+.main {
+  @apply px-4 pb-20;
+}
+
+.container {
+  @apply max-w-xl mx-auto;
+}
+
+/* Content */
+.content {
+  @apply space-y-6;
+}
+
+.header {
+  @apply text-center md:text-left;
+}
+
+.title {
+  @apply text-3xl mobile:text-2xl font-bold text-white mb-3;
+}
+
+.subtitle {
+  @apply text-lg mobile:text-base text-white/50 leading-relaxed;
+}
+
+/* Form */
+.form {
+  @apply space-y-8;
+}
+
+/* Grid */
+.gridCols2 {
+  @apply grid grid-cols-2 gap-6;
+}
+
+/* Field Container */
+.fieldContainer {
+  @apply space-y-3;
+}
+
+.fieldLabel {
+  @apply text-lg font-semibold text-white block;
+}
+
+/* Input Wrapper */
+.inputWrapper {
+  @apply relative;
+}
+
+.inputIcon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 text-primary transition-transform duration-300;
+}
+
+.input {
+  @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg;
+}
+
+/* Error */
+.error {
+  @apply text-red-400 text-sm mt-1;
+}
+
+/* Info Card */
+.infoCard {
+  @apply bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4 backdrop-blur-sm;
+}
+
+.infoIconWrapper {
+  @apply w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary;
+}
+
+.infoTitle {
+  @apply text-white font-bold text-lg mobile:text-base mb-1;
+}
+
+.infoText {
+  @apply text-white/60 leading-relaxed mobile:text-sm;
+}
+
+/* Form Actions */
+.formActions {
+  @apply pt-8 space-y-4;
+}
+
+.backBtn {
+  @apply w-full text-center text-white/40 hover:text-white font-semibold text-sm py-3 transition-colors duration-200;
+}

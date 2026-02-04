@@ -1,0 +1,175 @@
+/* Rescue Index Page Styles */
+
+.page {
+  @apply min-h-screen bg-dark text-white selection:bg-primary;
+}
+
+.main {
+  @apply pt-20 mobile:pt-16 mobile:pb-16 min-h-screen flex flex-col;
+}
+
+.content {
+  @apply flex-1 px-4 pb-8;
+}
+
+.container {
+  @apply max-w-lg mx-auto;
+}
+
+/* Map Container */
+.mapContainer {
+  @apply h-44 relative overflow-hidden rounded-t-2xl mb-0;
+}
+
+/* Location Status */
+.locationStatus {
+  @apply mb-4 flex items-center gap-2 text-white/80 text-sm;
+}
+
+.locationAddress {
+  @apply truncate flex-1;
+}
+
+.locationEditBtn {
+  @apply text-primary hover:underline font-medium;
+}
+
+/* Service Selection Card */
+.selectedServiceCard {
+  @apply bg-secondary-800 border border-secondary-700 rounded-xl p-4 mb-6;
+}
+
+.selectedServiceInner {
+  @apply flex items-center gap-4;
+}
+
+.selectedServiceIcon {
+  @apply w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center;
+}
+
+.selectedServiceTitle {
+  @apply text-white font-semibold;
+}
+
+.selectedServiceDescription {
+  @apply text-white/60 text-sm;
+}
+
+/* Step Card */
+.stepCard {
+  @apply bg-secondary/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6;
+}
+
+.stepCardCenter {
+  @apply bg-secondary/95 backdrop-blur-sm border border-secondary-700 border-t-0 rounded-b-2xl p-6 text-center;
+}
+
+.stepTitle {
+  @apply text-2xl font-bold text-white mb-2;
+}
+
+.stepSubtitle {
+  @apply text-white/60 mb-6;
+}
+
+/* Service Grid */
+.serviceGrid {
+  @apply grid grid-cols-2 gap-3 mb-6;
+}
+
+.serviceButton {
+  @apply p-4 rounded-xl border-2 transition-all duration-200 flex flex-col items-center gap-2;
+}
+
+.serviceButtonDefault {
+  @apply border-secondary-600 bg-secondary-800/50 text-white/70 hover:border-secondary-500;
+}
+
+.serviceButtonSelected {
+  @apply border-primary bg-primary/10 text-white;
+}
+
+.serviceLabel {
+  @apply font-medium text-sm;
+}
+
+/* Location Step */
+.locationIllustration {
+  @apply w-32 h-32 mx-auto mb-6 rounded-full bg-secondary-800 border-4 border-secondary-700 flex items-center justify-center relative;
+}
+
+.locationPing {
+  @apply absolute w-20 h-20 rounded-full bg-primary/20;
+}
+
+.locationPingAnimated {
+  @apply absolute w-20 h-20 rounded-full bg-primary/20;
+}
+
+.locationIconCircle {
+  @apply w-14 h-14 rounded-full bg-primary flex items-center justify-center z-10;
+}
+
+/* Location Set */
+.locationSetCard {
+  @apply bg-secondary-800 rounded-xl p-4 flex items-start gap-3;
+}
+
+.locationSetContent {
+  @apply text-left flex-1 min-w-0;
+}
+
+.locationSetTitle {
+  @apply text-white font-medium text-sm;
+}
+
+.locationSetAddress {
+  @apply text-white/60 text-sm break-words;
+}
+
+.editLocationBtn {
+  @apply text-white/50 hover:text-white text-sm font-medium;
+}
+
+/* Manual Input */
+.manualInputWrapper {
+  @apply relative;
+}
+
+.manualInputIcon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 text-primary;
+}
+
+.manualInput {
+  @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 pl-12 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-300 text-lg;
+}
+
+.useGpsLink {
+  @apply text-primary hover:underline font-semibold text-sm;
+}
+
+/* Initial Choices */
+.choicesContainer {
+  @apply space-y-4;
+}
+
+.divider {
+  @apply flex items-center gap-4;
+}
+
+.dividerLine {
+  @apply h-px flex-1 bg-white/10;
+}
+
+.dividerText {
+  @apply text-white/40 text-sm;
+}
+
+.manualAddressBtn {
+  @apply w-full bg-white/5 border border-white/10 text-white font-semibold py-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2 mobile:text-sm;
+}
+
+/* Back Button */
+.backBtn {
+  @apply mt-6 text-white/40 hover:text-white text-sm;
+}

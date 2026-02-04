@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import styles from "./MapPreview.module.css";
 
 export default function MapPreview({ location, className = "", height = 300 }) {
   const mapRef = useRef(null);
@@ -76,13 +77,10 @@ export default function MapPreview({ location, className = "", height = 300 }) {
 
   if (!location?.lat || !location?.lng) {
     return (
-      <div
-        className={`bg-secondary-100 rounded-2xl flex items-center justify-center ${className}`}
-        style={{ height }}
-      >
-        <div className="text-center text-secondary-500">
+      <div className={`${styles.emptyState} ${className}`} style={{ height }}>
+        <div className={styles.emptyContent}>
           <svg
-            className="w-12 h-12 mx-auto mb-2 opacity-50"
+            className={styles.emptyIcon}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -108,14 +106,10 @@ export default function MapPreview({ location, className = "", height = 300 }) {
 
   return (
     <div className={className}>
-      <div
-        ref={mapRef}
-        className="w-full rounded-2xl overflow-hidden shadow-card"
-        style={{ height }}
-      />
-      <div className="mt-3 flex items-start gap-2 text-sm text-secondary-600">
+      <div ref={mapRef} className={styles.mapContainer} style={{ height }} />
+      <div className={styles.addressBar}>
         <svg
-          className="w-4 h-4 flex-shrink-0 mt-0.5"
+          className={styles.addressIcon}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
