@@ -1,41 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Roadside Support
 
-## Getting Started
+A modern, mobile-first web application for requesting emergency roadside assistance. Get help for flat tires, dead batteries, lockouts, fuel delivery, towing, and more — no membership required.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Instant Service Requests** — Select your issue, share your location, and get help dispatched quickly
+- **GPS & Manual Location** — Automatic GPS detection or manual address entry with Google Places autocomplete
+- **Multiple Services** — Flat tire change, jump start, lockout assistance, fuel delivery, towing, and winch-out
+- **Mobile-Optimized** — Designed for drivers who need help on the go
+- **Real-Time Notifications** — Email notifications to the call center with all request details
+- **24/7 Availability** — Round-the-clock roadside assistance
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Services Offered
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+| Service          | Description                         |
+| ---------------- | ----------------------------------- |
+| 🛞 Flat Tire     | Professional tire change service    |
+| 🔋 Dead Battery  | Jump start to get you moving        |
+| 🔑 Lockout       | Locked out? We'll get you back in   |
+| ⛽ Fuel Delivery | Out of gas? We'll bring fuel to you |
+| 🚛 Towing        | Safe transport to your destination  |
+| ⚡ Winch Out     | Stuck? We'll pull you out           |
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## How It Works
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+1. **Tell Us What's Wrong** — Select your issue and share your location
+2. **Provide Quick Details** — Enter your vehicle info and contact details
+3. **Help Is On The Way** — We dispatch the nearest technician
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-# NextjsTemplate
+- **Framework**: Next.js 15
+- **Styling**: Tailwind CSS
+- **Maps**: Google Maps API
+- **Database**: Supabase
+- **Email**: Resend
+- **Hosting**: Vercel
