@@ -40,7 +40,7 @@ export default function SiteFooter() {
                 .slice(0, 4)
                 .map((service) => (
                   <li key={service.id}>
-                    <Link href={`/rescue?service=${service.id}`} className={styles.serviceLink}>
+                    <Link href="/rescue" className={styles.serviceLink}>
                       {service.label}
                     </Link>
                   </li>
