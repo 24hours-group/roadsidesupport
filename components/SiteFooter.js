@@ -78,14 +78,6 @@ export default function SiteFooter() {
         {/* Bottom */}
         <div className={styles.bottomBar}>
           <p>© {new Date().getFullYear()} Roadside Support.</p>
-          <div className={styles.legalLinks}>
-            <Link href="#" className={styles.legalLink}>
-              Privacy
-            </Link>
-            <Link href="#" className={styles.legalLink}>
-              Terms
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
