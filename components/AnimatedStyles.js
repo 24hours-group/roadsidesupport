@@ -1,25 +1,6 @@
 // Shared animation styles for rescue flow pages
-// CSS Module export for use in components
-import styles from "./AnimatedStyles.module.css";
-
-// Export individual animation classes for use in components
-export const animationClasses = {
-  pulseRing: styles.pulseRing,
-  pulseRingDelayed: styles.pulseRingDelayed,
-  gentleBounce: styles.gentleBounce,
-  fadeInUp: styles.fadeInUp,
-  fadeInUp1: styles.fadeInUp1,
-  fadeInUp2: styles.fadeInUp2,
-  fadeInUp3: styles.fadeInUp3,
-  fadeInUp4: styles.fadeInUp4,
-  fadeInUp5: styles.fadeInUp5,
-  float: styles.float,
-  shimmerText: styles.shimmerText,
-};
-
-// Legacy support: Keep the inline styles for backward compatibility
-// This can be removed once all components migrate to CSS modules
-export const animationStyles = `
+// Renders inline <style> tag with animation keyframes
+const animationStyles = `
   @keyframes pulse-ring {
     0% { transform: scale(0.8); opacity: 0.8; }
     50% { transform: scale(1.2); opacity: 0; }
@@ -77,6 +58,3 @@ export const animationStyles = `
 export default function AnimatedStyles() {
   return <style>{animationStyles}</style>;
 }
-
-// Also export the styles object for direct CSS module usage
-export { styles };

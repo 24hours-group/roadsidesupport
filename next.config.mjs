@@ -9,8 +9,10 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 160, 256],
   },
 
-  // Cache headers for static assets
+  // Cache headers for static assets (production only — dev headers break HMR)
   async headers() {
+    if (process.env.NODE_ENV !== "production") return [];
+
     return [
       {
         source: "/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif)",
