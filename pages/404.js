@@ -63,8 +63,8 @@ export default function Custom404() {
             <div className={styles.supportInfo}>
               <p className={styles.supportText}>
                 Need immediate assistance? Call us at{" "}
-                <a href="tel:+15551234567" className={styles.supportLink}>
-                  (555) 123-4567
+                <a href="tel:+18886811841" className={styles.supportLink}>
+                  (888) 681-1841
                 </a>
               </p>
             </div>

@@ -20,6 +20,8 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
+import BuildIcon from "@mui/icons-material/Build";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 const serviceIcons = {
   tire: TireRepairIcon,
@@ -28,6 +30,8 @@ const serviceIcons = {
   fuel: LocalGasStationIcon,
   tow: LocalShippingIcon,
   winch: OfflineBoltIcon,
+  mechanic: BuildIcon,
+  other: HelpOutlineIcon,
 };
 
 export default function ServiceConfirmPage() {

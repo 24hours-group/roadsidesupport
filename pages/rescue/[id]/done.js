@@ -135,9 +135,9 @@ export default function DonePage() {
                 className={`${styles.actions} animate-fade-in-up animate-fade-in-up-5`}
               >
                 {/* Emergency Call */}
-                <a href="tel:+15551234567" className={styles.callButton}>
+                <a href="tel:+18886811841" className={styles.callButton}>
                   <PhoneIcon style={{ fontSize: 20 }} />
-                  <span>Can&apos;t wait? Call (555) 123-4567</span>
+                  <span>Can&apos;t wait? Call (888) 681-1841</span>
                 </a>
 
                 {/* Return Home */}

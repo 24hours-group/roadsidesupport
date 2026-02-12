@@ -58,17 +58,17 @@ export default function SiteFooter() {
             <h4 className={styles.sectionTitle}>Contact</h4>
             <ul className={styles.linksList}>
               <li>
-                <a href="tel:+15551234567" className={styles.contactLink}>
+                <a href="tel:+18886811841" className={styles.contactLink}>
                   <PhoneIcon style={{ fontSize: 18 }} />
-                  (555) 123-4567
+                  (888) 681-1841
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:help@roadsidesupport.com"
+                  href="mailto:roadside-support@24hours-group.com"
                   className={styles.emailLink}
                 >
-                  help@roadsidesupport.com
+                  roadside-support@24hours-group.com
                 </a>
               </li>
             </ul>

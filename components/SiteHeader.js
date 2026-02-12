@@ -31,11 +31,11 @@ export default function SiteHeader({ simple = false }) {
 
           {/* Actions */}
           <div className={styles.actions}>
-            <a href="tel:+15551234567" className={styles.phoneLink}>
+            <a href="tel:+18886811841" className={styles.phoneLink}>
               <div className={styles.phoneIcon}>
                 <PhoneIcon style={{ fontSize: 18 }} />
               </div>
-              <span className={styles.phoneNumber}>(555) 123-4567</span>
+              <span className={styles.phoneNumber}>(888) 681-1841</span>
             </a>
 
             {!simple && (
@@ -47,7 +47,7 @@ export default function SiteHeader({ simple = false }) {
 
             {/* Simple Mobile Phone Button for Rescue Flow */}
             {simple && (
-              <a href="tel:+15551234567" className={styles.mobilePhoneButton}>
+              <a href="tel:+18886811841" className={styles.mobilePhoneButton}>
                 <PhoneIcon style={{ fontSize: 18 }} />
               </a>
             )}

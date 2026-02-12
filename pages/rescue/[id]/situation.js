@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, DarkStepper } from "@/components/ui";
 import SiteHeader from "@/components/SiteHeader";
@@ -22,6 +22,8 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import BuildIcon from "@mui/icons-material/Build";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 const serviceIcons = {
   tire: TireRepairIcon,
@@ -30,6 +32,8 @@ const serviceIcons = {
   fuel: LocalGasStationIcon,
   tow: LocalShippingIcon,
   winch: OfflineBoltIcon,
+  mechanic: BuildIcon,
+  other: HelpOutlineIcon,
 };
 
 export default function SituationPage() {
@@ -111,7 +115,7 @@ export default function SituationPage() {
 
         {/* Content */}
         <main className="px-4 pb-20">
-          <div className="max-w-xl mx-auto space-y-8">
+          <div className="max-w-2xl mx-auto space-y-8">
             {/* Service Badge */}
             <div className="relative overflow-hidden bg-gradient-to-br from-secondary-800 to-secondary-900 border border-white/10 rounded-2xl p-6 shadow-2xl mobile:p-4">
               <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -150,7 +154,7 @@ export default function SituationPage() {
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                 <div className="space-y-8 animate-fade-in-up">
-                  {serviceType === "flat_tire" && (
+                  {serviceType === "tire_service" && (
                     <FlatTireFields control={control} errors={errors} />
                   )}
                   {serviceType === "jump_start" && (
@@ -159,10 +163,10 @@ export default function SituationPage() {
                   {serviceType === "lockout" && (
                     <LockoutFields control={control} errors={errors} />
                   )}
-                  {serviceType === "fuel_delivery" && (
+                  {serviceType === "gas_delivery" && (
                     <FuelDeliveryFields control={control} errors={errors} />
                   )}
-                  {serviceType === "basic_tow" && (
+                  {serviceType === "towing" && (
                     <BasicTowFields
                       control={control}
                       errors={errors}
@@ -171,6 +175,12 @@ export default function SituationPage() {
                   )}
                   {serviceType === "winch_out" && (
                     <WinchOutFields control={control} errors={errors} />
+                  )}
+                  {serviceType === "mobile_mechanic" && (
+                    <MobileMechanicFields control={control} errors={errors} />
+                  )}
+                  {serviceType === "other" && (
+                    <OtherFields control={control} errors={errors} />
                   )}
                 </div>
 
@@ -331,6 +341,27 @@ function FlatTireFields({ control, errors }) {
   return (
     <div className="space-y-8 mobile:space-y-4">
       <Controller
+        name="tire_service_type"
+        control={control}
+        render={({ field }) => (
+          <OptionGrid
+            label="What kind of tire service do you need?"
+            value={field.value}
+            onChange={field.onChange}
+            options={[
+              { value: "tire_change", label: "Tire Change (using my spare)" },
+              {
+                value: "tire_replacement",
+                label: "Tire Replacement (need a new tire)",
+              },
+              { value: "towing_tire", label: "Towing for a Tire Issue" },
+            ]}
+            error={errors.tire_service_type?.message}
+          />
+        )}
+      />
+      <div className="h-px bg-white/10" />
+      <Controller
         name="tire_count"
         control={control}
         render={({ field }) => (
@@ -376,6 +407,20 @@ function FlatTireFields({ control, errors }) {
 function JumpStartFields({ control, errors }) {
   return (
     <div className="space-y-8 mobile:space-y-4">
+      <Controller
+        name="battery_count"
+        control={control}
+        render={({ field }) => (
+          <NumberSelector
+            label="How many batteries does the vehicle have?"
+            value={field.value}
+            onChange={field.onChange}
+            max={4}
+            error={errors.battery_count?.message}
+          />
+        )}
+      />
+      <div className="h-px bg-white/10" />
       <Controller
         name="battery_accessible"
         control={control}
@@ -458,11 +503,13 @@ function FuelDeliveryFields({ control, errors }) {
         control={control}
         render={({ field }) => (
           <OptionGrid
-            label="Fuel type needed?"
+            label="What type of fuel does your vehicle need?"
             value={field.value}
             onChange={field.onChange}
             options={[
-              { value: "gasoline", label: "Gasoline" },
+              { value: "regular", label: "Regular" },
+              { value: "midgrade", label: "Mid-Grade" },
+              { value: "premium", label: "Premium" },
               { value: "diesel", label: "Diesel" },
             ]}
             error={errors.fuel_type?.message}
@@ -471,16 +518,20 @@ function FuelDeliveryFields({ control, errors }) {
       />
       <div className="h-px bg-white/10" />
       <Controller
-        name="gallons_needed"
+        name="distance_to_station"
         control={control}
         render={({ field }) => (
-          <NumberSelector
-            label="How many gallons?"
-            value={field.value}
-            onChange={field.onChange}
-            max={5}
-            error={errors.gallons_needed?.message}
-          />
+          <div className="space-y-3">
+            <label className="text-lg font-semibold text-white block">
+              How far from the nearest gas station? (optional)
+            </label>
+            <input
+              {...field}
+              type="text"
+              placeholder="e.g. About 5 miles"
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-lg"
+            />
+          </div>
         )}
       />
       <div className="h-px bg-white/10" />
@@ -658,6 +709,12 @@ function AddressInput({ value, onChange, placeholder }) {
 }
 
 function WinchOutFields({ control, errors }) {
+  const values = useWatch({
+    control,
+    name: ["stuck_in", "tires_stuck", "vehicle_position", "drivable_after"],
+  });
+  const [stuckIn, tiresStuck, vehiclePosition, drivableAfter] = values;
+
   return (
     <div className="space-y-8 mobile:space-y-4">
       <Controller
@@ -679,22 +736,237 @@ function WinchOutFields({ control, errors }) {
           />
         )}
       />
-      <div className="h-px bg-white/10" />
+
+      {stuckIn && (
+        <>
+          <div className="h-px bg-white/10" />
+          <div className="animate-fade-in-up">
+            <Controller
+              name="distance_from_pavement"
+              control={control}
+              render={({ field }) => (
+                <div className="space-y-3">
+                  <label className="text-lg font-semibold text-white block">
+                    How far is the vehicle from the pavement? (optional)
+                  </label>
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="e.g. About 10 feet off the road"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-lg"
+                  />
+                </div>
+              )}
+            />
+          </div>
+
+          <div className="h-px bg-white/10" />
+          <div className="animate-fade-in-up">
+            <Controller
+              name="tires_stuck"
+              control={control}
+              render={({ field }) => (
+                <OptionGrid
+                  label="Which tires are stuck?"
+                  value={field.value}
+                  onChange={field.onChange}
+                  options={[
+                    { value: "front", label: "Front" },
+                    { value: "rear", label: "Rear" },
+                    { value: "all", label: "All / Multiple" },
+                  ]}
+                  error={errors.tires_stuck?.message}
+                />
+              )}
+            />
+          </div>
+        </>
+      )}
+
+      {tiresStuck && (
+        <>
+          <div className="h-px bg-white/10" />
+          <div className="animate-fade-in-up">
+            <Controller
+              name="vehicle_position"
+              control={control}
+              render={({ field }) => (
+                <OptionGrid
+                  label="Is the vehicle:"
+                  value={field.value}
+                  onChange={field.onChange}
+                  options={[
+                    { value: "upright", label: "Upright" },
+                    { value: "on_side", label: "On Its Side" },
+                    { value: "upside_down", label: "Upside Down" },
+                  ]}
+                  error={errors.vehicle_position?.message}
+                />
+              )}
+            />
+          </div>
+        </>
+      )}
+
+      {vehiclePosition && (
+        <>
+          <div className="h-px bg-white/10" />
+          <div className="animate-fade-in-up">
+            <Controller
+              name="drivable_after"
+              control={control}
+              render={({ field }) => (
+                <OptionGrid
+                  label="Will vehicle be drivable after recovery?"
+                  value={field.value}
+                  onChange={field.onChange}
+                  options={[
+                    { value: "yes", label: "Yes" },
+                    { value: "no", label: "No" },
+                    { value: "unknown", label: "I'm Not Sure" },
+                  ]}
+                  error={errors.drivable_after?.message}
+                />
+              )}
+            />
+          </div>
+        </>
+      )}
+
+      {drivableAfter && (
+        <>
+          <div className="h-px bg-white/10" />
+          <div className="animate-fade-in-up">
+            <Controller
+              name="safe_location"
+              control={control}
+              render={({ field }) => (
+                <YesNoRadio
+                  label="Are you in a safe location?"
+                  value={field.value}
+                  onChange={field.onChange}
+                  error={errors.safe_location?.message}
+                />
+              )}
+            />
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function MobileMechanicFields({ control, errors }) {
+  const issueOptions = [
+    { value: "wont_start", label: "Won't Start" },
+    { value: "overheating", label: "Overheating" },
+    { value: "strange_noises", label: "Strange Noises" },
+    { value: "check_engine", label: "Check Engine Light" },
+    { value: "brake_issues", label: "Brake Issues" },
+    { value: "electrical", label: "Electrical Problem" },
+    { value: "fluid_leak", label: "Fluid Leak" },
+    { value: "other", label: "Other" },
+  ];
+
+  return (
+    <div className="space-y-8 mobile:space-y-4">
       <Controller
-        name="drivable_after"
+        name="issue_type"
         control={control}
         render={({ field }) => (
           <OptionGrid
-            label="Will vehicle be drivable after recovery?"
+            label="What issue are you experiencing?"
             value={field.value}
             onChange={field.onChange}
-            options={[
-              { value: "yes", label: "Yes" },
-              { value: "no", label: "No" },
-              { value: "unknown", label: "I'm Not Sure" },
-            ]}
-            error={errors.drivable_after?.message}
+            options={issueOptions}
+            error={errors.issue_type?.message}
           />
+        )}
+      />
+      <div className="h-px bg-white/10" />
+      <Controller
+        name="description"
+        control={control}
+        render={({ field }) => (
+          <div className="space-y-3">
+            <label className="text-lg font-semibold text-white block">
+              Describe the problem
+            </label>
+            <p className="text-white/50 text-sm">
+              Include any symptoms, sounds, or warning lights you've noticed.
+            </p>
+            <textarea
+              {...field}
+              rows={4}
+              placeholder="e.g. Grinding sound when braking, started yesterday..."
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-lg resize-none"
+            />
+            {errors.description && (
+              <div className="flex items-center gap-2 text-red-400 text-sm mt-2 animate-shake">
+                <ErrorOutlineIcon style={{ fontSize: 16 }} />
+                <span>{errors.description.message}</span>
+              </div>
+            )}
+          </div>
+        )}
+      />
+      <div className="h-px bg-white/10" />
+      <Controller
+        name="is_drivable"
+        control={control}
+        render={({ field }) => (
+          <YesNoRadio
+            label="Is the vehicle currently drivable?"
+            value={field.value}
+            onChange={field.onChange}
+            error={errors.is_drivable?.message}
+          />
+        )}
+      />
+      <div className="h-px bg-white/10" />
+      <Controller
+        name="safe_location"
+        control={control}
+        render={({ field }) => (
+          <YesNoRadio
+            label="Are you in a safe location?"
+            value={field.value}
+            onChange={field.onChange}
+            error={errors.safe_location?.message}
+          />
+        )}
+      />
+    </div>
+  );
+}
+
+function OtherFields({ control, errors }) {
+  return (
+    <div className="space-y-8 mobile:space-y-4">
+      <Controller
+        name="description"
+        control={control}
+        render={({ field }) => (
+          <div className="space-y-3">
+            <label className="text-lg font-semibold text-white block">
+              Describe what you need
+            </label>
+            <p className="text-white/50 text-sm">
+              Tell us about your situation so we can send the right help.
+            </p>
+            <textarea
+              {...field}
+              rows={4}
+              placeholder="e.g. My car won't start, I hear a clicking sound..."
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/30 focus:border-primary focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300 text-lg resize-none"
+            />
+            {errors.description && (
+              <div className="flex items-center gap-2 text-red-400 text-sm mt-2 animate-shake">
+                <ErrorOutlineIcon style={{ fontSize: 16 }} />
+                <span>{errors.description.message}</span>
+              </div>
+            )}
+          </div>
         )}
       />
       <div className="h-px bg-white/10" />
@@ -716,11 +988,17 @@ function WinchOutFields({ control, errors }) {
 
 function getDefaultValues(serviceType) {
   switch (serviceType) {
-    case "flat_tire":
-      return { tire_count: 1, has_spare: undefined, safe_location: undefined };
+    case "tire_service":
+      return {
+        tire_service_type: "",
+        tire_count: 1,
+        has_spare: undefined,
+        safe_location: undefined,
+      };
     case "jump_start":
       return {
         vehicle_wont_start: true,
+        battery_count: 1,
         battery_accessible: undefined,
         safe_location: undefined,
       };
@@ -730,9 +1008,13 @@ function getDefaultValues(serviceType) {
         key_fob_inside: undefined,
         safe_location: undefined,
       };
-    case "fuel_delivery":
-      return { fuel_type: "", gallons_needed: 2, safe_location: undefined };
-    case "basic_tow":
+    case "gas_delivery":
+      return {
+        fuel_type: "",
+        distance_to_station: "",
+        safe_location: undefined,
+      };
+    case "towing":
       return {
         tow_destination: "",
         keys_with_you: undefined,
@@ -740,7 +1022,23 @@ function getDefaultValues(serviceType) {
         needs_ride: undefined,
       };
     case "winch_out":
-      return { stuck_in: "", drivable_after: "", safe_location: undefined };
+      return {
+        stuck_in: "",
+        distance_from_pavement: "",
+        tires_stuck: "",
+        vehicle_position: "",
+        drivable_after: "",
+        safe_location: undefined,
+      };
+    case "mobile_mechanic":
+      return {
+        issue_type: "",
+        description: "",
+        is_drivable: undefined,
+        safe_location: undefined,
+      };
+    case "other":
+      return { description: "", safe_location: undefined };
     default:
       return {};
   }

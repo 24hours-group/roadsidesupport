@@ -20,6 +20,7 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
+import BuildIcon from "@mui/icons-material/Build";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarIcon from "@mui/icons-material/Star";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
@@ -36,6 +37,8 @@ const serviceIcons = {
   fuel: LocalGasStationIcon,
   tow: LocalShippingIcon,
   winch: OfflineBoltIcon,
+  mechanic: BuildIcon,
+  other: HelpOutlineIcon,
 };
 
 export default function Home() {
@@ -119,12 +122,12 @@ export default function Home() {
                     />
                   </button>
                 </Link>
-                <a href="tel:+15551234567" className="w-full sm:w-auto">
+                <a href="tel:+18886811841" className="w-full sm:w-auto">
                   <button className="w-full bg-white/5 text-white font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white/10 transition-all border border-white/10 backdrop-blur-sm group text-2xl">
                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                       <PhoneIcon style={{ fontSize: 22 }} />
                     </div>
-                    <span>(555) 123-4567</span>
+                    <span>(888) 681-1841</span>
                   </button>
                 </a>
               </div>

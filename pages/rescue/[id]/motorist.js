@@ -50,6 +50,7 @@ export default function MotoristPage() {
       motorist: data,
       status: "submitted",
       updated_at: new Date().toISOString(),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
     localStorage.setItem(`rescue_${id}`, JSON.stringify(updatedData));
 
@@ -160,7 +161,7 @@ export default function MotoristPage() {
                     <input
                       {...register("phone")}
                       type="tel"
-                      placeholder="(555) 123-4567"
+                      placeholder="(888) 681-1841"
                       className={styles.input}
                     />
                   </div>
