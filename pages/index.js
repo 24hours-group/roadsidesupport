@@ -102,7 +102,7 @@ export default function Home() {
 
               {/* Subheadline */}
               <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed animate-slide-up stagger-1">
-                Fast, reliable assistance for flat tires, dead batteries,
+                Fast, reliable assistance for towing, flat tires, dead batteries,
                 lockouts, and more.
                 <span className="text-white font-semibold">
                   {" "}
