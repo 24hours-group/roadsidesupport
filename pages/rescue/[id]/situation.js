@@ -904,7 +904,7 @@ function MobileMechanicFields({ control, errors }) {
             {errors.description && (
               <div className="flex items-center gap-2 text-red-400 text-sm mt-2 animate-shake">
                 <ErrorOutlineIcon style={{ fontSize: 16 }} />
-                <span>{errors.description.message}</span>
+                <span>Please describe the problem</span>
               </div>
             )}
           </div>
@@ -963,7 +963,7 @@ function OtherFields({ control, errors }) {
             {errors.description && (
               <div className="flex items-center gap-2 text-red-400 text-sm mt-2 animate-shake">
                 <ErrorOutlineIcon style={{ fontSize: 16 }} />
-                <span>{errors.description.message}</span>
+                <span>Please describe what you need</span>
               </div>
             )}
           </div>
@@ -978,7 +978,7 @@ function OtherFields({ control, errors }) {
             label="Are you in a safe location?"
             value={field.value}
             onChange={field.onChange}
-            error={errors.safe_location?.message}
+            error="Please select Yes or No"
           />
         )}
       />
