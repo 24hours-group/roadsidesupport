@@ -970,7 +970,7 @@ function OtherFields({ control, errors }) {
         )}
       />
       <div className="h-px bg-white/10" />
-      <Controller
+       <Controller
         name="safe_location"
         control={control}
         render={({ field }) => (
@@ -978,7 +978,7 @@ function OtherFields({ control, errors }) {
             label="Are you in a safe location?"
             value={field.value}
             onChange={field.onChange}
-            error="Please select Yes or No"
+            error={errors.safe_location?.message}
           />
         )}
       />
