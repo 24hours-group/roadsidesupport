@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import PhoneIcon from "@mui/icons-material/Phone";
 import { SERVICE_TYPES } from "@/lib/schemas";
 import styles from "./SiteFooter.module.css";
 
@@ -57,12 +56,6 @@ export default function SiteFooter() {
           <div>
             <h4 className={styles.sectionTitle}>Contact</h4>
             <ul className={styles.linksList}>
-              <li>
-                <a href="tel:+18886811841" className={styles.contactLink}>
-                  <PhoneIcon style={{ fontSize: 18 }} />
-                  (888) 681-1841
-                </a>
-              </li>
               <li>
                 <a
                   href="mailto:roadside-support@24hours-group.com"

@@ -59,15 +59,7 @@ export default function Custom404() {
               </Link>
             </div>
 
-            {/* Support Info */}
-            <div className={styles.supportInfo}>
-              <p className={styles.supportText}>
-                Need immediate assistance? Call us at{" "}
-                <a href="tel:+18886811841" className={styles.supportLink}>
-                  (888) 681-1841
-                </a>
-              </p>
-            </div>
+
           </div>
         </main>
       </div>

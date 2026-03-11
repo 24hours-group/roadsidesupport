@@ -41,6 +41,41 @@ const serviceIcons = {
   other: HelpOutlineIcon,
 };
 
+const serviceDetails = {
+  towing: {
+    label: "Towing (Tow Service / Tow Truck)",
+    description: <>Fast, professional towing to your preferred location. Local car towing, auto towing, and light truck tow options &mdash; including safe flatbed and wrecker service when needed. Ideal for drivers searching &ldquo;<em className="italic font-medium">tow truck near me</em>&rdquo; or &ldquo;<em className="italic font-medium">tow service near me</em>.&rdquo;</>
+  },
+  jump_start: {
+    label: "Jump Start",
+    description: "Dead battery? Our technicians provide rapid jump starts roadside so you can get back on the road — an easy, affordable alternative to a full tow."
+  },
+  tire_service: {
+    label: "Tire Service / Tire Change",
+    description: "Tire change and repair assistance at the scene. We handle flats and blowouts and will replace your tire or tow you safely if repairs aren’t possible."
+  },
+  lockout: {
+    label: "Lockout (Car Lockout Service)",
+    description: "Locked out of your vehicle? Our trained technicians perform safe, damage-free lockout entry so you can regain access quickly."
+  },
+  gas_delivery: {
+    label: "Gas / Fuel Delivery",
+    description: <>Emergency fuel delivery to get you moving again &mdash; a fast, low-cost solution when you&apos;re stuck nearby and searching for &ldquo;<em className="italic font-medium">towing nearby</em>&rdquo; or &ldquo;<em className="italic font-medium">fuel delivery near me</em>.&rdquo;</>
+  },
+  mobile_mechanic: {
+    label: "Mobile Mechanic / On-Site Repairs",
+    description: "Minor repairs on the spot — from alternator checks to starter diagnostics — to avoid an unnecessary tow whenever possible."
+  },
+  winch_out: {
+    label: "Winch-Out / Vehicle Recovery",
+    description: "Stuck off-road or in a ditch? Our winch-out recovery service gets vehicles unstuck safely. We provide professional recovery for cars and light trucks."
+  },
+  other: {
+    label: "Other / Not Sure (Describe It)",
+    description: "If you’re not sure what service you need, choose “Other / Not Sure” and describe the issue. Our dispatch will route the right tow truck or technician to you."
+  }
+};
+
 export default function Home() {
   return (
     <>
@@ -58,7 +93,7 @@ export default function Home() {
         <SiteHeader />
 
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center relative pt-20 mobile:pt-24">
+        <section className="min-h-screen flex items-center relative pt-20 pb-10 mobile:pt-24">
           {/* Enhanced Background */}
           <div className="absolute inset-0 bg-secondary">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-900/40 via-secondary to-secondary opacity-70" />
@@ -122,14 +157,7 @@ export default function Home() {
                     />
                   </button>
                 </Link>
-                <a href="tel:+18886811841" className="w-full sm:w-auto">
-                  <button className="w-full bg-white/5 text-white font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white/10 transition-all border border-white/10 backdrop-blur-sm group text-2xl">
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                      <PhoneIcon style={{ fontSize: 22 }} />
-                    </div>
-                    <span>(888) 681-1841</span>
-                  </button>
-                </a>
+
               </div>
 
               {/* Stats Grid */}
@@ -164,6 +192,66 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About Us Section */}
+        <section className="py-20 relative bg-white">
+          <div className="container-app">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
+
+              {/* Left — Heading + Credential Badges */}
+              <div className="lg:w-5/12 space-y-8 flex-shrink-0">
+                <div className="space-y-4">
+                  <span className="text-primary font-bold tracking-widest uppercase text-sm">
+                    About Us
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary leading-tight">
+                    Your Trusted Local{" "}
+                    <span className="text-primary">Towing Partner</span>
+                  </h2>
+                </div>
+
+                {/* Credential badges */}
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: SecurityIcon, label: "Fully Licensed", sub: "& Insured" },
+                    { icon: AccessTimeIcon, label: "Available 24/7", sub: "Day or Night" },
+                    { icon: SpeedIcon, label: "Fast Response", sub: "Avg. 5 min" },
+                    { icon: VerifiedIcon, label: "Trusted Locals", sub: "Serving the area" },
+                  ].map((badge, i) => (
+                    <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-secondary/5 border border-secondary/10">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <badge.icon className="text-primary" style={{ fontSize: 20 }} />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-secondary text-sm">{badge.label}</div>
+                        <div className="text-secondary-500 text-xs">{badge.sub}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="hidden lg:block w-px h-64 bg-secondary/10 flex-shrink-0" />
+
+              {/* Right — Prose */}
+              <div className="lg:w-7/12 space-y-5 text-secondary-500 text-lg leading-relaxed">
+                <p>
+                  Looking for a <strong className="text-secondary font-semibold">tow truck near me</strong> or <strong className="text-secondary font-semibold">towing near me</strong>? You&apos;re in the right place. We&apos;re a local, fully licensed and insured tow company that answers the call 24/7 &mdash; a true local tow company when you need fast, dependable help. Whether it&apos;s an emergency roadside situation or a scheduled vehicle move, our team shows up quickly with modern trucks and experienced technicians.
+                </p>
+                <p>
+                  We focus on clear pricing, fast response times, and friendly service so your search for <strong className="text-secondary font-semibold">tow service near me</strong> or <strong className="text-secondary font-semibold">towing service nearby</strong> ends with real help &mdash; not hold music. From cars to light trucks, our crew handles jump starts, tire changes, lockouts, fuel delivery, on-site repairs, winch-outs, and safe towing to your preferred destination.
+                </p>
+                <Link href="/rescue">
+                  <button className="mt-2 bg-primary text-white font-bold py-3 px-7 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all shadow-md">
+                    Request Service <ArrowForwardIcon style={{ fontSize: 18 }} />
+                  </button>
+                </Link>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* Services Section - White Background */}
         <section className="py-24 relative bg-white">
           <div className="container-app relative z-10">
@@ -175,11 +263,11 @@ export default function Home() {
                 How Can We Help You?
               </h2>
               <p className="text-secondary-500 max-w-2xl mx-auto text-lg">
-                Professional assistance for every roadside emergency.
+                Professional roadside assistance for every situation &mdash; car towing, jump starts, lockouts, fuel delivery, and more.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {Object.values(SERVICE_TYPES).map((service, idx) => {
                 const IconComponent = serviceIcons[service.icon];
                 return (
