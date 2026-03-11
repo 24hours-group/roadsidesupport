@@ -343,7 +343,7 @@ export default function RescuePage() {
                           }}
                           className={`p-4 rounded-xl border-2 transition-all duration-200 flex flex-col items-center gap-2 ${
                             isSelected
-                              ? "border-primary bg-primary/10 text-white"
+                              ? "border-primary bg-primary/10 text-white service-card selected"
                               : "border-secondary-600 bg-secondary-800/50 text-white/70 hover:border-secondary-500"
                           }`}
                         >
