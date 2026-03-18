@@ -40,7 +40,7 @@
 
 /* Actions */
 .actions {
-  @apply space-y-4;
+  @apply space-y-4 gap-4 grid grid-cols-1;
 }
 
 /* Support Info */
@@ -53,5 +53,5 @@
 }
 
 .supportLink {
-  @apply text-primary hover:underline font-semibold;
+  @apply text-primary hover:underline font-semibold ;
 }
