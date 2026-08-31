@@ -31,10 +31,10 @@ export default function SiteHeader({ simple = false }) {
           {/* Actions */}
           <div className={styles.actions}>
             {!simple && (
-              <Link href="/rescue" className={`${styles.ctaButton}`}>
+              <a href="tel:+18886811841" className={`${styles.ctaButton}`}>
                 <SupportAgentIcon style={{ fontSize: 20 }} />
                 <span>Get Help Now</span>
-              </Link>
+              </a>
             )}
           </div>
         </div>

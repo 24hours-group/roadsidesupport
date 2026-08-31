@@ -51,12 +51,12 @@ export default function Custom404() {
                 </Button>
               </Link>
 
-              <Link href="/rescue">
+              <a href="tel:+18886811841">
                 <Button variant="outline" size="lg" className="w-full">
                   <PhoneIcon style={{ fontSize: 20 }} />
                   Get Roadside Help
                 </Button>
-              </Link>
+              </a>
             </div>
 
 

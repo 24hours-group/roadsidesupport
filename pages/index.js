@@ -23,6 +23,7 @@ import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import BuildIcon from "@mui/icons-material/Build";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarIcon from "@mui/icons-material/Star";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -147,7 +148,7 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up stagger-2 pt-4">
-                <Link href="/rescue" className="w-full sm:w-auto">
+                <a href="tel:+18886811841" className="w-full sm:w-auto">
                   <button className="w-full bg-primary text-dark font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-[1.02] text-lg group">
                     <SupportAgentIcon style={{ fontSize: 26 }} />
                     Request Service
@@ -156,14 +157,14 @@ export default function Home() {
                       style={{ fontSize: 22 }}
                     />
                   </button>
-                </Link>
+                </a>
 
               </div>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 mobile:grid-cols-3 md:grid-cols-3 gap-4 md:gap-8 pt-12 animate-slide-up stagger-3 max-w-3xl mx-auto">
                 {[
-                  { label: "Response Time", value: "5 min", icon: SpeedIcon },
+                  { label: "Live Answer", value: "Instant", icon: PhoneIcon },
                   {
                     label: "Availability",
                     value: "24/7",
@@ -241,11 +242,11 @@ export default function Home() {
                 <p>
                   We focus on clear pricing, fast response times, and friendly service so your search for <strong className="text-secondary font-semibold">tow service near me</strong> or <strong className="text-secondary font-semibold">towing service nearby</strong> ends with real help &mdash; not hold music. From cars to light trucks, our crew handles jump starts, tire changes, lockouts, fuel delivery, on-site repairs, winch-outs, and safe towing to your preferred destination.
                 </p>
-                <Link href="/rescue">
+                <a href="tel:+18886811841">
                   <button className="mt-2 bg-primary text-white font-bold py-3 px-7 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all shadow-md">
                     Request Service <ArrowForwardIcon style={{ fontSize: 18 }} />
                   </button>
-                </Link>
+                </a>
               </div>
 
             </div>
@@ -318,9 +319,9 @@ export default function Home() {
                   description: 'If you\u2019re not sure what service you need, choose \u201cOther / Not Sure\u201d and describe the issue. Our dispatch will route the right tow truck or technician to you.',
                 },
               ].map((service) => (
-                <Link
+                <a
                   key={service.id}
-                  href={`/rescue?service=${service.id}`}
+                  href="tel:+18886811841"
                   className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
                   <div className="relative h-full bg-secondary/5 border border-secondary/10 rounded-2xl p-8 hover:bg-secondary/10 hover:border-primary/30 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:-translate-y-1">
@@ -344,7 +345,7 @@ export default function Home() {
                       <ArrowForwardIcon style={{ fontSize: 24 }} />
                     </div>
                   </div>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -550,11 +551,11 @@ export default function Home() {
                   as possible. No accounts, no subscriptions, just help.
                 </p>
 
-                <Link href="/rescue">
+                <a href="tel:+18886811841">
                   <button className="bg-primary text-white font-bold py-4 px-8 rounded-xl hover:bg-primary-800 transition-all border border-primary shadow-lg flex items-center gap-2 mt-8">
                     Start Request <ArrowForwardIcon style={{ fontSize: 20 }} />
                   </button>
-                </Link>
+                </a>
               </div>
 
               <div className="lg:w-1/2 w-full">
@@ -562,25 +563,25 @@ export default function Home() {
                   {[
                     {
                       step: 1,
-                      title: "Tell Us What's Wrong",
+                      title: "Call Us Now",
                       description:
-                        "Select your issue, share your location, and describe your situation.",
-                      icon: HelpOutlineIcon,
+                        "Dial our 24/7 hotline and tell us what's wrong. A live dispatcher answers every call.",
+                      icon: PhoneInTalkIcon,
                       color: "bg-blue-500",
                     },
                     {
                       step: 2,
-                      title: "Provide Quick Details",
+                      title: "Share Your Location",
                       description:
-                        "Enter your vehicle info and contact details so we can reach you.",
-                      icon: PhoneInTalkIcon,
+                        "Let us know where you are so we can dispatch the nearest technician fast.",
+                      icon: LocationOnIcon,
                       color: "bg-primary",
                     },
                     {
                       step: 3,
                       title: "Help Is On The Way",
                       description:
-                        "We dispatch the nearest technician to get you back on the road.",
+                        "A technician heads to you immediately to get you back on the road.",
                       icon: CheckCircleIcon,
                       color: "bg-green-500",
                     },
@@ -625,12 +626,12 @@ export default function Home() {
                 Our technicians are standing by.
               </p>
               <div className="flex flex-col mobile:items-center sm:flex-row justify-center gap-4">
-                <Link href="/rescue">
+                <a href="tel:+18886811841">
                   <button className="bg-primary text-dark font-bold py-5 px-10 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 transform duration-300 text-lg">
                     <SupportAgentIcon style={{ fontSize: 28 }} />
                     Request Assistance
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

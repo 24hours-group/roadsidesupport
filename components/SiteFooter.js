@@ -39,16 +39,16 @@ export default function SiteFooter() {
                 .slice(0, 4)
                 .map((service) => (
                   <li key={service.id}>
-                    <Link href={`/rescue?service=${service.id}`} className={styles.serviceLink}>
+                    <a href="tel:+18886811841" className={styles.serviceLink}>
                       {service.label}
-                    </Link>
+                    </a>
                   </li>
                 ))}
-              <li>
-                <Link href="/rescue" className={styles.viewAllLink}>
+              {/* <li>
+                <a href="tel:+18886811841" className={styles.viewAllLink}>
                   View All
-                </Link>
-              </li>
+                </a>
+              </li> */}
             </ul>
           </div>
 
