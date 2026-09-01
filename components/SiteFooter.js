@@ -61,9 +61,14 @@ export default function SiteFooter() {
                   href="mailto:roadside-support@24hours-group.com"
                   className={styles.emailLink}
                 >
-                  roadside-support@24hours-group.com
+                Email: roadside-support@24hours-group.com
                 </a>
               </li>
+                <li>
+                  <a href="tel:+18886811841" className={styles.emailLink}>
+                    Call: (888) 681-1841
+                  </a>
+                </li>
             </ul>
           </div>
         </div>

@@ -151,11 +151,11 @@ export default function Home() {
                 <a href="tel:+18886811841" className="w-full sm:w-auto">
                   <button className="w-full bg-primary text-dark font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-[1.02] text-lg group">
                     <SupportAgentIcon style={{ fontSize: 26 }} />
-                    Request Service
-                    <ArrowForwardIcon
+                   Call (888) 681-1841
+                    {/* <ArrowForwardIcon
                       className="group-hover:translate-x-1 transition-transform"
                       style={{ fontSize: 22 }}
-                    />
+                    /> */}
                   </button>
                 </a>
 
@@ -244,7 +244,7 @@ export default function Home() {
                 </p>
                 <a href="tel:+18886811841">
                   <button className="mt-2 bg-primary text-white font-bold py-3 px-7 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all shadow-md">
-                    Request Service <ArrowForwardIcon style={{ fontSize: 18 }} />
+                   Call (888) 681-1841
                   </button>
                 </a>
               </div>
@@ -553,7 +553,7 @@ export default function Home() {
 
                 <a href="tel:+18886811841">
                   <button className="bg-primary text-white font-bold py-4 px-8 rounded-xl hover:bg-primary-800 transition-all border border-primary shadow-lg flex items-center gap-2 mt-8">
-                    Start Request <ArrowForwardIcon style={{ fontSize: 20 }} />
+                 Call Us Now (888) 681-1841
                   </button>
                 </a>
               </div>
@@ -629,7 +629,7 @@ export default function Home() {
                 <a href="tel:+18886811841">
                   <button className="bg-primary text-dark font-bold py-5 px-10 rounded-xl flex items-center justify-center gap-3 hover:bg-white hover:text-dark transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 transform duration-300 text-lg">
                     <SupportAgentIcon style={{ fontSize: 28 }} />
-                    Request Assistance
+                   Call (888) 681-1841
                   </button>
                 </a>
               </div>
