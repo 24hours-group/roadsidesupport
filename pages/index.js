@@ -110,7 +110,7 @@ export default function Home() {
             {/* Dark overlay so text stays readable */}
             <div className="absolute inset-0 bg-secondary/65" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-900/30 via-secondary/20 to-secondary/50" />
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-secondary/40 pointer-events-none" />
 
             {/* Animated Blobs */}
             <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] animate-pulse-soft" />
@@ -346,6 +346,8 @@ export default function Home() {
                         src={`/services/${service.id}.jpg`}
                         alt={service.label}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        quality={65}
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {/* Dark gradient overlay */}
@@ -381,7 +383,7 @@ export default function Home() {
         <section className="py-24 mobile:pt-6 relative overflow-hidden ">
           {/* Background */}
           <div className="absolute inset-0 bg-secondary" />
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-geometric.png')] opacity-5" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-30" />
 
           {/* Decorative Elements */}
           <div className="absolute top-1/3 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
@@ -640,7 +642,7 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary-900 to-primary-800">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.08),_transparent_60%)]" />
           </div>
 
           <div className="container-app relative z-10 text-center">
