@@ -33,7 +33,8 @@ export default function SiteHeader({ simple = false }) {
             {!simple && (
               <a href="tel:+18886811841" className={`${styles.ctaButton}`}>
                 <SupportAgentIcon style={{ fontSize: 20 }} />
-                <span>Call (888) 681-1841</span>
+                <span className={styles.ctaTextShort}>Call Now</span>
+                <span className={styles.ctaTextFull}>(888) 681-1841</span>
               </a>
             )}
           </div>

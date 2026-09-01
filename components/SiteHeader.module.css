@@ -63,7 +63,17 @@
 }
 
 .ctaButton {
-  @apply bg-primary mobile:text-sm text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all hover:shadow-lg transform hover:-translate-y-0.5;
+  @apply bg-primary text-white font-bold py-3 px-4 md:px-6 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all hover:shadow-lg transform hover:-translate-y-0.5 min-h-[44px] active:scale-95;
+}
+
+/* Short label visible only on mobile */
+.ctaTextShort {
+  @apply block md:hidden text-sm font-bold whitespace-nowrap;
+}
+
+/* Full number visible on md+ */
+.ctaTextFull {
+  @apply hidden md:block font-bold whitespace-nowrap;
 }
 
 .mobilePhoneButton {

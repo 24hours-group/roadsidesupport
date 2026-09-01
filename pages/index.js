@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { SERVICE_TYPES } from "@/lib/schemas";
@@ -96,8 +97,19 @@ export default function Home() {
         {/* Hero Section */}
         <section className="min-h-screen flex items-center relative pt-20 pb-10 mobile:pt-24">
           {/* Enhanced Background */}
-          <div className="absolute inset-0 bg-secondary">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-900/40 via-secondary to-secondary opacity-70" />
+          <div className="absolute inset-0 bg-secondary overflow-hidden">
+            {/* Background Photo */}
+            <Image
+              src="/services/towing.jpg"
+              alt="Tow truck on highway at night"
+              fill
+              priority
+              className="object-cover object-center scale-105"
+              sizes="100vw"
+            />
+            {/* Dark overlay so text stays readable */}
+            <div className="absolute inset-0 bg-secondary/65" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-900/30 via-secondary/20 to-secondary/50" />
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
 
             {/* Animated Blobs */}
@@ -324,26 +336,40 @@ export default function Home() {
                   href="tel:+18886811841"
                   className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
-                  <div className="relative h-full bg-secondary/5 border border-secondary/10 rounded-2xl p-8 hover:bg-secondary/10 hover:border-primary/30 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:-translate-y-1">
+                  <div className="relative h-full bg-secondary/5 border border-secondary/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-2xl  flex flex-col">
                     {/* Hover Gradient Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />
 
-                    <div className="relative z-10">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/20 border border-primary/20 flex items-center justify-center text-primary group-hover:text-primary-800 group-hover:border-primary/40 group-hover:shadow-[0_0_20px_rgba(255,109,0,0.2)] transition-all duration-300 mb-6">
-                        <service.icon style={{ fontSize: 36 }} />
+                    {/* Service Image */}
+                    <div className="relative h-[300px] w-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={`/services/${service.id}.jpg`}
+                        alt={service.label}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* Dark gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/30 to-transparent" />
+                      {/* Icon on image */}
+                      <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-primary/90 backdrop-blur-sm flex items-center justify-center text-white shadow-lg">
+                        <service.icon style={{ fontSize: 26 }} />
                       </div>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="relative z-10 p-6 flex flex-col flex-1">
                       <h3 className="text-lg font-bold text-secondary mb-3 group-hover:text-primary transition-colors">
                         {service.label}
                       </h3>
-                      <p className="text-secondary-500 text-sm leading-relaxed group-hover:text-secondary-700 transition-colors">
+                      <p className="text-secondary-500 text-sm leading-relaxed group-hover:text-secondary-700 transition-colors flex-1">
                         {service.description}
                       </p>
                     </div>
 
                     {/* Arrow Icon */}
-                    <div className="absolute bottom-8 right-8 text-secondary/20 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">
-                      <ArrowForwardIcon style={{ fontSize: 24 }} />
-                    </div>
+                    {/* <div className="absolute bottom-6 right-6 text-secondary/20 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300 z-10">
+                      <ArrowForwardIcon style={{ fontSize: 22 }} />
+                    </div> */}
                   </div>
                 </a>
               ))}
