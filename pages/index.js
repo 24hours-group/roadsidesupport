@@ -349,7 +349,7 @@ export default function Home() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {/* Dark gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/30 to-transparent" />
+                      {/* <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/30 to-transparent" /> */}
                       {/* Icon on image */}
                       <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-primary/90 backdrop-blur-sm flex items-center justify-center text-white shadow-lg">
                         <service.icon style={{ fontSize: 26 }} />
