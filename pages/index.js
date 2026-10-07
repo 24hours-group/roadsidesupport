@@ -19,8 +19,6 @@ import TireRepairIcon from "@mui/icons-material/TireRepair";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import BuildIcon from "@mui/icons-material/Build";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarIcon from "@mui/icons-material/Star";
@@ -37,24 +35,18 @@ const serviceIcons = {
   battery: BatteryChargingFullIcon,
   key: VpnKeyIcon,
   fuel: LocalGasStationIcon,
-  tow: LocalShippingIcon,
-  winch: OfflineBoltIcon,
   mechanic: BuildIcon,
   other: HelpOutlineIcon,
 };
 
 const serviceDetails = {
-  towing: {
-    label: "Towing (Tow Service / Tow Truck)",
-    description: <>Fast, professional towing to your preferred location. Local car towing, auto towing, and light truck tow options &mdash; including safe flatbed and wrecker service when needed. Ideal for drivers searching &ldquo;<em className="italic font-medium">tow truck near me</em>&rdquo; or &ldquo;<em className="italic font-medium">tow service near me</em>.&rdquo;</>
-  },
   jump_start: {
     label: "Jump Start",
-    description: "Dead battery? Our technicians provide rapid jump starts roadside so you can get back on the road — an easy, affordable alternative to a full tow."
+    description: "Dead battery? Our technicians provide rapid jump starts roadside so you can get back on the road quickly and safely."
   },
   tire_service: {
     label: "Tire Service / Tire Change",
-    description: "Tire change and repair assistance at the scene. We handle flats and blowouts and will replace your tire or tow you safely if repairs aren’t possible."
+    description: "Tire change and repair assistance at the scene. We handle flats and blowouts and will replace your flat tire with your spare on the spot."
   },
   lockout: {
     label: "Lockout (Car Lockout Service)",
@@ -62,19 +54,15 @@ const serviceDetails = {
   },
   gas_delivery: {
     label: "Gas / Fuel Delivery",
-    description: <>Emergency fuel delivery to get you moving again &mdash; a fast, low-cost solution when you&apos;re stuck nearby and searching for &ldquo;<em className="italic font-medium">towing nearby</em>&rdquo; or &ldquo;<em className="italic font-medium">fuel delivery near me</em>.&rdquo;</>
+    description: <>Emergency fuel delivery to get you moving again &mdash; a fast, low-cost solution when you&apos;re stuck nearby and searching for &ldquo;<em className="italic font-medium">fuel delivery near me</em>.&rdquo;</>
   },
   mobile_mechanic: {
     label: "Mobile Mechanic / On-Site Repairs",
-    description: "Minor repairs on the spot — from alternator checks to starter diagnostics — to avoid an unnecessary tow whenever possible."
-  },
-  winch_out: {
-    label: "Winch-Out / Vehicle Recovery",
-    description: "Stuck off-road or in a ditch? Our winch-out recovery service gets vehicles unstuck safely. We provide professional recovery for cars and light trucks."
+    description: "Minor repairs on the spot — from alternator checks to starter diagnostics — to get you running again right where you are."
   },
   other: {
     label: "Other / Not Sure (Describe It)",
-    description: "If you’re not sure what service you need, choose “Other / Not Sure” and describe the issue. Our dispatch will route the right tow truck or technician to you."
+    description: "If you’re not sure what service you need, choose “Other / Not Sure” and describe the issue. Our dispatch will route the right roadside technician to you."
   }
 };
 
@@ -82,10 +70,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Tow Truck Near Me | 24/7 Towing Near Me | Tow Company Near Me</title>
+        <title>Roadside Assistance Near Me | 24/7 Emergency Roadside Services</title>
         <meta
           name="description"
-          content="Looking for a tow truck near me? Our towing service nearby provides fast 24/7 towing near me, car towing, roadside assistance, lockouts, jump starts and more. Call now."
+          content="Need roadside assistance near me? Fast 24/7 roadside assistance, jump starts, flat tire changes, lockouts, fuel delivery, and mobile repairs. Call now."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/RSS-logo.png" />
@@ -100,8 +88,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-secondary overflow-hidden">
             {/* Background Photo */}
             <Image
-              src="/services/towing.jpg"
-              alt="Tow truck on highway at night"
+              src="/services/jump_start.jpg"
+              alt="Emergency roadside assistance technician"
               fill
               priority
               className="object-cover object-center scale-105"
@@ -150,8 +138,8 @@ export default function Home() {
 
               {/* Subheadline */}
               <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed animate-slide-up stagger-1">
-                Fast, reliable assistance for towing, flat tires, dead batteries,
-                lockouts, and more.
+                Fast, reliable assistance for flat tires, dead batteries,
+                lockouts, fuel delivery, and more.
                 <span className="text-white font-semibold">
                   {" "}
                   No membership required.
@@ -218,7 +206,7 @@ export default function Home() {
                   </span>
                   <h2 className="text-2xl md:text-4xl font-bold text-secondary leading-tight">
                     Your Trusted Local{" "}
-                    <span className="text-primary">Towing Partner</span>
+                    <span className="text-primary">Roadside Assistance Partner</span>
                   </h2>
                 </div>
 
@@ -249,10 +237,10 @@ export default function Home() {
               {/* Right — Prose */}
               <div className="lg:w-7/12 space-y-5 text-secondary-500 text-lg mobile:text-base leading-relaxed">
                 <p>
-                  Looking for a <strong className="text-secondary font-semibold">tow truck near me</strong> or <strong className="text-secondary font-semibold">towing near me</strong>? You&apos;re in the right place. We&apos;re a local, fully licensed and insured tow company that answers the call 24/7 &mdash; a true local tow company when you need fast, dependable help. Whether it&apos;s an emergency roadside situation or a scheduled vehicle move, our team shows up quickly with modern trucks and experienced technicians.
+                  Looking for <strong className="text-secondary font-semibold">roadside assistance near me</strong> or <strong className="text-secondary font-semibold">emergency roadside service</strong>? You&apos;re in the right place. We&apos;re a local, fully licensed and insured roadside support service that answers the call 24/7 &mdash; a true local emergency team when you need fast, dependable help. Whether it&apos;s a dead battery, flat tire, lockout, or empty gas tank, our team shows up quickly with equipped service vehicles and experienced technicians.
                 </p>
                 <p>
-                  We focus on clear pricing, fast response times, and friendly service so your search for <strong className="text-secondary font-semibold">tow service near me</strong> or <strong className="text-secondary font-semibold">towing service nearby</strong> ends with real help &mdash; not hold music. From cars to light trucks, our crew handles jump starts, tire changes, lockouts, fuel delivery, on-site repairs, winch-outs, and safe towing to your preferred destination.
+                  We focus on clear pricing, fast response times, and friendly service so your search for <strong className="text-secondary font-semibold">roadside service near me</strong> or <strong className="text-secondary font-semibold">roadside assistance nearby</strong> ends with real help &mdash; not hold music. From cars to light trucks, our crew handles jump starts, tire changes, lockouts, fuel delivery, and on-site repairs to get you safely moving again.
                 </p>
                 <a href="tel:+18886811841">
                   <button className="mt-2 bg-primary text-white font-bold py-3 px-7 rounded-xl flex items-center gap-2 hover:bg-primary-800 transition-all shadow-md">
@@ -276,29 +264,23 @@ export default function Home() {
                 How Can We Help You?
               </h2>
               <p className="text-secondary-500 max-w-3xl mx-auto text-lg mobile:text-base mobile:text-left">
-                Below are the core services we provide &mdash; each service is available from our local dispatch and optimized to appear for searches like <em>car towing near me</em>, <em>auto towing</em>, <em>truck towing services near me</em>, and <em>towing service nearby</em>.
+                Below are the core services we provide &mdash; each service is available from our local dispatch and optimized to appear for searches like <em>roadside assistance near me</em>, <em>jump start service</em>, <em>flat tire change</em>, and <em>emergency roadside help</em>.
               </p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6">
               {[
                 {
-                  id: "towing",
-                  icon: LocalShippingIcon,
-                  label: "Towing (Tow Service / Tow Truck)",
-                  description: 'Fast, professional towing to your preferred location. Local car towing, auto towing, and light truck tow options \u2014 including safe flatbed and wrecker service when needed. Ideal for drivers searching \u201ctow truck near me\u201d or \u201ctow service near me.\u201d',
-                },
-                {
                   id: "jump_start",
                   icon: BatteryChargingFullIcon,
                   label: "Jump Start",
-                  description: "Dead battery? Our technicians provide rapid jump starts roadside so you can get back on the road \u2014 an easy, affordable alternative to a full tow.",
+                  description: "Dead battery? Our technicians provide rapid jump starts roadside so you can get back on the road quickly and safely.",
                 },
                 {
                   id: "tire_service",
                   icon: TireRepairIcon,
                   label: "Tire Service / Tire Change",
-                  description: "Tire change and repair assistance at the scene. We handle flats and blowouts and will replace your tire or tow you safely if repairs aren\u2019t possible.",
+                  description: "Tire change and repair assistance at the scene. We handle flats and blowouts and will replace your flat tire with your spare on the spot.",
                 },
                 {
                   id: "lockout",
@@ -310,25 +292,19 @@ export default function Home() {
                   id: "gas_delivery",
                   icon: LocalGasStationIcon,
                   label: "Gas / Fuel Delivery",
-                  description: 'Emergency fuel delivery to get you moving again \u2014 a fast, low-cost solution when you\u2019re stuck nearby and searching for \u201ctowing nearby\u201d or \u201cfuel delivery near me.\u201d',
+                  description: 'Emergency fuel delivery to get you moving again — a fast, low-cost solution when you’re stranded with an empty tank and searching for “fuel delivery near me.”',
                 },
                 {
                   id: "mobile_mechanic",
                   icon: BuildIcon,
                   label: "Mobile Mechanic / On-Site Repairs",
-                  description: "Minor repairs on the spot \u2014 from alternator checks to starter diagnostics \u2014 to avoid an unnecessary tow whenever possible.",
-                },
-                {
-                  id: "winch_out",
-                  icon: OfflineBoltIcon,
-                  label: "Winch-Out / Vehicle Recovery",
-                  description: "Stuck off-road or in a ditch? Our winch-out recovery service gets vehicles unstuck safely. We provide professional recovery for cars and light trucks.",
+                  description: "Minor repairs on the spot — from alternator checks to starter diagnostics — to get you running again right where you are.",
                 },
                 {
                   id: "other",
                   icon: HelpOutlineIcon,
                   label: "Other / Not Sure (Describe It)",
-                  description: 'If you\u2019re not sure what service you need, choose \u201cOther / Not Sure\u201d and describe the issue. Our dispatch will route the right tow truck or technician to you.',
+                  description: 'If you’re not sure what service you need, choose “Other / Not Sure” and describe the issue. Our dispatch will route the right roadside technician to you.',
                 },
               ].map((service) => (
                 <a

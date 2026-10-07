@@ -18,8 +18,6 @@ import TireRepairIcon from "@mui/icons-material/TireRepair";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 import BuildIcon from "@mui/icons-material/Build";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
@@ -28,8 +26,6 @@ const serviceIcons = {
   battery: BatteryChargingFullIcon,
   key: VpnKeyIcon,
   fuel: LocalGasStationIcon,
-  tow: LocalShippingIcon,
-  winch: OfflineBoltIcon,
   mechanic: BuildIcon,
   other: HelpOutlineIcon,
 };
